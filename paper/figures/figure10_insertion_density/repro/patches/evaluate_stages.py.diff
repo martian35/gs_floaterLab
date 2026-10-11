@@ -1,0 +1,11 @@
+--- colin_20261009/mapper_geometry_ablation/evaluate_stages.py
++++ figure10/mapper_geometry_ablation/evaluate_stages.py
+@@ -44,7 +44,7 @@
+         assert q['ply_sha256']==stage['sha256'] and q['gaussian_count']==stage['gaussians']
+         assert [v['uid'] for v in q['per_view']]==expected
+         assert q['depth_geometry']==aggregate_depth_metrics(q['per_view'])
+-        assert q['depth_geometry']['views_with_depth']>0
++        assert q['depth_geometry']['views_with_depth']>0 or __import__('os').environ.get('ABLATION_ALLOW_NO_DEPTH')=='1'  # LOCAL: RPNG/Aria/UTMM have no depth GT
+         assert all(v.get('depth_geometry',{}).get('per_view_scale_fit',False) is False for v in q['per_view'])
+         rows.append(dict(arm=label,quality=str(out/'quality.json'),quality_sha256=sha(out/'quality.json'),
+                          psnr=q['mean_psnr'],ssim=q['mean_ssim'],lpips=q['mean_lpips'],

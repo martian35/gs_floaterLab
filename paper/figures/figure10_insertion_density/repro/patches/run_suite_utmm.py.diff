@@ -1,0 +1,45 @@
+--- colin_20261009/mapper_geometry_ablation/run_suite.py
++++ figure10/mapper_geometry_ablation/run_suite_utmm.py
+@@ -29,13 +29,13 @@
+     p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True);a=p.parse_args();out=a.output.resolve()
+     lock=(out/'suite.lock').open('a+');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+     plan=read(out/'plan.json');selection=read(out/'scene_selection.json')['selection']
+-    order=['R4','R1','R2','R2-I','R3'];current=None
++    order=['R4','R2@0.5','R2-I@0.5','R2@0.75','R2-I@0.75','R2@1','R2-I@1','R2@1.5','R2-I@1.5'];current=None
+     state=read(out/'progress.json') if (out/'progress.json').exists() else dict(state='prepared',conditions=[],attempts=[],pilot_passed=False)
+     if not state['conditions']:
+         for i,s in enumerate(selection):
+-            for arm in (['R4','R4-replay-validation','R1','R2','R2-I','R3'] if i==0 else order):
++            for arm in (['R4','R4-replay-validation','R2@0.5','R2-I@0.5','R2@0.75','R2-I@0.75','R2@1','R2-I@1','R2@1.5','R2-I@1.5'] if i==0 else order):
+                 state['conditions'].append(dict(scene=s['scene'],arm=arm,scene_contract=s['scene_contract'],status='queued',
+-                    output=str(out/'trials/tum_rgbd'/s['scene']/arm/'seed0'),cache=str(out/'frontend_cache'/s['scene']),
++                    output=str(out/'trials'/s.get('dataset','tum_rgbd')/s['scene']/arm/'seed0'),cache=str(out/'frontend_cache'/s['scene']),
+                     validation_only=arm=='R4-replay-validation'))
+     source_paths=list(HERE.glob('*.py'))+[out/'plan.json',out/'scene_selection.json',EQUAL/'run_custom_c_large_pool_6n.py',EQUAL/'render_quota.py',V2/'evaluate_python.py']
+     locks_path=out/'suite_source_locks.json'
+@@ -92,7 +92,7 @@
+                     same_mapping_uids=capture['mapping_camera_uids']==replay['mapping_camera_uids'],
+                     gaussian_count_close=abs(cq['gaussian_count']-rq['gaussian_count'])<=max(2,.01*cq['gaussian_count']),
+                     psnr_close=abs(cq['psnr']-rq['psnr'])<=.05,
+-                    depth_mae_close=abs(cq['depth_geometry']['mae_m']-rq['depth_geometry']['mae_m'])<=max(.001,.02*cq['depth_geometry']['mae_m']))
++                    depth_mae_close=(cq['depth_geometry']['mae_m'] is None and rq['depth_geometry']['mae_m'] is None) if cq['depth_geometry']['mae_m'] is None else abs(cq['depth_geometry']['mae_m']-rq['depth_geometry']['mae_m'])<=max(.001,.02*cq['depth_geometry']['mae_m']))  # LOCAL: no-depth scenes
+         result=dict(passed=all(checks.values()),checks=checks,capture=cq,replay=rq)
+         write(out/'pilot_frontend_equivalence.json',result)
+         if not result['passed']:raise RuntimeError('Frontend capture/replay pilot mismatch; expansion stopped')
+@@ -108,14 +108,14 @@
+                     dense_evictions=sum(len(g['policy']['dense_evictions']) for g in runtime['training']['generations'])))
+         groups=defaultdict(list)
+         for r in rows:groups[r['arm']].append(r)
+-        allarms=['R1','R2','R2-I','R3','R4','R4-O','R4-F']
++        allarms=['R2@0.5','R2-I@0.5','R2@0.75','R2-I@0.75','R2@1','R2-I@1','R2@1.5','R2-I@1.5','R4','R4-O','R4-F']
+         common=set.intersection(*(set(r['scene'] for r in groups[k]) for k in allarms))
+         means=[]
+         for arm in allarms:
+             values=[r for r in groups[arm] if r['scene'] in common]
+             means.append(dict(arm=arm,common_scenes=len(values),available_scenes=len(groups[arm]),
+                 **{k:sum(v[k] for v in values)/len(values) if values else None for k in ['psnr','ssim','lpips','gaussian_count']},
+-                **{'depth_'+k:sum(v['depth_geometry'][k] for v in values)/len(values) if values else None for k in ['mae_m','rmse_m','absrel','delta1','coverage']}))
++                **{'depth_'+k:sum(v['depth_geometry'][k] for v in values)/len(values) if values and all(v['depth_geometry'].get(k) is not None for v in values) else None for k in ['mae_m','rmse_m','absrel','delta1','coverage']}))
+         write(out/'summary.json',dict(scope='prespecified stable TUM10 diagnostic subset, seed0',common_scenes=sorted(common),means=means,scenes=rows))
+     def stop(*_):raise KeyboardInterrupt()
+     signal.signal(signal.SIGTERM,stop);signal.signal(signal.SIGINT,stop)

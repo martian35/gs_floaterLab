@@ -1,0 +1,290 @@
+{
+ "state": "registered_for_serial_execution",
+ "requested_after": "UTMM B and C all8 fixed-reference-start endpoints, audits, and C export-stage evaluations",
+ "dataset": "tum_rgbd",
+ "scenes": [
+  "rgbd_dataset_freiburg1_desk",
+  "rgbd_dataset_freiburg1_desk2",
+  "rgbd_dataset_freiburg1_floor",
+  "rgbd_dataset_freiburg1_plant",
+  "rgbd_dataset_freiburg2_desk",
+  "rgbd_dataset_freiburg2_xyz",
+  "rgbd_dataset_freiburg3_cabinet",
+  "rgbd_dataset_freiburg3_long_office_household",
+  "rgbd_dataset_freiburg3_structure_notexture_far",
+  "rgbd_dataset_freiburg3_structure_texture_near"
+ ],
+ "reason": "User requested approximately 10 previously stable TUM scenes; diagnostic selected subset, not all-TUM average. Prespecified B and C depth MAE <0.25m, C/B depth MAE <1.25, completed C audit; varied static scene content, no PSNR or improvement filter.",
+ "seeds": [
+  0
+ ],
+ "training_arm_count": 5,
+ "mapper_training_runs": 50,
+ "arms": [
+  {
+   "arm": "R4",
+   "meaning": "+ online consensus carving SEW3",
+   "initialization": "online_rank_gradient_weighted",
+   "batch_quotas": [
+    3,
+    3,
+    6
+   ],
+   "auxiliary_mode": "dense_rgb",
+   "membership": "immediate",
+   "geometry": "C_KF_normal_and_dense_metric_depth",
+   "carving": true,
+   "normal_loss": true,
+   "dense_depth_loss": true,
+   "dense_supervision": true
+  },
+  {
+   "arm": "R2@0.5",
+   "meaning": "+ global KF pool with ERVS",
+   "initialization": "fixed_density_uniform",
+   "batch_quotas": [
+    3,
+    3,
+    6
+   ],
+   "auxiliary_mode": "kf_native",
+   "membership": "immediate",
+   "geometry": "B",
+   "carving": false,
+   "dense_supervision": false,
+   "normal_loss": false,
+   "dense_depth_loss": false,
+   "density_scale": 0.5
+  },
+  {
+   "arm": "R2-I@0.5",
+   "meaning": "+ content-aware insertion count and placement",
+   "initialization": "online_rank_gradient_weighted",
+   "batch_quotas": [
+    3,
+    3,
+    6
+   ],
+   "auxiliary_mode": "kf_native",
+   "membership": "immediate",
+   "geometry": "B",
+   "carving": false,
+   "dense_supervision": false,
+   "normal_loss": false,
+   "dense_depth_loss": false,
+   "density_scale": 0.5
+  },
+  {
+   "arm": "R2@0.75",
+   "meaning": "+ global KF pool with ERVS",
+   "initialization": "fixed_density_uniform",
+   "batch_quotas": [
+    3,
+    3,
+    6
+   ],
+   "auxiliary_mode": "kf_native",
+   "membership": "immediate",
+   "geometry": "B",
+   "carving": false,
+   "dense_supervision": false,
+   "normal_loss": false,
+   "dense_depth_loss": false,
+   "density_scale": 0.75
+  },
+  {
+   "arm": "R2-I@0.75",
+   "meaning": "+ content-aware insertion count and placement",
+   "initialization": "online_rank_gradient_weighted",
+   "batch_quotas": [
+    3,
+    3,
+    6
+   ],
+   "auxiliary_mode": "kf_native",
+   "membership": "immediate",
+   "geometry": "B",
+   "carving": false,
+   "dense_supervision": false,
+   "normal_loss": false,
+   "dense_depth_loss": false,
+   "density_scale": 0.75
+  },
+  {
+   "arm": "R2@1",
+   "meaning": "+ global KF pool with ERVS",
+   "initialization": "fixed_density_uniform",
+   "batch_quotas": [
+    3,
+    3,
+    6
+   ],
+   "auxiliary_mode": "kf_native",
+   "membership": "immediate",
+   "geometry": "B",
+   "carving": false,
+   "dense_supervision": false,
+   "normal_loss": false,
+   "dense_depth_loss": false,
+   "density_scale": 1.0
+  },
+  {
+   "arm": "R2-I@1",
+   "meaning": "+ content-aware insertion count and placement",
+   "initialization": "online_rank_gradient_weighted",
+   "batch_quotas": [
+    3,
+    3,
+    6
+   ],
+   "auxiliary_mode": "kf_native",
+   "membership": "immediate",
+   "geometry": "B",
+   "carving": false,
+   "dense_supervision": false,
+   "normal_loss": false,
+   "dense_depth_loss": false,
+   "density_scale": 1.0
+  },
+  {
+   "arm": "R2@1.5",
+   "meaning": "+ global KF pool with ERVS",
+   "initialization": "fixed_density_uniform",
+   "batch_quotas": [
+    3,
+    3,
+    6
+   ],
+   "auxiliary_mode": "kf_native",
+   "membership": "immediate",
+   "geometry": "B",
+   "carving": false,
+   "dense_supervision": false,
+   "normal_loss": false,
+   "dense_depth_loss": false,
+   "density_scale": 1.5
+  },
+  {
+   "arm": "R2-I@1.5",
+   "meaning": "+ content-aware insertion count and placement",
+   "initialization": "online_rank_gradient_weighted",
+   "batch_quotas": [
+    3,
+    3,
+    6
+   ],
+   "auxiliary_mode": "kf_native",
+   "membership": "immediate",
+   "geometry": "B",
+   "carving": false,
+   "dense_supervision": false,
+   "normal_loss": false,
+   "dense_depth_loss": false,
+   "density_scale": 1.5
+  }
+ ],
+ "terminal_readouts": [
+  {
+   "arm": "R4-O",
+   "meaning": "R4 + terminal opacity pruning only",
+   "training_repeated": false
+  },
+  {
+   "arm": "R4-F",
+   "meaning": "R4-O + consensus FM finisher",
+   "training_repeated": false
+  }
+ ],
+ "initialization_control": {
+  "fixed_density_multiplier": 2.5,
+  "pixel_sampler": "uniform without replacement on same valid-depth pixels",
+  "shared_low_opacity_and_scale_cap": true,
+  "treatment": "causal online rank m=clip(2.5+2*(q-0.5),0.35,3) plus normalized Sobel-weighted sampling",
+  "comparison_scope": "joint count-and-placement policy; NOT matched total Gaussian count or rank-only attribution"
+ },
+ "fairness": {
+  "frontend": "capture current Custom frontend once per scene, replay identical causal packets for each arm",
+  "capture_required": [
+   "every packet and arrival UID",
+   "KF additions/updates and depths/normals",
+   "reference-pose gauge",
+   "dense RGB candidate anchor availability",
+   "reset/control events"
+  ],
+  "existing_RGB_only_capture_sufficient": false,
+  "pose_and_split": "reuse exact benchmark contract reference and heldout UIDs",
+  "budget": "6N per arm, original 64-input grants, no EOS optimizer tail",
+  "N": "same valid non-heldout input RGB count even for KF-only arms",
+  "initialization_work": "birth policy ablated; optimizer initialization budget never changed",
+  "sampling_temperature": 4,
+  "optimizer_batch_size": 1,
+  "map_representation": "same SH/primitive/loss except declared geometry arms",
+  "online_opacity_pruning": "same protected schedule for all arms",
+  "terminal_pruning": "OFF for R1-R4; R4-O and R4-F evaluate saved export stages",
+  "dense_memory": "shared capacity1024/recent512/float64 for dense arms; occupancy and evictions reported; no completed-work pacing",
+  "depth_loss_outlier_patch": false,
+  "empty_geometry_patch": false,
+  "frontend_depth_gaussian_transport": false,
+  "separate_from_native_whole_system_benchmark": true,
+  "admission_pacing": "disabled for this ablation; immediate admission after causal anchor eligibility; no kappa arm",
+  "production_B_C_defaults": "unchanged; immediate-admission full-geometry arm is a separate ablation configuration",
+  "checkpoint_ply": "Endpoint-only ablation: record 6N credit barriers and causal poses, omit intermediate PLY; full heldout metrics at each requested final stage."
+ },
+ "metrics": [
+  "heldout PSNR",
+  "SSIM",
+  "LPIPS",
+  "depth MAE",
+  "depth RMSE",
+  "AbsRel",
+  "delta1",
+  "depth coverage",
+  "completeness5cm/10cm",
+  "final Gaussian count",
+  "cumulative births",
+  "admitted dense count",
+  "evictions",
+  "actual training renders"
+ ],
+ "failure_reporting": "retain failures; main arm comparisons use same scene intersection with success counts; do not drop quality outliers",
+ "implementation_notes": [
+  "kf_nativeab is not accepted by current worker; supported spelling is kf_native",
+  "6N runner does not expose these replay CLI knobs directly; implement isolated ablation adapter, do not edit final B/C",
+  "Validate capture/replay full-update equivalence and per-arm audits on a preselected full scene before expanding10",
+  "5 training arms x10=50 mapper runs; initial pilot before expansion. All membership immediate; no kappa throttling, including inherited recipe options."
+ ],
+ "pilot": "rgbd_dataset_freiburg1_desk",
+ "provenance": {
+  "/home/intern/gs_floaterLab/paper/latex/sec/4_method_pip.tex": "db3e3d979465682e0bf15b2817ad0366f6a11d2a350b02dceda94d0afef20695",
+  "/home/intern/VIGS-SLAM-custom/configs/selected_mapping_fixed40.json": "881b9aab2e7523917d4b52cd502345bad198f5f3c4782dfababb072e2c02f7f0",
+  "/home/intern/VIGS-SLAM-custom/configs/selected_mapping_c.json": "7f3bcf030dca2ab0e028e9e0c1ed91efb52b05d907bda40013d755eb0bf5cb4a"
+ },
+ "revision": "user_tum10_stable_subset",
+ "interpretation": {
+  "R2-I_to_R3": "joint dense supervision package (dense RGB pool + KF normal + dense depth); not dense RGB alone",
+  "R3_to_R4": "online carving contribution with normal and dense depth fixed",
+  "R4_to_R4-O_to_R4-F": "terminal opacity and FM contribution without retraining",
+  "normal_loss": "KF rendered normal consistency using existing C definition; coefficient unchanged",
+  "dense_depth_loss": "existing C transported anchor-depth supervision on dense views; frontend estimates only, no GT depth training"
+ },
+ "validation_extra_training_runs": 1,
+ "validation": "One additional R4 replay on desk; identical tape and loss-view sequence, PSNR within 0.05 dB, depth within max(1mm,2%), preterminal Gaussian count within max(2,1%). Full five-arm pilot audits required before expansion.",
+ "execution_order": [
+  "R4 capture",
+  "desk-only R4 replay validation",
+  "R1",
+  "R2",
+  "R2-I",
+  "R3"
+ ],
+ "existing_GPU_jobs_waited_for": [
+  "in-flight snapshot worker completes; remaining old evaluation queue voluntarily yields to UTMM recovery service"
+ ],
+ "startup_dependency": "mapper_reference_start/run_c_then_ablation.py",
+ "local_revision": {
+  "date": "2026-10-10",
+  "purpose": "UTMM 8-scene screen: uniform (R2) vs content-aware insertion (R2-I) at birth density 0.5/0.75/1/1.5, 2N",
+  "reference_start": true
+ },
+ "local_budget": "2N"
+}

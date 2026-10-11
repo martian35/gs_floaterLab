@@ -1,0 +1,42 @@
+--- colin_20261009/mapper_geometry_ablation/run_arm.py
++++ figure10/mapper_geometry_ablation/run_arm.py
+@@ -34,7 +34,7 @@
+     p.add_argument('--scene-contract', type=Path, required=True)
+     p.add_argument('--output', type=Path, required=True)
+     p.add_argument('--seed', type=int, default=0)
+-    p.add_argument('--arm', choices=['R1','R2','R2-I','R3','R4'], required=True)
++    p.add_argument('--arm', required=True)   # LOCAL: any arm defined in the plan
+     p.add_argument('--frontend-cache', type=Path, required=True)
+     p.add_argument('--capture', action='store_true')
+     p.add_argument('--dense-capacity', type=int, default=1024)
+@@ -72,8 +72,9 @@
+     start = time.monotonic()
+     tracker = runtime = None
+     contract = json.loads(args.scene_contract.read_text())
+-    if contract['renders_per_training_input'] != 6 or contract['input_frame_cap'] is not None:
+-        raise ValueError('Full-input 6N contract required')
++    rpi = int(__import__('os').environ.get('ABLATION_RPI', '6'))   # LOCAL: renders per training input (default 6N)
++    if contract['renders_per_training_input'] != rpi or contract['input_frame_cap'] is not None:
++        raise ValueError(f'Full-input {rpi}N contract required')
+     archive = open_archive(contract['archive'])
+     if archive.events or archive.manifest['shared_geometry_replay_allowed']:
+         raise ValueError('Shared geometry is forbidden')
+@@ -81,7 +82,7 @@
+     train = tuple(contract['training_uids'])
+     training = set(train)
+     excluded = archive.heldout_uids | {int(f['frame_uid']) for f in archive.arrivals if oracle.get(int(f['frame_uid'])) is None}
+-    quota = RenderQuota(train, frozenset(contract['heldout_uids']))
++    quota = RenderQuota(train, frozenset(contract['heldout_uids']), renders_per_input=rpi)
+     if quota.total != contract['render_budget'] or list(quota.checkpoints) != contract['snapshot_renders']:
+         raise ValueError('Quota differs from common contract')
+     k = sensor_intrinsics(archive)
+@@ -119,7 +120,8 @@
+     ma.pure_online = True
+     ma.gs_dedicated_stream = False
+     ma.mapping_replay_deadline_guard = False
+-    ma.mapping_after_imu_init = measurements is not None
++    # LOCAL: ABLATION_REFERENCE_START=1 = colin's UTMM reference-start policy (map before IMU init; poses come from the reference adapter)
++    ma.mapping_after_imu_init = measurements is not None and __import__('os').environ.get('ABLATION_REFERENCE_START') != '1'
+     ma.IMU_poseinit_after = 20
+     ma.frontend_iters1 = 4
+     ma.frontend_iters2 = 2

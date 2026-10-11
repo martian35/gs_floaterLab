@@ -1,0 +1,46 @@
+{
+ "created": "2026-10-11",
+ "producer": "Claude Code session (local RTX 5070 Ti)",
+ "runs": {
+  "reference_start": "/home/wosas/Desktop/Incremental_mapping_test/gs_floaterLab/results/campaigns/gain_attribution/utmm_scene_screen/2N_refstart",
+  "imu_gated": "/home/wosas/Desktop/Incremental_mapping_test/gs_floaterLab/results/campaigns/gain_attribution/utmm_scene_screen/2N",
+  "density_x_budget": [
+   "/home/wosas/Desktop/Incremental_mapping_test/gs_floaterLab/results/campaigns/gain_attribution/geom_ablation_density/{1N,2N,3N}",
+   "/home/wosas/Desktop/Incremental_mapping_test/gs_floaterLab/results/campaigns/gain_attribution/geom_ablation_density_t02/{1N,2N,3N}"
+  ],
+  "new_datasets": "/home/wosas/Desktop/Incremental_mapping_test/gs_floaterLab/results/campaigns/gain_attribution/onthefly_screen/2N",
+  "note": "local machine paths; quality.json per run is the source of every number"
+ },
+ "code": {
+  "vigs_custom_head": "4ad394967899e13d9082d3625d991598ac859f1c",
+  "vigs_custom_diff_sha256": "fff600c03c1e022cb5468ca245a79b44817219629c082cf623370c4059438942",
+  "local_vigs_snapshot": "gsProjects/VIGS-SLAM-custom-c-snapshot-20261009",
+  "local_harness_snapshot": "gsProjects/c_benchmark_contract_snapshot_20261009b",
+  "harness_overlay": {
+   "ablation_support.py": "484f78c2e6c17ce32af1ae05f1a0e1da76441ca4fa76d85c81dc8a9944a120af",
+   "audit_arm.py": "34b148f49ecf85222295eaae624cd667f2e7672f350371bb5bf45bba16d545e3",
+   "check_adapters.py": "e2992ecfe24e978a196c76f59c8c73aa19f721296b0bb0fed11375a05bab067d",
+   "evaluate_stages.py": "477d1b8cf674b2f11647d90c63e47e1e62161ea02b59b1bfb38dabc4dadce0bb",
+   "frontend_tape.py": "b3110394b33c05695f4c225e43f9866cc6ff2f2797030f5a7682e5eca8cc0ccf",
+   "run_arm.py": "381d40795b49a215a6dbd0cae72358c675e8bfb07c16a94d23b0fd057d1ea67c",
+   "run_suite_utmm.py": "2c01af35c8732a6c24f67ac0a54e7c84e4ffe74a82b0ebcea3b57768d849e7ad"
+  }
+ },
+ "inputs": "/ssd/intern/paperExperiments/runs/mapper_baselines/utmm_author_reference_6N_20261008_v1/inputs/utmm/<scene>/v1 (copied read-only to the local machine)",
+ "environment": {
+  "ABLATION_RPI": "2",
+  "ABLATION_REFERENCE_START": "1",
+  "ABLATION_ALLOW_NO_DEPTH": "1",
+  "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True",
+  "local_only": "ROGO_MACHINE_PROFILE path relocation + ROGO_CHAIN_SITECUSTOMIZE=1 (not needed on colin)"
+ },
+ "analysis_files": {
+  "analysis/other_tests_runs.csv": "71cafb9e7eb870aa15c37fe7b9e1399ff51cf8c84534a56dde8b014a75d5ed45",
+  "analysis/utmm_2N_imu_gated/mean_by_arm.csv": "0e9759acb4600778725d077444114b3e31733ca305ad632c2093507d88fadf36",
+  "analysis/utmm_2N_imu_gated/runs.csv": "3deba8e31814a57884d6f64056c4fcb6e71c675c39bb6e722325e048f138f59d",
+  "analysis/utmm_2N_reference_start/mean_by_arm.csv": "55d48f0382fda7ea0b4ccba8b3bde5271cb03c19f8c7c7da8379d42baed7c122",
+  "analysis/utmm_2N_reference_start/runs.csv": "b1a778d3aa3a3fb91d24fb7e0fe0154fefdeab88216585ceff337a9f23f5b147",
+  "analysis/content_concentration.json": "03f1ae5986d711749b9016107b13c645f15ddc546721ea18c5b91fdd93f88ca7"
+ },
+ "experiment_card": "context/experiments/campaigns/06_gain_attribution/utmm_scene_screen/README.md"
+}

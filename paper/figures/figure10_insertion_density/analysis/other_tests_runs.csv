@@ -1,0 +1,157 @@
+campaign,dataset,scene,budget,arm,method,density,psnr,ssim,lpips,gaussians
+density_x_budget (geom_ablation_density),aria,0416_301-305,1N,R2-I@0.25,content_aware,0.25,25.5704,0.86185,0.40711,67846
+density_x_budget (geom_ablation_density),aria,0416_301-305,1N,R2-I@0.5,content_aware,0.5,25.8021,0.8643,0.38585,132732
+density_x_budget (geom_ablation_density),aria,0416_301-305,1N,R2-I@1,content_aware,1.0,25.9157,0.86232,0.37265,259240
+density_x_budget (geom_ablation_density),aria,0416_301-305,1N,R2@0.25,uniform,0.25,25.5299,0.85812,0.42253,83848
+density_x_budget (geom_ablation_density),aria,0416_301-305,1N,R2@0.5,uniform,0.5,25.7412,0.85983,0.39771,163305
+density_x_budget (geom_ablation_density),aria,0416_301-305,1N,R2@1,uniform,1.0,25.8638,0.85608,0.38402,319197
+density_x_budget (geom_ablation_density),eth3d,sofa_1,1N,R2-I@0.25,content_aware,0.25,24.482,0.89802,0.28381,54709
+density_x_budget (geom_ablation_density),eth3d,sofa_1,1N,R2-I@0.5,content_aware,0.5,24.4607,0.88524,0.30175,110155
+density_x_budget (geom_ablation_density),eth3d,sofa_1,1N,R2-I@1,content_aware,1.0,24.4077,0.86734,0.32174,220171
+density_x_budget (geom_ablation_density),eth3d,sofa_1,1N,R2@0.25,uniform,0.25,24.3616,0.89309,0.30172,61375
+density_x_budget (geom_ablation_density),eth3d,sofa_1,1N,R2@0.5,uniform,0.5,24.3644,0.8789,0.31406,123138
+density_x_budget (geom_ablation_density),eth3d,sofa_1,1N,R2@1,uniform,1.0,24.3199,0.86036,0.3301,245800
+density_x_budget (geom_ablation_density),rpng,table_01,1N,R2-I@0.25,content_aware,0.25,21.1836,0.62414,0.36222,164734
+density_x_budget (geom_ablation_density),rpng,table_01,1N,R2-I@0.5,content_aware,0.5,21.3134,0.63847,0.31506,329528
+density_x_budget (geom_ablation_density),rpng,table_01,1N,R2-I@1,content_aware,1.0,21.3748,0.64569,0.28137,657712
+density_x_budget (geom_ablation_density),rpng,table_01,1N,R2@0.25,uniform,0.25,21.1308,0.62197,0.37233,168832
+density_x_budget (geom_ablation_density),rpng,table_01,1N,R2@0.5,uniform,0.5,21.2909,0.63612,0.32321,337614
+density_x_budget (geom_ablation_density),rpng,table_01,1N,R2@1,uniform,1.0,21.3738,0.64399,0.2864,676444
+density_x_budget (geom_ablation_density),tum_rgbd,rgbd_dataset_freiburg1_desk,1N,R2-I@0.25,content_aware,0.25,18.8982,0.65427,0.46739,54274
+density_x_budget (geom_ablation_density),tum_rgbd,rgbd_dataset_freiburg1_desk,1N,R2-I@0.5,content_aware,0.5,18.9396,0.64801,0.44547,108954
+density_x_budget (geom_ablation_density),tum_rgbd,rgbd_dataset_freiburg1_desk,1N,R2-I@1,content_aware,1.0,18.936,0.63362,0.44562,218142
+density_x_budget (geom_ablation_density),tum_rgbd,rgbd_dataset_freiburg1_desk,1N,R2@0.25,uniform,0.25,18.8833,0.65008,0.47945,56542
+density_x_budget (geom_ablation_density),tum_rgbd,rgbd_dataset_freiburg1_desk,1N,R2@0.5,uniform,0.5,18.897,0.64004,0.4548,113241
+density_x_budget (geom_ablation_density),tum_rgbd,rgbd_dataset_freiburg1_desk,1N,R2@1,uniform,1.0,18.9238,0.62435,0.44853,226064
+density_x_budget (geom_ablation_density),utmm,square-1,1N,R2-I@0.25,content_aware,0.25,17.4344,0.53038,0.62832,31909
+density_x_budget (geom_ablation_density),utmm,square-1,1N,R2-I@0.5,content_aware,0.5,17.9577,0.55182,0.5593,62326
+density_x_budget (geom_ablation_density),utmm,square-1,1N,R2-I@1,content_aware,1.0,18.2866,0.56762,0.50493,122838
+density_x_budget (geom_ablation_density),utmm,square-1,1N,R2@0.25,uniform,0.25,17.2509,0.52367,0.6463,37776
+density_x_budget (geom_ablation_density),utmm,square-1,1N,R2@0.5,uniform,0.5,17.8644,0.54471,0.58339,74179
+density_x_budget (geom_ablation_density),utmm,square-1,1N,R2@1,uniform,1.0,18.1959,0.56057,0.52725,146046
+density_x_budget (geom_ablation_density),aria,0416_301-305,2N,R2-I@0.25,content_aware,0.25,26.6589,0.86922,0.37811,64530
+density_x_budget (geom_ablation_density),aria,0416_301-305,2N,R2-I@0.5,content_aware,0.5,27.02,0.87354,0.35463,124195
+density_x_budget (geom_ablation_density),aria,0416_301-305,2N,R2-I@1,content_aware,1.0,27.1804,0.8727,0.3426,239288
+density_x_budget (geom_ablation_density),aria,0416_301-305,2N,R2@0.25,uniform,0.25,26.7003,0.86584,0.39059,79821
+density_x_budget (geom_ablation_density),aria,0416_301-305,2N,R2@0.5,uniform,0.5,26.9908,0.8686,0.36588,153817
+density_x_budget (geom_ablation_density),aria,0416_301-305,2N,R2@1,uniform,1.0,27.2081,0.86756,0.34943,297161
+density_x_budget (geom_ablation_density),eth3d,sofa_1,2N,R2-I@0.25,content_aware,0.25,26.1747,0.90629,0.2649,47435
+density_x_budget (geom_ablation_density),eth3d,sofa_1,2N,R2-I@0.5,content_aware,0.5,25.9783,0.89534,0.2759,95977
+density_x_budget (geom_ablation_density),eth3d,sofa_1,2N,R2-I@1,content_aware,1.0,25.936,0.88157,0.29267,190709
+density_x_budget (geom_ablation_density),eth3d,sofa_1,2N,R2@0.25,uniform,0.25,26.0405,0.90318,0.27204,55121
+density_x_budget (geom_ablation_density),eth3d,sofa_1,2N,R2@0.5,uniform,0.5,25.9859,0.89261,0.28118,110462
+density_x_budget (geom_ablation_density),eth3d,sofa_1,2N,R2@1,uniform,1.0,25.8605,0.87699,0.29437,221534
+density_x_budget (geom_ablation_density),rpng,table_01,2N,R2-I@0.25,content_aware,0.25,21.5046,0.63856,0.32667,73138
+density_x_budget (geom_ablation_density),rpng,table_01,2N,R2-I@0.5,content_aware,0.5,21.6298,0.65117,0.28752,147384
+density_x_budget (geom_ablation_density),rpng,table_01,2N,R2-I@1,content_aware,1.0,21.6948,0.65825,0.25987,292151
+density_x_budget (geom_ablation_density),rpng,table_01,2N,R2@0.25,uniform,0.25,21.4481,0.63624,0.33259,76128
+density_x_budget (geom_ablation_density),rpng,table_01,2N,R2@0.5,uniform,0.5,21.5907,0.64873,0.29236,152834
+density_x_budget (geom_ablation_density),rpng,table_01,2N,R2@1,uniform,1.0,21.6765,0.6562,0.26346,304362
+density_x_budget (geom_ablation_density),tum_rgbd,rgbd_dataset_freiburg1_desk,2N,R2-I@0.25,content_aware,0.25,19.2993,0.6697,0.43338,43569
+density_x_budget (geom_ablation_density),tum_rgbd,rgbd_dataset_freiburg1_desk,2N,R2-I@0.5,content_aware,0.5,19.3186,0.66542,0.41666,86303
+density_x_budget (geom_ablation_density),tum_rgbd,rgbd_dataset_freiburg1_desk,2N,R2-I@1,content_aware,1.0,19.2836,0.65624,0.41446,171616
+density_x_budget (geom_ablation_density),tum_rgbd,rgbd_dataset_freiburg1_desk,2N,R2@0.25,uniform,0.25,19.2714,0.66523,0.44438,47836
+density_x_budget (geom_ablation_density),tum_rgbd,rgbd_dataset_freiburg1_desk,2N,R2@0.5,uniform,0.5,19.2259,0.65993,0.42349,95186
+density_x_budget (geom_ablation_density),tum_rgbd,rgbd_dataset_freiburg1_desk,2N,R2@1,uniform,1.0,19.1825,0.64857,0.4159,187581
+density_x_budget (geom_ablation_density),utmm,square-1,2N,R2-I@0.25,content_aware,0.25,17.8512,0.54769,0.57524,30940
+density_x_budget (geom_ablation_density),utmm,square-1,2N,R2-I@0.5,content_aware,0.5,18.3921,0.57108,0.50675,60009
+density_x_budget (geom_ablation_density),utmm,square-1,2N,R2-I@1,content_aware,1.0,18.7036,0.58747,0.453,117066
+density_x_budget (geom_ablation_density),utmm,square-1,2N,R2@0.25,uniform,0.25,17.6136,0.54014,0.598,36674
+density_x_budget (geom_ablation_density),utmm,square-1,2N,R2@0.5,uniform,0.5,18.2672,0.56362,0.53302,71372
+density_x_budget (geom_ablation_density),utmm,square-1,2N,R2@1,uniform,1.0,18.588,0.58042,0.47868,139698
+density_x_budget (geom_ablation_density),aria,0416_301-305,3N,R2-I@0.25,content_aware,0.25,27.3076,0.87827,0.35443,62517
+density_x_budget (geom_ablation_density),aria,0416_301-305,3N,R2-I@0.5,content_aware,0.5,27.6978,0.88306,0.32859,119145
+density_x_budget (geom_ablation_density),aria,0416_301-305,3N,R2-I@1,content_aware,1.0,28.0367,0.88411,0.31184,227732
+density_x_budget (geom_ablation_density),aria,0416_301-305,3N,R2@0.25,uniform,0.25,27.3615,0.87481,0.36328,77207
+density_x_budget (geom_ablation_density),aria,0416_301-305,3N,R2@0.5,uniform,0.5,27.7783,0.879,0.33406,147117
+density_x_budget (geom_ablation_density),aria,0416_301-305,3N,R2@1,uniform,1.0,28.0121,0.87959,0.31674,282254
+density_x_budget (geom_ablation_density),eth3d,sofa_1,3N,R2-I@0.25,content_aware,0.25,27.0417,0.91003,0.25397,43458
+density_x_budget (geom_ablation_density),eth3d,sofa_1,3N,R2-I@0.5,content_aware,0.5,26.8988,0.90143,0.26537,86774
+density_x_budget (geom_ablation_density),eth3d,sofa_1,3N,R2-I@1,content_aware,1.0,26.8334,0.89088,0.27546,170600
+density_x_budget (geom_ablation_density),eth3d,sofa_1,3N,R2@0.25,uniform,0.25,26.937,0.90815,0.26037,51200
+density_x_budget (geom_ablation_density),eth3d,sofa_1,3N,R2@0.5,uniform,0.5,26.8596,0.89888,0.26763,101978
+density_x_budget (geom_ablation_density),eth3d,sofa_1,3N,R2@1,uniform,1.0,26.7301,0.88685,0.28126,201710
+density_x_budget (geom_ablation_density),rpng,table_01,3N,R2-I@0.25,content_aware,0.25,21.6692,0.65011,0.29682,68083
+density_x_budget (geom_ablation_density),rpng,table_01,3N,R2-I@0.5,content_aware,0.5,21.8084,0.66281,0.26171,134810
+density_x_budget (geom_ablation_density),rpng,table_01,3N,R2-I@1,content_aware,1.0,21.8798,0.67031,0.23648,264840
+density_x_budget (geom_ablation_density),rpng,table_01,3N,R2@0.25,uniform,0.25,21.6206,0.64769,0.30224,71540
+density_x_budget (geom_ablation_density),rpng,table_01,3N,R2@0.5,uniform,0.5,21.7662,0.6609,0.26243,142685
+density_x_budget (geom_ablation_density),rpng,table_01,3N,R2@1,uniform,1.0,21.8694,0.66937,0.23635,280518
+density_x_budget (geom_ablation_density),tum_rgbd,rgbd_dataset_freiburg1_desk,3N,R2-I@0.25,content_aware,0.25,19.6012,0.67406,0.41347,41015
+density_x_budget (geom_ablation_density),tum_rgbd,rgbd_dataset_freiburg1_desk,3N,R2-I@0.5,content_aware,0.5,19.5988,0.67133,0.39925,81227
+density_x_budget (geom_ablation_density),tum_rgbd,rgbd_dataset_freiburg1_desk,3N,R2-I@1,content_aware,1.0,19.5261,0.66422,0.39511,159887
+density_x_budget (geom_ablation_density),tum_rgbd,rgbd_dataset_freiburg1_desk,3N,R2@0.25,uniform,0.25,19.5454,0.67061,0.42514,46104
+density_x_budget (geom_ablation_density),tum_rgbd,rgbd_dataset_freiburg1_desk,3N,R2@0.5,uniform,0.5,19.5672,0.66699,0.4067,90924
+density_x_budget (geom_ablation_density),tum_rgbd,rgbd_dataset_freiburg1_desk,3N,R2@1,uniform,1.0,19.5013,0.6568,0.40057,178350
+density_x_budget (geom_ablation_density),utmm,square-1,3N,R2-I@0.25,content_aware,0.25,17.9777,0.55703,0.5504,30648
+density_x_budget (geom_ablation_density),utmm,square-1,3N,R2-I@0.5,content_aware,0.5,18.5429,0.58041,0.48067,59007
+density_x_budget (geom_ablation_density),utmm,square-1,3N,R2-I@1,content_aware,1.0,18.8959,0.59737,0.42906,114237
+density_x_budget (geom_ablation_density),utmm,square-1,3N,R2@0.25,uniform,0.25,17.7436,0.5483,0.57366,36157
+density_x_budget (geom_ablation_density),utmm,square-1,3N,R2@0.5,uniform,0.5,18.4387,0.57292,0.50711,70000
+density_x_budget (geom_ablation_density),utmm,square-1,3N,R2@1,uniform,1.0,18.7637,0.59063,0.45152,136348
+density_x_budget RPNG table_02,rpng,table_02,1N,R2-I@0.25,content_aware,0.25,19.0828,0.53351,0.42469,149134
+density_x_budget RPNG table_02,rpng,table_02,1N,R2-I@0.5,content_aware,0.5,19.1498,0.54376,0.3915,298803
+density_x_budget RPNG table_02,rpng,table_02,1N,R2-I@1,content_aware,1.0,19.1689,0.54958,0.3599,591984
+density_x_budget RPNG table_02,rpng,table_02,1N,R2@0.25,uniform,0.25,19.0749,0.53557,0.42144,148783
+density_x_budget RPNG table_02,rpng,table_02,1N,R2@0.5,uniform,0.5,19.1499,0.54437,0.38807,297265
+density_x_budget RPNG table_02,rpng,table_02,1N,R2@1,uniform,1.0,19.1736,0.54868,0.35462,592939
+density_x_budget RPNG table_02,rpng,table_02,2N,R2-I@0.25,content_aware,0.25,19.4939,0.56185,0.37898,117140
+density_x_budget RPNG table_02,rpng,table_02,2N,R2-I@0.5,content_aware,0.5,19.5797,0.57241,0.34893,233868
+density_x_budget RPNG table_02,rpng,table_02,2N,R2-I@1,content_aware,1.0,19.6256,0.57951,0.32357,462097
+density_x_budget RPNG table_02,rpng,table_02,2N,R2@0.25,uniform,0.25,19.4896,0.56426,0.37209,119820
+density_x_budget RPNG table_02,rpng,table_02,2N,R2@0.5,uniform,0.5,19.582,0.57426,0.3424,237215
+density_x_budget RPNG table_02,rpng,table_02,2N,R2@1,uniform,1.0,19.6073,0.57923,0.31684,471672
+density_x_budget RPNG table_02,rpng,table_02,3N,R2-I@0.25,content_aware,0.25,19.8524,0.58773,0.33774,107566
+density_x_budget RPNG table_02,rpng,table_02,3N,R2-I@0.5,content_aware,0.5,19.9558,0.60035,0.30628,210892
+density_x_budget RPNG table_02,rpng,table_02,3N,R2-I@1,content_aware,1.0,20.0101,0.60819,0.28277,413874
+density_x_budget RPNG table_02,rpng,table_02,3N,R2@0.25,uniform,0.25,19.8647,0.59147,0.32679,111451
+density_x_budget RPNG table_02,rpng,table_02,3N,R2@0.5,uniform,0.5,19.961,0.60276,0.2966,218696
+density_x_budget RPNG table_02,rpng,table_02,3N,R2@1,uniform,1.0,20.0108,0.60957,0.27294,428009
+new datasets (onthefly_screen),mipnerf360,bicycle,2N,R2-I@0.5,content_aware,0.5,15.1784,0.2515,1.07981,157575
+new datasets (onthefly_screen),mipnerf360,bicycle,2N,R2-I@0.75,content_aware,0.75,15.1394,0.24968,1.0629,237599
+new datasets (onthefly_screen),mipnerf360,bicycle,2N,R2-I@1.5,content_aware,1.5,14.8721,0.24449,1.03528,472884
+new datasets (onthefly_screen),mipnerf360,bicycle,2N,R2-I@1,content_aware,1.0,15.003,0.24709,1.05157,316849
+new datasets (onthefly_screen),mipnerf360,bicycle,2N,R2@0.5,uniform,0.5,15.1385,0.25125,1.08204,185771
+new datasets (onthefly_screen),mipnerf360,bicycle,2N,R2@0.75,uniform,0.75,15.0614,0.24802,1.06565,278630
+new datasets (onthefly_screen),mipnerf360,bicycle,2N,R2@1.5,uniform,1.5,14.8072,0.24353,1.03698,561279
+new datasets (onthefly_screen),mipnerf360,bicycle,2N,R2@1,uniform,1.0,15.0412,0.24683,1.05552,373027
+new datasets (onthefly_screen),statichikes,forest1,2N,R2-I@0.5,content_aware,0.5,15.3069,0.23969,0.90506,91723
+new datasets (onthefly_screen),statichikes,forest1,2N,R2-I@0.75,content_aware,0.75,15.2884,0.24187,0.87996,134530
+new datasets (onthefly_screen),statichikes,forest1,2N,R2-I@1.5,content_aware,1.5,15.3406,0.24698,0.83208,258891
+new datasets (onthefly_screen),statichikes,forest1,2N,R2-I@1,content_aware,1.0,15.3739,0.2461,0.85886,176150
+new datasets (onthefly_screen),statichikes,forest1,2N,R2@0.5,uniform,0.5,15.265,0.23773,0.90517,100414
+new datasets (onthefly_screen),statichikes,forest1,2N,R2@0.75,uniform,0.75,15.3364,0.24026,0.87991,147684
+new datasets (onthefly_screen),statichikes,forest1,2N,R2@1.5,uniform,1.5,15.3592,0.24366,0.83542,284158
+new datasets (onthefly_screen),statichikes,forest1,2N,R2@1,uniform,1.0,15.3247,0.24194,0.86213,193609
+new datasets (onthefly_screen),statichikes,forest2,2N,R2-I@0.5,content_aware,0.5,19.1302,0.37904,0.67329,71433
+new datasets (onthefly_screen),statichikes,forest2,2N,R2-I@0.75,content_aware,0.75,19.4234,0.39823,0.63458,105912
+new datasets (onthefly_screen),statichikes,forest2,2N,R2-I@1.5,content_aware,1.5,19.8468,0.42743,0.57306,204507
+new datasets (onthefly_screen),statichikes,forest2,2N,R2-I@1,content_aware,1.0,19.5954,0.41102,0.60727,139100
+new datasets (onthefly_screen),statichikes,forest2,2N,R2@0.5,uniform,0.5,19.1884,0.38309,0.66489,83248
+new datasets (onthefly_screen),statichikes,forest2,2N,R2@0.75,uniform,0.75,19.4648,0.40192,0.6267,122926
+new datasets (onthefly_screen),statichikes,forest2,2N,R2@1.5,uniform,1.5,19.8156,0.43112,0.56613,238872
+new datasets (onthefly_screen),statichikes,forest2,2N,R2@1,uniform,1.0,19.6456,0.41514,0.60034,162702
+new datasets (onthefly_screen),statichikes,university2,2N,R2-I@0.5,content_aware,0.5,18.3396,0.4416,0.70583,102529
+new datasets (onthefly_screen),statichikes,university2,2N,R2-I@0.75,content_aware,0.75,18.4492,0.45237,0.67457,153321
+new datasets (onthefly_screen),statichikes,university2,2N,R2-I@1.5,content_aware,1.5,18.453,0.46543,0.62761,301821
+new datasets (onthefly_screen),statichikes,university2,2N,R2-I@1,content_aware,1.0,18.4347,0.45806,0.65245,202445
+new datasets (onthefly_screen),statichikes,university2,2N,R2@0.5,uniform,0.5,18.2435,0.43888,0.72138,114771
+new datasets (onthefly_screen),statichikes,university2,2N,R2@0.75,uniform,0.75,18.3128,0.44893,0.69337,171354
+new datasets (onthefly_screen),statichikes,university2,2N,R2@1.5,uniform,1.5,18.4121,0.46143,0.64214,336769
+new datasets (onthefly_screen),statichikes,university2,2N,R2@1,uniform,1.0,18.393,0.45546,0.6695,226202
+new datasets (onthefly_screen),tandt,train,2N,R2-I@0.5,content_aware,0.5,14.6293,0.43238,0.68516,188385
+new datasets (onthefly_screen),tandt,train,2N,R2-I@0.75,content_aware,0.75,14.835,0.43377,0.6664,284874
+new datasets (onthefly_screen),tandt,train,2N,R2-I@1.5,content_aware,1.5,14.9096,0.43072,0.63778,575906
+new datasets (onthefly_screen),tandt,train,2N,R2-I@1,content_aware,1.0,14.8469,0.43211,0.65313,381900
+new datasets (onthefly_screen),tandt,train,2N,R2@0.5,uniform,0.5,14.9418,0.42924,0.6913,201396
+new datasets (onthefly_screen),tandt,train,2N,R2@0.75,uniform,0.75,15.1316,0.43341,0.66762,300972
+new datasets (onthefly_screen),tandt,train,2N,R2@1.5,uniform,1.5,15.1762,0.43123,0.63545,606505
+new datasets (onthefly_screen),tandt,train,2N,R2@1,uniform,1.0,15.1008,0.43195,0.65246,403394
+new datasets (onthefly_screen),tandt,truck,2N,R2-I@0.5,content_aware,0.5,16.6621,0.52851,0.62263,173883
+new datasets (onthefly_screen),tandt,truck,2N,R2-I@0.75,content_aware,0.75,16.9028,0.53661,0.59634,257980
+new datasets (onthefly_screen),tandt,truck,2N,R2-I@1.5,content_aware,1.5,16.9566,0.54118,0.56618,506776
+new datasets (onthefly_screen),tandt,truck,2N,R2-I@1,content_aware,1.0,17.0254,0.54078,0.57949,340587
+new datasets (onthefly_screen),tandt,truck,2N,R2@0.5,uniform,0.5,16.6217,0.52291,0.63001,186375
+new datasets (onthefly_screen),tandt,truck,2N,R2@0.75,uniform,0.75,16.687,0.53002,0.61082,278108
+new datasets (onthefly_screen),tandt,truck,2N,R2@1.5,uniform,1.5,16.9256,0.53653,0.57587,548024
+new datasets (onthefly_screen),tandt,truck,2N,R2@1,uniform,1.0,17.0346,0.53496,0.59504,368159

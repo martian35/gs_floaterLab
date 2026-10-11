@@ -1,0 +1,11 @@
+--- colin_20261009/mapper_geometry_ablation/audit_arm.py
++++ figure10/mapper_geometry_ablation/audit_arm.py
+@@ -14,7 +14,7 @@
+     def check(name,value):
+         checks[name]=bool(value)
+         if not value:raise ValueError('Ablation audit failed: '+name)
+-    check('6N',r['completed_training_renders']==r['completed_adam_steps']==r['training_renders_attempted']==6*len(c['training_uids'])==c['render_budget'])
++    check('6N',r['completed_training_renders']==r['completed_adam_steps']==r['training_renders_attempted']==c['renders_per_training_input']*len(c['training_uids'])==c['render_budget'])  # LOCAL: budget from the contract
+     check('full_inputs',r['input_drop_count']==0 and r['training_input_count']==len(c['training_uids']) and r['render_and_input_contract_verified'])
+     check('heldout_disjoint',not r['heldout_overlap'] and not set(r['mapping_camera_uids']+r['loss_camera_uids'])&set(c['heldout_uids']))
+     check('no_GT_depth',r['GT_depth_used'] is False and r['GT_pose_provided_to_frontend'] is False)
