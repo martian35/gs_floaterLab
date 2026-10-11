@@ -28,7 +28,7 @@ def main():
     a = argparse.ArgumentParser(); a.add_argument('--output', type=Path, required=True); a.add_argument('--scenes')
     x = a.parse_args(); out = x.output; out.mkdir(parents=True, exist_ok=True)
     scenes = x.scenes.split(',') if x.scenes else SCENES
-    sys.path.insert(0, '/home/intern/VIGS-SLAM-custom/scripts/selected_mapping')
+    sys.path.insert(0, str(Path('/home/intern/VIGS-SLAM-custom/scripts/selected_mapping')))   # Path: relocated
     from run_c import c_environment
     py, cwd, env = c_environment()
     equal = Path(os.fspath(BENCH / 'mapper_equal_render'))
