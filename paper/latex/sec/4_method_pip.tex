@@ -41,7 +41,7 @@ We instead allocate new primitives from incoming keyframe depth estimates, makin
 % dependence: initialization (including KNN scales), optimization and pruning
 % can still incur costs that depend on the current Gaussian set.
 
-We aim to adapt Gaussian insertion to image detail while reducing variation in final Gaussian counts across scenes.
+We adapt Gaussian insertion to image detail while limiting the dependence of map growth on absolute image-response magnitudes.
 Image-guided initialization methods~\cite{meuleman2025onthefly,thomas2026gausslite} use image structure to concentrate new Gaussians in informative regions.
 In On-the-fly~\cite{meuleman2025onthefly}, insertion probabilities depend on the difference between input and rendered image responses, so response magnitudes also determine the expected number of new Gaussians.
 Consequently, the same probability scaling factor can yield substantially different insertion densities across scenes with different response magnitudes.
@@ -91,7 +91,7 @@ We also cap Gaussian scales during mapping to limit their spatial extent as opti
 % A matched-mean fixed-density control is required for that attribution.
 % Prior source/code audit: ../notes/method/2026-10-08_birth_rule_novelty_audit.md.
 
-\subsection{Training View Sampling}
+\subsection{Replay-Based Map Refinement}
 \label{ssec:pip_views}
 
 We optimize the growing Gaussian map using both recent and previously observed images.
@@ -117,6 +117,8 @@ Additional RGB observations refine the shared map without independently triggeri
 Keyframes supply the depth-based initialization described above, while intermediate images provide further photometric constraints from their own viewpoints.\footnote{In the reference-pose evaluation, poses for both keyframes and additional views are supplied by the evaluation protocol, bypassing native additional-view pose estimation. Depth remains a frontend estimate, aligned to reference scale using already arrived keyframes.}
 We associate each intermediate image with its preceding and following tracking keyframes, and register it as an eligible candidate only after both anchors have arrived and been registered with the mapper.
 This makes the observation and its anchors available for preparation, while the admission rule below determines when it joins the training set.
+Before using an intermediate image for training, we initialize its pose by interpolating the current anchor poses and correcting the rotation with IMU measurements from the arrived interval.
+We then refine only its pose using image correspondences to both anchors, keeping their poses and depths fixed and refreshing the estimate when the anchors change.
 
 To accompany the additional RGB supervision with geometric guidance, we reuse neighboring keyframe depths rather than infer depth separately for every intermediate image.
 We warp both anchor depth maps into the additional view and average the projected depths where both estimates are valid and agree, excluding pixels near depth discontinuities.
