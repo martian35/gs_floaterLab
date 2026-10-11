@@ -40,7 +40,14 @@ bash setup_and_run.sh summarize   # CPU. runs.csv / mean_by_arm.csv, 로컬 run�
 - `gpu_exception.json`은 어떤 프로세스도 면제하지 않는 receipt다. 다른 GPU 작업이 있으면 하네스가 기다린다.
 - 하네스의 디스크 보호(여유 24 GiB 미만이면 중단)가 그대로 동작한다. frontend tape는 suite 폴더 `frontend_cache/`에 쌓이며
   정상 종료 후 지워도 된다(요약에 필요 없음).
-- **GPU run은 사용자 승인 후에만 실행한다.** 이 문서는 절차만 기록했고 colin에서 실행한 적은 없다.
+- **GPU run은 사용자 승인 후에만 실행한다.**
+- colin의 GPU에는 사용자가 이전 대기열들에서 함께 돌려도 된다고 허락한 유휴 Jupyter 커널(pid 1842652)이 있다.
+  2026-10-11 실행은 그 프로세스만 면제하는 receipt(pid·시작 tick·명령 해시 일치 확인)를 suite 폴더에 써서 돌렸다.
+
+## 실행 기록
+
+2026-10-11 사용자 승인으로 colin에서 1회 실행: 73 run 완료, 파일럿 통과, 로컬 대비 run별 PSNR 차이 평균 −0.001 dB,
+최대 |차이| 0.031 dB. 집계는 `analysis/utmm_2N_reference_start_colin/`, 비교는 [결과 스냅샷 §1b](../analysis/RESULTS_SNAPSHOT.md).
 
 ## 판정 기준
 

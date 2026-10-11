@@ -81,3 +81,9 @@ forest2; ABLATION_FM_SKIP_NODEPTH=1, original `ablation_support.py.before_fmskip
 **Reading.** No insertion gain on these sequences. Absolute PSNR is low (15–20 dB) and adding 50 % more Gaussians
 (U1.5) does not raise it either, so quality here is limited by something other than Gaussian count (tracking/depth on wide
 frame spacing, training budget), unlike UTMM where uniform density 1.5 helps and I helps more.
+
+## colin reproduction (2026-10-11, user approved) — F10 kit, RTX 5090
+`paper/figures/figure10_insertion_density/repro/setup_and_run.sh` on colin (colin code untouched; overlay harness in
+`/home/intern/gs_floaterLab_figure10_repro/`; GPU receipt exempting only the previously permitted idle Jupyter kernel).
+73/73 runs, pilot passed (19.292 / 19.288 dB). Versus the local reference-start runs: PSNR difference per training run
+mean −0.001 dB, max |d| 0.031 dB; I0.75 mean −32.7 % Gaussians, +0.203 dB, 8/8 ≥ U1. Reproduced.

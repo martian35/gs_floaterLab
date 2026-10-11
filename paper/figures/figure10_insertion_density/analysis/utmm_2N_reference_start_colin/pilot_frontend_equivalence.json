@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "checks": {
+    "same_tape": true,
+    "identical_loss_view_sequence": true,
+    "same_render_budget": true,
+    "same_mapping_uids": true,
+    "gaussian_count_close": true,
+    "psnr_close": true,
+    "depth_mae_close": true
+  },
+  "capture": {
+    "arm": "R4",
+    "quality": "/ssd/intern/paperExperiments/results/campaigns/06_gain_attribution/figure10_utmm_insertion_density/2N_reference_start/trials/utmm/square-1/R4/seed0/evaluation/quality.json",
+    "quality_sha256": "3ac3ce1eaba58cbd48ae2fbde87b32cf5d60a4f6af7dd12d77d4beb3bb10fb1d",
+    "psnr": 19.29223293991563,
+    "ssim": 0.6326327134178292,
+    "lpips": 0.4068121808286039,
+    "gaussian_count": 116705,
+    "heldout_views": 322,
+    "depth_geometry": {
+      "views_with_depth": 0,
+      "gt_valid_pixels": 0,
+      "covered_gt_pixels": 0,
+      "coverage": null,
+      "aggregation": "pixel-weighted; holes retained in GT denominators",
+      "mae_m": null,
+      "rmse_m": null,
+      "absrel": null,
+      "delta1": null,
+      "foreground_violation": null,
+      "completeness_5cm": null,
+      "completeness_10cm": null,
+      "foreground_violation_all_gt": null
+    }
+  },
+  "replay": {
+    "arm": "R4",
+    "quality": "/ssd/intern/paperExperiments/results/campaigns/06_gain_attribution/figure10_utmm_insertion_density/2N_reference_start/trials/utmm/square-1/R4-replay-validation/seed0/evaluation/quality.json",
+    "quality_sha256": "05c59f79d29f135f2855610db03fce8de92b7533b77cfe45d931749b6deac521",
+    "psnr": 19.28769023966345,
+    "ssim": 0.6325193824049848,
+    "lpips": 0.40670515351599046,
+    "gaussian_count": 116774,
+    "heldout_views": 322,
+    "depth_geometry": {
+      "views_with_depth": 0,
+      "gt_valid_pixels": 0,
+      "covered_gt_pixels": 0,
+      "coverage": null,
+      "aggregation": "pixel-weighted; holes retained in GT denominators",
+      "mae_m": null,
+      "rmse_m": null,
+      "absrel": null,
+      "delta1": null,
+      "foreground_violation": null,
+      "completeness_5cm": null,
+      "completeness_10cm": null,
+      "foreground_violation_all_gt": null
+    }
+  }
+}

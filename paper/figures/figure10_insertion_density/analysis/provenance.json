@@ -40,7 +40,19 @@
   "analysis/utmm_2N_imu_gated/runs.csv": "3deba8e31814a57884d6f64056c4fcb6e71c675c39bb6e722325e048f138f59d",
   "analysis/utmm_2N_reference_start/mean_by_arm.csv": "55d48f0382fda7ea0b4ccba8b3bde5271cb03c19f8c7c7da8379d42baed7c122",
   "analysis/utmm_2N_reference_start/runs.csv": "b1a778d3aa3a3fb91d24fb7e0fe0154fefdeab88216585ceff337a9f23f5b147",
+  "analysis/utmm_2N_reference_start_colin/mean_by_arm.csv": "9b4ab13cf5332daf465db783eeb2c2e30971a4f954e7820ffe0391597cba4ea1",
+  "analysis/utmm_2N_reference_start_colin/runs.csv": "7d0c34995259b745126b2e2f6adb4c0b3f582627a13650fdc3cd7f2c33deb091",
   "analysis/content_concentration.json": "03f1ae5986d711749b9016107b13c645f15ddc546721ea18c5b91fdd93f88ca7"
  },
- "experiment_card": "context/experiments/campaigns/06_gain_attribution/utmm_scene_screen/README.md"
+ "experiment_card": "context/experiments/campaigns/06_gain_attribution/utmm_scene_screen/README.md",
+ "colin_reproduction": {
+  "date": "2026-10-11",
+  "gpu": "RTX 5090",
+  "output": "/ssd/intern/paperExperiments/results/campaigns/06_gain_attribution/figure10_utmm_insertion_density/2N_reference_start",
+  "repro_tree": "/home/intern/gs_floaterLab_figure10_repro/03_benchmark_contract",
+  "runs_completed": 73,
+  "max_abs_psnr_diff_vs_local_db": 0.031,
+  "mean_psnr_diff_vs_local_db": -0.001,
+  "gpu_receipt": "exempts only idle Jupyter pid 1842652 (previously user-permitted on colin queues)"
+ }
 }

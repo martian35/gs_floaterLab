@@ -59,5 +59,5 @@ UTMM은 균등 1.5가 +0.10 dB로 개수에 반응하는 유일한 데이터셋�
 ## 검증 및 산출물 (제작 시)
 
 - builder는 `analysis/utmm_2N_reference_start/runs.csv`만 읽고 평균을 다시 계산해 `mean_by_arm.csv`와 대조한다.
-- colin 재현 run이 끝나면 `repro/README.md`의 기준(장면별 차이, 8/8 방향)을 확인한 뒤 어느 run을 정본으로 쓸지 정한다.
+- colin 재현(2026-10-11)이 로컬과 run별 0.031 dB 이내로 일치했다. 정본은 로컬 run을 유지하고, 캡션/provenance에 colin 재현을 함께 기록한다(어느 쪽을 쓸지는 사용자 결정).
 - 검토본 `output/<날짜_슬러그>/`, 선택본 `current/` — SVG/PDF/PNG/TeX/caption/CSV/provenance.

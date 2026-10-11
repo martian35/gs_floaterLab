@@ -24,6 +24,24 @@ U = 균등 삽입(R2, fixed_density_uniform), I = 내용 기반 삽입(R2-I, onl
 I0.75: Gaussian −32.6%, PSNR +0.207 dB(8/8 ≥ 기준), SSIM +0.007, LPIPS −0.006.
 파일럿 통과: square-1 tape capture 19.281 dB / 재생 19.278 dB, Gaussians 116,957 / 116,993, 같은 tape·loss view 순서·render 수.
 
+## 1b. colin 재현 — 같은 설계, RTX 5090 (`utmm_2N_reference_start_colin/`)
+
+2026-10-11, `repro/setup_and_run.sh`로 colin에서 73 run 모두 완료(코드 상태 확인 통과, 파일럿 capture 19.292 / 재생 19.288 dB).
+결과 폴더: `/ssd/intern/paperExperiments/results/campaigns/06_gain_attribution/figure10_utmm_insertion_density/2N_reference_start`.
+로컬 대비 64개 학습 run의 PSNR 차이 평균 −0.001 dB, 최대 |차이| 0.031 dB. Gaussian 수는 대부분 같거나 0.3% 이내.
+8장면 평균 I0.75: Gaussian −32.7%, PSNR +0.203 dB(8/8 ≥ 기준), LPIPS −0.005 — 재현 성공 기준을 모두 충족한다.
+
+| scene | I0.75 − U1 PSNR 로컬 | colin | I0.75 Gaussians 로컬 | colin |
+|---|---:|---:|---:|---:|
+| square-1 | +0.046 | +0.037 | 90,098 | 89,855 |
+| square-2 | +0.106 | +0.098 | 87,848 | 87,904 |
+| ego-centric-1 | +0.084 | +0.068 | 75,268 | 75,263 |
+| ego-centric-2 | +0.100 | +0.094 | 80,535 | 80,535 |
+| ego-drive | +0.015 | +0.034 | 90,488 | 90,428 |
+| fast-straight | +0.636 | +0.643 | 24,909 | 24,909 |
+| slow-straight-1 | +0.304 | +0.301 | 14,746 | 14,746 |
+| slow-straight-2 | +0.366 | +0.348 | 22,158 | 22,158 |
+
 ## 2. 재현 확인 — 같은 설계, IMU 초기화 뒤 지도 시작 (`utmm_2N_imu_gated/`, 5장면)
 
 직선 주행 3장면은 IMU 초기화가 끝나지 않아 지도가 없었다(이후 reference start로 해결).
