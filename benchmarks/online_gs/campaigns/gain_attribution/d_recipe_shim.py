@@ -1,7 +1,8 @@
 """Recipe D shim: C's run_custom_c_large_pool_6n.py with scale cap 0.5 and selective births 0.5/0.02.
 
 usage: python d_recipe_shim.py <path/to/run_custom_c_large_pool_6n.py> <its args...>
-Env: B_SCALE_CAP (e.g. 0.5), B_COVERED_OPACITY (e.g. 0.02); unset = unchanged (shim is then a pass-through).
+Env: B_SCALE_CAP (e.g. 0.5), B_COVERED_OPACITY (e.g. 0.02), B_AUX_MODE (dense_rgb | kf_rgb | kf_native: what fills the
+'dense' third of each unified batch; kf_native = keyframes with their native loss, i.e. no dense frames); unset = unchanged.
 No C file is modified: the patches replace GSBackEnd._project_mapping_scales and wrap GaussianModel.extend_from_pcd
 at runtime, then the original script runs as __main__. Writes <output>/recipe_d.json.
 """
@@ -42,6 +43,17 @@ def main():
             selop_patch.STATE['mapper'] = self
             return ptd(self, packet)
         gs_backend.GSBackEnd.process_track_data = keep
+    if os.environ.get('B_AUX_MODE'):            # e.g. kf_native: the 'dense' training role samples keyframes instead
+        sys.path.insert(0, str(script.parent.parent / 'mapper_baselines/v2'))   # the runner adds the same path
+        import custom_common
+        original_options = custom_common.options
+
+        def options(*a, **k):
+            out = original_options(*a, **k)
+            out['auxiliary_mode'] = os.environ['B_AUX_MODE']
+            return out
+        custom_common.options = options
+        info['B_AUX_MODE'] = os.environ['B_AUX_MODE']
     output = Path(args[args.index('--output') + 1]) if '--output' in args else None
 
     def dump():
