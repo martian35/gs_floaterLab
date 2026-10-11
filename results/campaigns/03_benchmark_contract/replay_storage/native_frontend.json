@@ -1,0 +1,114 @@
+{
+  "native": true,
+  "pairs": [
+    {
+      "dataset": "aria",
+      "repeat": 0,
+      "baseline": {
+        "psnr": 25.641312772268925,
+        "ssim": 0.8616539318366407,
+        "lpips": 0.2770957338534216,
+        "mapper_seconds": 37.03813731810078,
+        "whole_seconds": 193.716425657738,
+        "mapper_with_admission_seconds": 48.88090559374541,
+        "input_mapping_stream_seconds": 187.78814224293455,
+        "gaussians": 159603,
+        "renders": 6738,
+        "peak_vram_gib": 16.865234375,
+        "storage": {
+          "rgb_arrivals": 1123,
+          "retained_rgb": 1123,
+          "imu_samples": 0,
+          "heldout_retained": 0,
+          "latest_observed_timestamp": 406.594231087,
+          "closed": true,
+          "storage": "unbounded_logical_legacy_RAM",
+          "expired_rgb": 0,
+          "image_spill_reads": 0,
+          "image_spill_writes": 0
+        }
+      },
+      "tiered": {
+        "psnr": 25.638675302797363,
+        "ssim": 0.8607125244106686,
+        "lpips": 0.28112668011112146,
+        "mapper_seconds": 35.91107677016407,
+        "whole_seconds": 195.68730671796948,
+        "mapper_with_admission_seconds": 53.69987255940214,
+        "input_mapping_stream_seconds": 191.45190152991563,
+        "gaussians": 159019,
+        "renders": 6738,
+        "peak_vram_gib": 19.9921875,
+        "storage": {
+          "rgb_arrivals": 1123,
+          "retained_rgb": 1123,
+          "imu_samples": 0,
+          "heldout_retained": 0,
+          "latest_observed_timestamp": 406.594231087,
+          "closed": true,
+          "storage": "unbounded_logical_FIFO_tiers",
+          "tiers": {
+            "policy": "arrival_FIFO_no_read_promotion",
+            "gpu_capacity": 512,
+            "ram_capacity": 1024,
+            "gpu_entries": 512,
+            "ram_entries": 611,
+            "ssd_entries": 0,
+            "logical_entries": 1123,
+            "ssd_directory": "/ssd/intern/paperExperiments/runs/campaigns/03_benchmark_contract/replay_storage/20261011_native_v1/aria_tiered_fifo/replay_images",
+            "disk_format": "lossless_torch_uint8_and_float32",
+            "timings": "host wall time, includes blocking copies; not CUDA kernel-only DMA time",
+            "ssd_io": "buffered filesystem IO; OS page cache enabled",
+            "scratch_limit": "one CPU bundle plus one GPU image",
+            "normalization_host_seconds": 0.1830742354504764,
+            "h2d_host_seconds": 0.9255059026181698,
+            "h2d_bytes": 5954441472,
+            "peak_gpu_entries": 512,
+            "peak_gpu_bytes": 1653473280,
+            "peak_ram_entries": 611,
+            "peak_ram_bytes": 1973187840,
+            "arrivals": 1123,
+            "d2h_host_seconds": 1.8123469818383455,
+            "d2h_bytes": 18117158400,
+            "peak_cpu_scratch_bytes": 3229440,
+            "cameras_exact_pixels_checked": 6121,
+            "gpu_hits": 8937,
+            "ram_hits": 2023,
+            "peak_gpu_scratch_bytes": 2583552
+          },
+          "expired_rgb": 0,
+          "image_spill_reads": 0,
+          "image_spill_writes": 0
+        }
+      },
+      "checks": {
+        "sample_sequence_identical": true,
+        "memberships_counts_admissions_identical": true,
+        "poses_identical": true,
+        "map_file_identical": false,
+        "equal_steps": true,
+        "audits_passed": true
+      },
+      "psnr_delta": -0.0026374694715620706,
+      "mapper_time_change_percent": -3.0429730800363597,
+      "whole_time_change_percent": 1.0174052373409292
+    }
+  ],
+  "summary": [
+    {
+      "dataset": "aria",
+      "repeats": 1,
+      "baseline_psnr": 25.641312772268925,
+      "tiered_psnr": 25.638675302797363,
+      "baseline_mapper_seconds": 37.03813731810078,
+      "tiered_mapper_seconds": 35.91107677016407,
+      "baseline_whole_seconds": 193.716425657738,
+      "tiered_whole_seconds": 195.68730671796948,
+      "mapper_time_change_percent": -3.0429730800363597,
+      "whole_time_change_percent": 1.0174052373409292,
+      "psnr_delta": -0.0026374694715620706
+    }
+  ],
+  "complete": true,
+  "scope": "Storage comparison, full logical replay in both arms; same-seed repetitions measure runtime variability, not independent algorithm seeds"
+}

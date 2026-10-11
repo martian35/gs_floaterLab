@@ -1,5 +1,7 @@
 # BENCH — fair benchmark contract and official main result
 
+- 2026-10-11 [D FIFO replay 저장관리·품질/시간 검증](replay_storage/README.md): 무제한 논리 pool+GPU512/RAM1024/SSD FIFO. 3장면2반복 PSNR Δ−0.016~+0.003dB, mapper+2.25~5.78%; native Aria 학습−3.04%지만 유입포함 mapper+9.86%/stream+1.95%. 17 평가/audit PASS.
+
 ## 공식 비교 결과
 
 | 결과 | Candidate | Vanilla | 판정 |

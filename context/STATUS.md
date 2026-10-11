@@ -88,6 +88,8 @@ avg/call 139.4ms→66.8ms(−52.1%)** |
 
 ## 최근 흐름 (최신순)
 
+- **2026-10-11 — D FIFO replay 저장관리 및 시간 검증 완료:** 논리 replay 무제한, KF/dense 공통 GPU512→RAM1024→SSD FIFO; κ16/ERVS/3:3:6 비복원/이미지별step 및 frontend 버퍼 유지. 3장면×2저장×2반복 PSNR Δ Aria−0.01590/RPNG+0.00309/TUM−0.01398dB, mapper시간 +5.78/+5.39/+2.25%. 모든 paired 학습순서·admission·count·pose 동일. Native Aria 학습37.04→35.91s(−3.04%)이나 유입/packet/저장 포함48.88→53.70s(+9.86%), stream187.79→191.45s(+1.95%); 속도이득 주장 금지. GPU16/RAM32 강제SSD는 품질+0.000515dB/시간+14.49%, OS page cache 사용. 기존D2회/native2회/SSD1회 포함17 평가·audit PASS; native 평가기 선택 오류1건은 원본 map 유지 후 올바른 평가기로 복구·로그 보존. D 기본tiered_fifo, --replay-storage legacy로 이전 정책 복원. [결과](experiments/campaigns/03_benchmark_contract/replay_storage/README.md).
+
 - 2026-10-03 effect decomposition, 19 scenes × 3 seeds (budget 25): K=16 without-replacement group vs with replacement +0.106 dB [+0.04,+0.18] (14/19); ERVS count term vs uniform group −0.061 [−0.14,+0.00] (6/19); total ERVS vs iid +0.045. Worst-region metrics not improved by either. → [card](experiments/campaigns/06_gain_attribution/ervs_vs_iid_scenes/README.md)
 
 - 2026-10-03 ERVS K16 vs uniform with replacement, 19 scenes × 3 seeds (budget 25): ΔPSNR +0.045 [−0.01,+0.10] (11/19), min-bin −0.08, worst-Q1 −0.11 [−0.21,−0.00]; dense CV 0.74 vs 0.91; five-bin Δ −0.25/+0.04/+0.22/+0.22/−0.01. → [card](experiments/campaigns/06_gain_attribution/ervs_vs_iid_scenes/README.md)

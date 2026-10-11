@@ -1,5 +1,6 @@
 # Experiment Index
 
+- 2026-10-11 [D FIFO replay 저장관리·품질/시간 검증](campaigns/03_benchmark_contract/replay_storage/README.md): 무제한 논리 pool+GPU512/RAM1024/SSD FIFO. 3장면2반복 PSNR Δ−0.016~+0.003dB, mapper+2.25~5.78%; native Aria 학습−3.04%지만 유입포함 mapper+9.86%/stream+1.95%. 17 평가/audit PASS.
 - 2026-10-03 effect decomposition, 19 scenes × 3 seeds (budget 25): K=16 without-replacement group vs with replacement +0.106 dB [+0.04,+0.18] (14/19); ERVS count term vs uniform group −0.061 [−0.14,+0.00] (6/19); total ERVS vs iid +0.045. Worst-region metrics not improved by either. → [card](campaigns/06_gain_attribution/ervs_vs_iid_scenes/README.md)
 
 - 2026-10-03 ERVS K16 vs uniform with replacement, 19 scenes × 3 seeds (budget 25): ΔPSNR +0.045 [−0.01,+0.10] (11/19), min-bin −0.08, worst-Q1 −0.11 [−0.21,−0.00]; dense CV 0.74 vs 0.91; five-bin Δ −0.25/+0.04/+0.22/+0.22/−0.01. → [card](campaigns/06_gain_attribution/ervs_vs_iid_scenes/README.md)

@@ -1,0 +1,395 @@
+\section{Method}
+\label{sec:method}
+
+We design ROGO-SLAM to bring the benefits of offline Gaussian optimization to online mapping by coupling photometric refinement across accumulated observations with geometric guidance for regions with limited view coverage.
+Given an RGB--IMU stream, we use the visual--inertial frontend of VIGS-SLAM~\cite{vigsslam}, built on DROID-SLAM's dense correspondence estimation~\cite{teed2021droid}, to obtain camera poses and keyframe depths for Gaussian initialization.
+As illustrated in Fig.~\ref{fig:overview}, we retain RGB observations beyond tracking keyframes to broaden the supervision available for map refinement.
+We retain these observations for replay and sample training views according to their accumulated use, balancing training opportunities while preserving stochasticity.
+For regions that remain geometrically ambiguous under these observations, consensus carving uses the evolving map's contribution evidence to suppress persistently inconsistent contributions during optimization.
+
+% Image-generated v3 concept; source: figure02_system_overview/candidates/
+% method_pip_imagegen_2026-10-09/concept_v03_initialization.png.
+% Final vector pass: route initialization output after depth back-projection,
+% selected views through rendering/supervision, and export separately from updates.
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figs/figure02_pip_v3.png}
+  \caption{Overview of ROGO-SLAM. (a) Keyframes initialize Gaussians using seed counts determined by relative image detail and gradient-weighted pixel sampling, while intermediate RGB images provide additional supervision for replay. (b) Training opportunities are allocated to recent keyframes, all keyframes, and additional views; entropy-regularized sampling favors less-used observations within the replay pools. (c) Selected views refine a shared Gaussian map using base supervision and rendering-derived consensus carving. Completed per-view updates determine subsequent replay probabilities. The consensus finisher operates separately at export. Scene imagery and internal diagrams are illustrative.}
+  \label{fig:overview}
+\end{figure*}
+
+\subsection{Content-Adaptive Gaussian Initialization with Density Control}
+\label{ssec:pip_observations}
+
+\begin{figure}[t]
+  \centering
+  \resizebox{\linewidth}{!}{%
+    \includegraphics{figs/figure08.pdf}%
+  }
+    \caption{Comparison of initialization policies on eight RPNG sequences with a shared mapping backbone. Left: held-out PSNR. Right: final Gaussian counts after pruning (logarithmic axis; bars start at 100k). The adapted On-the-fly initialization~\cite{meuleman2025onthefly} uses a single sampling multiplier across all sequences, calibrated to match our median final Gaussian count within 5\% (221.4k for ours; 229.4k for the adapted baseline). Our policy yields a narrower range of final map sizes with similar PSNR. Each bar represents one run; total insertion counts are not matched.}
+    \label{fig:initialization_allocation}
+\end{figure}
+
+% Allocation at insertion -> prior budget/placement distinction -> count -> position.
+\paragraph{Content-aware initialization sampling.}
+We control the capacity introduced by each keyframe at insertion, using image detail to guide both the number and placement of new Gaussians under a limited online update budget.
+Offline 3DGS adjusts capacity during training through gradient-driven cloning and splitting~\cite{kerbl20233dgs}, a strategy also used to expand sparse frontend maps in online systems~\cite{huang2024photoslam,cartgs}.
+Each such densification call evaluates criteria over the current Gaussian set, so the amount of data processed grows as the map expands.
+A fixed invocation interval therefore does not provide a fixed processing cost.
+We instead allocate new primitives from incoming keyframe depth estimates, making insertion the point at which additional capacity is assigned.
+% This removes repeated global clone/split candidate scans, not all map-size
+% dependence: initialization (including KNN scales), optimization and pruning
+% can still incur costs that depend on the current Gaussian set.
+
+We adapt Gaussian insertion to image detail while limiting the dependence of map growth on absolute image-response magnitudes.
+Image-guided initialization methods~\cite{meuleman2025onthefly,thomas2026gausslite} use image structure to concentrate new Gaussians in informative regions.
+In On-the-fly~\cite{meuleman2025onthefly}, insertion probabilities depend on the difference between input and rendered image responses, so response magnitudes also determine the expected number of new Gaussians.
+Consequently, the same probability scaling factor can yield substantially different insertion densities across scenes with different response magnitudes.
+We therefore first determine a bounded insertion budget from each keyframe's image detail relative to earlier observations, then use normalized image-gradient weights to distribute that budget within the frame.
+Figure~\ref{fig:initialization_allocation} shows that our initialization yields a narrower range of final Gaussian counts than the adapted On-the-fly policy across equal-sized RPNG rooms, with similar mean PSNR.
+% The contrast concerns allocation rules, not a universal defect of prior work.
+% On-the-fly uses input LoG minus rendered response; GaussLite samples within
+% assigned seed budgets. Neither is described here as having a fixed sampling
+% rate. Rank normalization itself is not claimed as a novel statistical tool.
+
+We calibrate each keyframe's insertion density against the detail levels observed so far using its empirical rank.
+For keyframe $k$, we measure image detail by the mean grayscale Sobel magnitude $\bar g_k$ over its valid-depth pixels $\mathcal V_k$.
+We compute a smoothed empirical rank $q_k\in(0,1)$ relative to the scores recorded at earlier keyframe insertions, with larger ranks indicating relatively finer image detail.
+A bounded, nondecreasing mapping converts $q_k$ into a density multiplier $m_k=\operatorname{clip}(2.5+2(q_k-0.5),0.35,3.0)$, allocating more samples to relatively detailed observations until the multiplier saturates.
+The insertion budget $B_k$ is obtained by scaling the base count from depth downsampling by $m_k$, rounding to an integer, and capping it at $|\mathcal V_k|$.
+Because a common positive rescaling of the detail scores preserves their ranks, the density modulation responds to relative detail rather than the absolute response scale.
+% Exact tie-aware rank: q=(0.5*(L+R)+0.5)/(n+1), where L/R are
+% counts of earlier scores strictly below / no greater than the current score.
+% The first observation uses q=0.5. Each keyframe enters the history once
+% and retains its first multiplier on repeated processing.
+% Code: exp78b_replay_gsslam_mapping.py::CausalOnlineRankDensity.
+% Base count: max(1, round(|V_k|/downsample_factor)), clipped to |V_k|;
+% the active C path has no additional coverage mask or local-birth ticket.
+% This controls insertion density, not a fixed total Gaussian count;
+% totals also depend on depth coverage, insertion frequency, and pruning.
+% Global score-rescaling invariance is not a claim of invariance to arbitrary
+% exposure/noise changes, observation order, or changes in depth validity.
+
+Given the insertion budget $B_k$, we select Gaussian seed locations using normalized image-gradient weights.
+We sample $B_k$ valid-depth pixels without replacement with normalized weights
+\begin{equation}
+  p_k(\mathbf u)=
+  \frac{g_k(\mathbf u)+\eta_k}
+       {\sum_{\mathbf v\in\mathcal V_k}[g_k(\mathbf v)+\eta_k]},
+  \qquad \mathbf u\in\mathcal V_k,
+  \label{eq:pip_init_sampling}
+\end{equation}
+where $g_k(\mathbf u)$ is the Sobel magnitude at pixel $\mathbf u$ and $\eta_k=0.1\bar g_k+10^{-6}$.
+The positive offset keeps smooth regions eligible while favoring edges and texture.
+
+We combine selective low-opacity initialization with scale constraints to limit disruption to the existing reconstruction during map expansion.
+The selected pixels are back-projected using the keyframe depth and camera pose to initialize Gaussian positions, with their RGB values providing the initial colors.
+When an existing map is available, we render it from the incoming keyframe and identify covered locations using rendered opacity and a depth-residual test that checks for new surfaces in front of the rendered geometry.
+Gaussians inserted at covered locations receive a lower initial opacity, following the principle used in RTG-SLAM~\cite{rtgslam2024}, so that their initial contribution is reduced while they are refined by subsequent optimization.
+We also cap Gaussian scales during mapping to limit their spatial extent as optimization proceeds.
+% Whole-policy C vs LoG+official-scale comparisons do not isolate rank.
+% A matched-mean fixed-density control is required for that attribution.
+% Prior source/code audit: ../notes/method/2026-10-08_birth_rule_novelty_audit.md.
+
+\subsection{Replay-Based Map Refinement}
+\label{ssec:pip_views}
+
+We optimize the growing Gaussian map using both recent and previously observed images.
+Newly added Gaussians require supervision from recent views, while changes to the map can degrade reconstruction from earlier viewpoints even after those views have been used for training.
+We therefore retain keyframes and intermediate RGB images for repeated optimization, including observations omitted by tracking keyframe selection.
+Under a limited number of optimization steps, we reserve updates for recent keyframes and use entropy-regularized view sampling (ERVS) to favor less-used images within each replay pool.
+This training procedure uses the accumulated observations to optimize new Gaussians and continue refining previously mapped regions.
+
+\paragraph{Replay with Keyframes and Intermediate Views.}
+We replay both keyframes and intermediate RGB images to continually optimize the growing Gaussian map.
+Revisiting earlier observations allows their image measurements to constrain the map as new Gaussians are inserted and existing parameters are updated.
+Repeated optimization of stored keyframes is also used in Gaussian SLAM systems to maintain reconstruction quality as mapping progresses~\cite{huang2024photoslam,rtgslam2024,matsuki2024monogs,cartgs}.
+MonoGS supplements its current keyframe window with randomly selected past keyframes~\cite{matsuki2024monogs}, while RTG-SLAM periodically refines the map using the latest keyframe and randomly selected stored keyframes~\cite{rtgslam2024}.
+RP-SLAM selects both covisible and non-covisible keyframes alongside the current keyframe~\cite{bai2024rpslam}.
+We extend the observations available for replay beyond tracking keyframes and account for their accumulated use when allocating subsequent updates.
+
+We retain RGB observations between tracking keyframes to refine the map with image measurements omitted by keyframe selection.
+Repeated updates on selected keyframes cannot recover measurements from the intervening images.
+These images can observe the same surfaces from intermediate viewpoints, providing additional supervision when individual regions are visible only briefly or intermittently.
+Including them allows stochastic refinement to draw on a broader set of accumulated observations.
+
+Additional RGB observations refine the shared map without independently triggering Gaussian insertion.
+Keyframes supply the depth-based initialization described above, while intermediate images provide further photometric constraints from their own viewpoints.\footnote{In the reference-pose evaluation, poses for both keyframes and additional views are supplied by the evaluation protocol, bypassing native additional-view pose estimation. Depth remains a frontend estimate, aligned to reference scale using already arrived keyframes.}
+We associate each intermediate image with its preceding and following tracking keyframes, and register it as an eligible candidate only after both anchors have arrived and been registered with the mapper.
+This makes the observation and its anchors available for preparation, while the admission rule below determines when it joins the training set.
+Before using an intermediate image for training, we initialize its pose by interpolating the current anchor poses and correcting the rotation with IMU measurements from the arrived interval.
+We then refine only its pose using image correspondences to both anchors, keeping their poses and depths fixed and refreshing the estimate when the anchors change.
+
+To accompany the additional RGB supervision with geometric guidance, we reuse neighboring keyframe depths rather than infer depth separately for every intermediate image.
+We warp both anchor depth maps into the additional view and average the projected depths where both estimates are valid and agree, excluding pixels near depth discontinuities.
+The retained pixels provide a depth target for refining the shared map from that viewpoint.
+Thus, each additional image contributes new RGB measurements, while its geometric guidance derives from the existing frontend estimates.
+% Prior comparison: MonoGS Sec. 3.3.3 (current window plus past keyframes),
+% https://arxiv.org/html/2312.06741; RP-SLAM Sec. III-C (current keyframe
+% plus covisible and non-covisible keyframes), https://arxiv.org/html/2412.09868v1.
+% Citation audit (2026-10-11): CaRtGS Sec. III-A2 cites Photo-SLAM,
+% RTG-SLAM, and GS-ICP-SLAM for historical keyframe reoptimization.
+% The current main.bib contains Photo-SLAM and RTG-SLAM, but not GS-ICP-SLAM.
+% RTG-SLAM Sec. 3.2, Keyframes and global optimization:
+% https://arxiv.org/html/2404.19706v2 (online updates, separate from final refinement).
+% SplaTAM Sec. 3, Gaussian Map Updating: https://arxiv.org/html/2312.02126.
+% Splat-SLAM Sec. 3.2, Keyframe Selection and Optimization:
+% https://arxiv.org/html/2405.16544 (local window, not claimed as uniform global replay).
+% These comparisons describe the cited mapping policies, not all GS-SLAM systems.
+% Additional RGB is new supervision; transported anchor depth is not an
+% independent depth measurement.
+% Anchor/depth preparation: online_mapper_runtime.py::_offer_arrived_intervals;
+% deferred_dense_observations.py::prepare; custom_common.py::install_reference_pose_adapter;
+% geometry_c/upstream/fixed40_dense_depth.py::geo_target.
+
+We pace the admission of additional views by completed optimization work to expand supervision in proportion to the updates available to use it.
+Additional observations broaden supervision, but admitting every candidate as soon as it becomes available would spread a limited online update budget over an increasingly large set of views.
+We therefore distinguish eligible candidates from observations admitted to the training set.
+Let $\mathcal K_t$ denote the registered keyframes, $\mathcal D_t$ the admitted additional views, and $\mathcal A_t=\mathcal K_t\cup\mathcal D_t$ the training set.
+We allow one additional view to enter this set for every $\kappa$ completed image-wise optimizer steps:
+\begin{equation}
+  a(t)\leq\left\lfloor\frac{S(t)}{\kappa}\right\rfloor.
+  \label{eq:view_growth_constraint}
+\end{equation}
+Here, $S(t)$ counts completed updates on both keyframes and additional views, and $a(t)$ counts cumulative additional-view admissions since map initialization.
+We use $\kappa=16$; keyframes enter independently, and unused admission allowance carries forward.
+For each admission, we select the eligible candidate whose nearest view in $\mathcal A_t$ is farthest away in frame index, recomputing distances after each selection.
+This favors observations that fill temporal gaps in the training set using only the candidates available at that time.
+Once admitted, observations remain available for subsequent replay, with no fixed limit on the number of views in either pool.
+Training membership is independent of where an image is stored; the storage policy described below limits memory use without removing observations from replay.
+Admission thus links the introduction of additional supervision to completed refinement, while the allocation of subsequent updates must still support both newly inserted Gaussians and previously mapped regions.
+We next allocate updates by observation role, then select views within each replay pool according to their accumulated use.
+% Admission limits additional-view growth relative to completed work; it
+% does not guarantee a minimum number of updates for each admitted view.
+% Temporal separation is a coverage proxy, not a guaranteed geometric baseline.
+
+\paragraph{Coordinating Map Expansion and Refinement.}
+We allocate updates across observation groups to support newly inserted Gaussians while continuing to refine the accumulated map.
+Recent observations provide supervision near ongoing map expansion, while retained observations allow previously mapped regions to be revisited during optimization.
+Local refinement through overlapping views or a local keyframe window is also used in existing Gaussian SLAM systems~\cite{splatam2024,splatslam2024}.
+As additional views enter the training set, uniform sampling from the entire set would make each observation group's share of updates depend on its number of views.
+We therefore reserve update opportunities for each observation group before selecting individual training views.
+% Local-view selection: SplaTAM, Gaussian Map Updating (overlapping frames),
+% https://arxiv.org/html/2312.02126; Splat-SLAM Sec. 3.2 (local keyframe window),
+% https://arxiv.org/html/2405.16544. These citations motivate local supervision;
+% the 3:3:6 allocation below is a system setting, not an optimality claim.
+
+We use three observation groups: the current keyframe window $\mathcal W_t\subseteq\mathcal K_t$, all registered keyframes $\mathcal K_t$, and the admitted additional views $\mathcal D_t$.
+The recent window provides supervision for ongoing map expansion, all-keyframe replay maintains access to earlier regions, and additional-view replay incorporates measurements omitted by tracking keyframe selection.
+Within the recent window, we sample uniformly so that selection does not depend on how often an observation has already been used.
+Within the all-keyframe and additional-view replay pools, we use ERVS to favor observations with fewer completed updates.
+
+For each selection group, we allocate three update slots to the recent keyframe window, three to all-keyframe replay, and six to additional-view replay.
+We fill these slots with up to twelve distinct views, each supplying one image-wise optimizer update in sequence.
+When the available update budget or the number of distinct eligible images is smaller than twelve, we apportion the available slots in the same ratio with integer rounding and reassign unfilled slots to groups with remaining eligible views.
+Because the recent window is part of the all-keyframe pool, we exclude previously selected images from the remaining draws within the same group.
+A keyframe can still participate through either route across successive groups; the implementation details below specify the selection order.
+With update opportunities allocated across groups, we next describe how ERVS distributes replay according to accumulated per-view use.
+
+\paragraph{Entropy-Regularized View Sampling.}
+\label{ssec:ercb}
+We seek to preserve the balanced use of training views across shuffled passes in offline optimization as observations accumulate online.
+Offline 3DGS samples views without replacement within each shuffled pass over a fixed training set, using every view once before starting the next pass~\cite{kerbl20233dgs}.
+This combines a stochastic training order with equal view counts at the end of each complete pass.
+In online mapping, however, the training set grows over time, and earlier observations may have accumulated many updates before later ones become available.
+CaRtGS identifies this imbalance in an expanding keyframe pool as long-tail optimization~\cite{cartgs}.
+Stochastic selection can also produce unequal update counts among observations admitted at similar times.
+Sampling without replacement within a selection group prevents repetition within that group, but does not equalize cumulative use across successive groups.
+Uniform selection from the currently available views does not compensate for these differences.
+We therefore use completed per-view update counts to favor less-used observations while retaining stochastic replay.
+
+We measure unequal training exposure through the dispersion of completed per-view update counts within each replay pool.
+CaRtGS allocates replay through loss-dependent optimization quotas~\cite{cartgs}, while FlashSLAM mixes loss-weighted and uniform sampling~\cite{pham2024flashslam}; our allocation objective instead concerns the dispersion of cumulative view uses.
+A view's count records how often its supervision has directly contributed to map updates.
+% Closest prior art, checked against the papers on 2026-10-08:
+% CaRtGS Secs. III-A2 and III-C2, Eq. (8):
+% https://arxiv.org/html/2410.00486v3
+% FlashSLAM Sec. 3.4, Eq. (11): https://arxiv.org/html/2412.00682
+% DUDG-SLAM Sec. 2.3, Eqs. (4)-(5):
+% https://www.mdpi.com/1424-8220/26/17/5482
+% DUDG (liu2026dudgslam) also uses history in its replay score.
+% Its forgetting term is (t - t_last)/(n_replay + 1), combined with
+% error and visibility scores. Counting uses and stochastic prioritization
+% are not standalone novelty claims. Our distinction is the count-dispersion
+% objective with entropy and its use with keyframe and additional-view replay.
+% The Gibbs solution and without-replacement sampling are standard tools;
+% this derivation does not establish global count equalization or convergence.
+% Offline random reshuffling motivates balanced use and stochastic order;
+% ERVS is not an exact reproduction of shuffled epochs on the growing set.
+Consider a replay pool $\mathcal P\in\{\mathcal K_t,\mathcal D_t\}$ at a selection event, with $N=|\mathcal P|$.
+Let $n_i$ denote the number of completed image-wise optimizer updates using view $i$, with total $T=\sum_{i\in\mathcal P}n_i$ and mean $\bar n=T/N$.
+Each image has one count shared across selection routes: an update through the recent window also contributes to that keyframe's count when it is considered for all-keyframe replay.
+Because raw count variance changes in scale as training proceeds, we normalize it by the accumulated work.
+For $T>0$, we define
+\begin{equation}
+  \Phi(\mathbf n)=\frac{1}{2T}
+         \sum_{i\in\mathcal P}(n_i-\bar n)^2.
+  \label{eq:count_dispersion}
+\end{equation}
+A smaller $\Phi$ indicates more evenly distributed counts at a given total training effort; for a previously unused pool, we define $\Phi(\mathbf 0)=0$.
+Holding pool membership fixed for one selection, completing one further update on view $i$ changes this quantity by
+\begin{equation}
+  \Delta_i\Phi=\Phi(\mathbf n+\mathbf e_i)-\Phi(\mathbf n)
+       =\frac{n_i}{T+1}+C,
+  \label{eq:count_dispersion_increment}
+\end{equation}
+where $\mathbf e_i$ increments the $i$th count and $C$ is independent of the selected view.
+Thus, selecting a lower-count view produces a smaller increment in the dispersion measure.
+This preference accounts for differences in accumulated use whether they arise from admission time or variation in past selections.
+
+We regularize the count-balancing objective with entropy to favor less-used observations without concentrating replay only on them.
+A rule that always selects a minimum-count view can concentrate updates on newly admitted observations with zero completed uses or on a small subset of previously underused views.
+Entropy regularization moderates this preference while retaining stochastic replay across the eligible observations.
+We construct the selection distribution by minimizing the expected increment in count dispersion together with an entropy regularizer:
+\begin{equation}
+  \begin{aligned}
+  &\min_{\mathbf p\in\Delta_N}
+     \sum_{i\in\mathcal P}p_i\Delta_i\Phi-\tau_{\mathcal P}H(\mathbf p),\\
+  &\hspace{1em}H(\mathbf p)=-\sum_{i\in\mathcal P}p_i\log p_i.
+  \end{aligned}
+  \label{eq:entropy_sampling_objective}
+\end{equation}
+Here $\Delta_N$ is the probability simplex and $\tau_{\mathcal P}>0$ controls the entropy term.
+The expected increment favors less-used views, while the entropy term discourages concentration on only the smallest counts.
+The solution is proportional to $\exp(-\Delta_i\Phi/\tau_{\mathcal P})$; substituting Eq.~\eqref{eq:count_dispersion_increment} cancels the common term $C$ and yields
+\begin{equation}
+  p(i\mid\mathcal P)
+  =\frac{\exp[-\beta_{\mathcal P}n_i]}
+         {\sum_{j\in\mathcal P}\exp[-\beta_{\mathcal P}n_j]},
+  \quad
+  \beta_{\mathcal P}=\frac{1}{\tau_{\mathcal P}(T+1)}.
+  \label{eq:entropy_view_sampling}
+\end{equation}
+
+The resulting distribution adjusts replay probabilities according to completed view use while keeping every eligible observation available for selection.
+Newly admitted views enter with zero completed uses, and previously admitted views that have received fewer updates through stochastic selection also receive higher probability than more-used views in the same replay pool.
+Equal counts recover uniform sampling, while views with larger counts retain nonzero probability.
+We set $\tau_{\mathcal P}=\tau_{\mathrm v}/N$, using a shared constant $\tau_{\mathrm v}=4$ for both replay pools.
+The resulting scale, $\tau_{\mathcal P}(T+1)=\tau_{\mathrm v}(\bar n+1/N)$, expresses count differences relative to the pool's average accumulated use as its membership changes.
+Each replay pool computes this scale from its own size and counts, while the group allocation determines how many training opportunities it receives.
+Counts are updated after each completed image-wise optimizer step and determine the replay weights when the next selection group is constructed.
+Count-dependent replay accounts for differences in accumulated use across selection groups, while sampling without replacement prevents repeated selection within each group.
+
+\paragraph{Replay Implementation.}
+We construct each training group by filling the recent-keyframe, all-keyframe, and additional-view slots in that order, excluding each selected image from all subsequent draws within the group.
+All admitted observations remain eligible for replay regardless of where their images are stored.
+We manage image storage jointly for keyframes and additional views, keeping recent images in GPU memory and moving older images to RAM and then SSD as the respective buffers fill.
+The buffers hold up to 512 images in GPU memory and 1,024 in RAM; both follow first-in, first-out (FIFO) order based on image arrival.
+A selected image outside GPU memory is loaded for its update without changing its position in this order, its training membership, or its accumulated update count.
+Images are stored losslessly, and temporary reads use space for at most one additional image in RAM and one training image in GPU memory.
+The buffers also retain arrived candidate images awaiting admission; storing a candidate does not make it eligible for training before the admission rule is satisfied.
+These limits apply to replay image storage, while frontend buffers, geometric targets, and the Gaussian map are managed separately.
+The resulting storage policy preserves access to the accumulated observations used by the replay module.
+% D runtime: replay_storage/fifo_runtime.py and tiered_rgb.py.
+% Each resident image bundle includes the original uint8 RGB and the exact
+% normalized float32 RGB. SSD files use buffered I/O (OS page cache enabled).
+% Logical image metadata, training counts, and SSD usage grow with the stream.
+% GPU/RAM capacities exclude transient construction and frontend-owned copies.
+
+\subsection{Photometric and Geometric Optimization}
+\label{ssec:pip_optimization}
+\label{ssec:carve}
+
+Sections~\ref{ssec:pip_observations} and~\ref{ssec:pip_views} determine which observations are retained and how they are selected for map refinement.
+We retain the existing depth and normal losses for keyframe optimization alongside RGB supervision, denoting the base mapping objective for each observation by $\mathcal L_{\mathrm{base}}$.
+The admitted dense views broaden photometric supervision beyond tracking keyframes and extend geometric constraints to additional viewpoints through transported depth targets.
+As discussed in the introduction, individual regions in an egocentric stream may be observed only briefly or intermittently, limiting the viewpoints available to constrain their geometry.
+Retaining additional images makes fuller use of these viewing intervals, but some regions may still lack observations from sufficiently different directions.
+Repeated refinement can therefore improve the fit to the available images while leaving geometric ambiguities unresolved.
+To provide further geometric guidance under this limited coverage, we augment $\mathcal L_{\mathrm{base}}$ with consensus carving, which uses the map's rendered termination distribution to guide opacity suppression for persistently inconsistent front contributions.
+We first define the ray quantities used to construct this term.
+
+\paragraph{Ray termination.}
+For the depth-ordered Gaussians that contribute to ray $r$, let $\alpha_i^0$ be the base opacity, $G_{ri}^{\mathrm{2D}}$ the projected
+footprint value at the pixel and $z_{ri}$ the depth. The effective alpha, incoming transmittance and termination weight are
+\begin{equation}\label{eq:ray_termination}
+  a_{ri}=\alpha_i^0G_{ri}^{\mathrm{2D}},\qquad
+  T_{ri}=\prod_{j<i}(1-a_{rj}),\qquad
+  w_{ri}=T_{ri}a_{ri},
+\end{equation}
+with accumulated opacity $A_r=\sum_i w_{ri}$. We read $\{w_{ri}\}$ as the ray's termination distribution: $w_{ri}$ is the mass that first
+terminates at Gaussian $i$. Estimated keyframe depth $D_r$ remains part of Gaussian initialization and the base objective;
+the carving reference below is derived from the rendered map rather than directly from $D_r$.
+
+\paragraph{Consensus depth.}
+We define the \emph{consensus depth} of a ray as its median termination depth,
+\begin{equation}\label{eq:consensus_depth}
+  d^*_r=z_{r,i^*},\qquad i^*=\min\Big\{i:\textstyle\sum_{j\le i}w_{rj}\ge\tfrac12A_r\Big\},
+\end{equation}
+defined where the ray carries mass ($A_r\ge\tfrac12$). 2DGS~\cite{2dgs} reads a surface out of a trained map with the same $T{=}0.5$
+pivot; we use it during training, at every render, as a fixed reference (Geometry-Grounded GS~\cite{gggs} instead differentiates through
+it). Two properties make it usable online. It is a median: no set of Gaussians holding less than half of a ray's mass can move it. And
+dense initialisation places a surface hypothesis on every ray from the first keyframe, so a Gaussian seeded at a wrong depth is a
+minority on its own ray from birth. A Gaussian is \emph{in front} on ray $r$ if it contributes at $z_{ri}<(1-\rho)\,d^*_r$, with margin
+$\rho=0.25$.
+
+\paragraph{Carving term.}
+At every training render we read the rasteriser's buffers once more and accumulate, per Gaussian, its contribution in front of the
+consensus,
+\begin{equation}\label{eq:front_mass}
+  f_i=\sum_{r}w_{ri}\,\mathbb{1}\!\left[z_{ri}<(1-\rho)\,d^*_r\right]\mathbb{1}\!\left[A_r\ge\tfrac12\right].
+\end{equation}
+Summed over a ray, these contributions are the probability, under the termination distribution, that the ray terminates in front of
+its consensus. The carving objective is this front mass with transmittance and consensus held fixed,
+\begin{equation}\label{eq:consensus_carve}
+  \mathcal L_{\mathrm{cc}}
+  =\frac{\lambda}{HW}\sum_i \omega_i\,\alpha_i^0\,\overline{\textstyle\sum_r G_{ri}^{\mathrm{2D}}T_{ri}\,\mathbb{1}[\cdot]},
+  \qquad
+  \frac{\partial\mathcal L_{\mathrm{cc}}}{\partial\ell_i}=\frac{\lambda}{HW}\,\omega_i f_i\,(1-\alpha_i^0),
+\end{equation}
+where $\ell_i$ is the opacity logit, the overline denotes stop-gradient and $\omega_i$ is a per-Gaussian weight defined below.
+The gradient is added to the base-objective gradient in the same update; positions, scales, rotations and colours receive no gradient from the carving term.
+The base objective continues to optimize these parameters and opacity, while carving encourages contradicted contributions to fade.
+Carving itself does not delete Gaussians; opacity pruning and final read-out perform removal as described below.
+
+\paragraph{Three choices.}
+\emph{(i) Opacity only.} A loss on rendered depth $\bar D_r$ moves Gaussians along the ray, and
+$\partial\bar D_r/\partial z_{ri}=w_{ri}/A_r>0$ for every $i$: its position gradient has the same sign for all Gaussians on the ray, set
+by the target alone. A Gaussian between two surfaces is therefore pushed toward whichever surface the target names, and even the map's
+own blended depth pushes it deeper (Fig.~\ref{fig:ray}). Eq.~\eqref{eq:consensus_carve} translates ``contradicted'' into ``fade'', never
+into a direction.
+\emph{(ii) Transmittance fixed.} The exact derivative of a ray's front mass with respect to $a_{rj}$ is
+$T_{rj}\,T_r(B)/T_{r,j+1}$, with $T_r(B)$ the transmittance at the margin boundary: the mass a front Gaussian releases counts only if it
+reaches the consensus. For the front member of an opaque cluster of floaters this vanishes---the released mass is caught by the next
+floater---so the exact objective is flat exactly where floaters are worst. Holding $T_{ri}$ fixed penalises every front contribution at
+its visible weight and peels a cluster from the front; the two gradients coincide for an isolated floater (Supp.~A).
+\emph{(iii) Continuous, at every render.} A thresholded vote (SparseGS~\cite{sparsegs} after training; Sheng et al.~\cite{sheng2026} after
+ten agreeing views) waits for evidence that an egocentric stream delivers rarely; Eq.~\eqref{eq:consensus_carve} acts in the first view
+that sees a contradiction, by the amount it sees.
+Formally, (P1) for a Gaussian seeded at $z_{ri}=D_r$, any free-space loss referenced to $D_r$ has zero gradient on it in view $r$;
+(P2) for fixed $d^*_r$, $\partial\mathcal L_{\mathrm{cc}}/\partial\ell_i\ge0$, and it is non-zero in view $r$ whenever more than half of
+the ray's mass terminates beyond $z_{ri}/(1-\rho)$, whatever the number and order of the Gaussians that carry it (proofs in Supp.~A).
+The nearest prior terms differ in reference or in cost: SplatAD~\cite{splatad} penalises the same per-Gaussian front mass against a LiDAR
+return, GS-SLAM~\cite{gsslam} attenuates opacity in front of the sensor depth, and StableGS~\cite{stablegs} routes a self-referenced depth
+consistency to opacity through view pairs and a second render. We need neither a sensor nor a second render.
+
+\paragraph{Persistence weight.}
+Thin true structure lies in front of a farther consensus in some views. We therefore weight the gradient by how persistently a Gaussian
+has been in front,
+\begin{equation}\label{eq:persistence}
+  \omega_i=\mathrm{clip}\!\Big(\frac{F_i/V_i-\tau_0}{\tau_1-\tau_0},\,0,\,1\Big),
+\end{equation}
+with $F_i,V_i$ the running sums of its front and total contribution over past renders ($\tau_0{=}0.5$, $\tau_1{=}0.8$). Without the
+weight, a small $\lambda$ removes most floaters on most sequences but erodes thin structure on some; with it, a single $\lambda{=}3$ holds
+on all our sequences (Sec.~\ref{sec:exp}). Per-Gaussian histories have served as inputs to pruning decisions~\cite{rtgslam,vingsmono};
+here they weight a gradient.
+
+\paragraph{Pruning, read-out, and consensus finisher.}
+Carving encourages opacity reduction, while pruning removes low-opacity Gaussians during learning and at export.
+During learning, Gaussians with $\alpha_i^0<0.1$ are eligible for pruning outside the latest ten nonempty birth batches, allowing recent additions to receive supervision before removal.
+A pruning pass becomes due every 300 completed training renders and is executed at the next completed training-group boundary.
+Gaussian parameters, optimizer state and contribution histories are trimmed together; the retained histories $F_i,V_i$ are multiplied by $0.5$ at each scheduled pass so that later observations can revise older evidence.
+At export, we apply the usual opacity threshold~\cite{monogs}, $\alpha_i^0<0.1$, without birth protection in an $O(G)$ pass.
+The newest keyframes may nevertheless have received too few renders for their inconsistent contributions to fade.
+A \emph{consensus finisher} therefore re-renders each retained mapping keyframe once and accumulates fresh contribution evidence on the opacity-filtered map.
+It removes Gaussians with total contribution $C_i\ge0.5$, valid-reference contribution $V_i>0$, and front share $F_i/V_i\ge0.8$.
+This is a separate evidence-based deletion step at export; its effect and additional rendering cost are reported separately.
+
+\paragraph{Cost.}
+The training-time carving term needs no depth input and no extra render. One kernel per training render walks the rasteriser's own tile lists (shared-memory
+staging, two traversals, one atomic per front contribution), keeps two scalars per Gaussian ($F_i,V_i$), and runs below the render
+itself (Tab.~\ref{tab:cost}). The consensus finisher adds one render per retained mapping keyframe at export, with no optimizer updates.
+With the unchanged mapping loss $\mathcal L_{\mathrm{base}}$,
+\begin{equation}\label{eq:map_objective}
+  \mathcal L_{\mathrm{map}}=\mathcal L_{\mathrm{base}}+\mathcal L_{\mathrm{cc}} .
+\end{equation}
