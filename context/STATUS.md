@@ -88,6 +88,8 @@ avg/call 139.4ms→66.8ms(−52.1%)** |
 
 ## 최근 흐름 (최신순)
 
+- **2026-10-11 — D FIFO replay 저장관리 및 시간 검증 완료:** 논리 replay 무제한, KF/dense 공통 GPU512→RAM1024→SSD FIFO; κ16/ERVS/3:3:6 비복원/이미지별step 및 frontend 버퍼 유지. 3장면×2저장×2반복 PSNR Δ Aria−0.01590/RPNG+0.00309/TUM−0.01398dB, mapper시간 +5.78/+5.39/+2.25%. 모든 paired 학습순서·admission·count·pose 동일. Native Aria 학습37.04→35.91s(−3.04%)이나 유입/packet/저장 포함48.88→53.70s(+9.86%), stream187.79→191.45s(+1.95%); 속도이득 주장 금지. GPU16/RAM32 강제SSD는 품질+0.000515dB/시간+14.49%, OS page cache 사용. 기존D2회/native2회/SSD1회 포함17 평가·audit PASS; native 평가기 선택 오류1건은 원본 map 유지 후 올바른 평가기로 복구·로그 보존. D 기본tiered_fifo, --replay-storage legacy로 이전 정책 복원. [결과](experiments/campaigns/03_benchmark_contract/replay_storage/README.md).
+
 - 2026-10-01 사용자 확정 B(KF metric RGBD + dense RGB)를 VIGS-SLAM-custom main에 merge/commit: 6d200f0f. 40/KF, normal OFF, dense depth OFF, warp backward ON. 공식 run.py 네 장면 재검증 PSNR 25.7747/25.0222/21.8619/24.9850dB, 기존 B seed0와 최대차 0.0144dB; trace/pose/cohort/budget 동일, CPU22 tests 통과. GitHub main push 완료. → [card](experiments/campaigns/06_gain_attribution/b_condition_main_adoption/README.md)
 
 - 2026-10-01 fixed40 dense-depth 4scene×3arm×2seed 24/24 완료: held-out PSNR은 dense RGB(B)가 4/4 최고. dense depth(C)는 B 대비 −0.066/−0.092/−0.216/−0.100dB; Aria MPS front mass −2.69/−1.60%p, behind +0.86/+0.88%p, 수동 floater영역 count −11.8%. normal/hard-proxy OFF, depth L1 λ0.25, causal frozen replay/zero-tail. 독립 GT 없는 RPNG·UTMM은 BA 보조지표로 한정. PLY24개와 원자료는 results/campaigns/gain_attribution/dense_depth_four_scene/v1, main 미변경. → [card](experiments/campaigns/06_gain_attribution/dense_depth_four_scene/README.md)

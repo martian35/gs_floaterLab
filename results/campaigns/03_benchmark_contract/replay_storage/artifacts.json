@@ -1,0 +1,8 @@
+{
+  "root": "/ssd/intern/paperExperiments/runs/campaigns/03_benchmark_contract/replay_storage",
+  "shared_frontend": "20261011_comparison_v1",
+  "historical_D": "20261011_legacy_v1",
+  "native_frontend": "20261011_native_v1",
+  "forced_ssd": "20261011_smoke_v1",
+  "documentation": "context/experiments/campaigns/03_benchmark_contract/replay_storage/README.md"
+}

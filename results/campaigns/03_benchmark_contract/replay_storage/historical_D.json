@@ -1,0 +1,24 @@
+[
+  {
+    "dataset": "aria",
+    "sample_sequence_identical": true,
+    "admissions_identical": true,
+    "legacy_psnr": 25.655048159942083,
+    "new_psnr_r0": 25.633404375395315,
+    "psnr_delta": -0.021643784546768075,
+    "legacy_mapper_seconds": 74.82300390163437,
+    "new_mapper_seconds_r0": 78.36602161079645,
+    "expired_candidates": 390
+  },
+  {
+    "dataset": "rpng",
+    "sample_sequence_identical": true,
+    "admissions_identical": true,
+    "legacy_psnr": 22.42658301901476,
+    "new_psnr_r0": 22.42371661336388,
+    "psnr_delta": -0.002866405650880921,
+    "legacy_mapper_seconds": 106.25314616924152,
+    "new_mapper_seconds_r0": 112.18285547988489,
+    "expired_candidates": 896
+  }
+]
