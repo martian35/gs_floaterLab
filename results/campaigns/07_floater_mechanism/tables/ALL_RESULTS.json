@@ -2,6 +2,7 @@
   {
     "scene": "aria1253",
     "arm": "base",
+    "seed": 0,
     "probe": false,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/aria1253/base_s0",
     "category": "base",
@@ -13,11 +14,13 @@
     "floaters_trained": 591,
     "gt_floaters_export": null,
     "mapper_seconds": 41.51861776407168,
+    "recipe": "C",
     "methods": null
   },
   {
     "scene": "aria1253",
     "arm": "base",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/aria1253/base_s0_probe",
     "category": "base",
@@ -29,6 +32,7 @@
     "floaters_trained": 619,
     "gt_floaters_export": null,
     "mapper_seconds": 53.60355175801669,
+    "recipe": "C",
     "methods": null,
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/aria1253/base_s0_probe",
@@ -81,6 +85,7 @@
   {
     "scene": "aria1253",
     "arm": "cc",
+    "seed": 0,
     "probe": false,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/aria1253/cc_s0",
     "category": "ours",
@@ -92,11 +97,13 @@
     "floaters_trained": 498,
     "gt_floaters_export": null,
     "mapper_seconds": 49.627741366923146,
+    "recipe": "C",
     "methods": null
   },
   {
     "scene": "aria1253",
     "arm": "cc",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/aria1253/cc_s0_probe",
     "category": "ours",
@@ -108,6 +115,7 @@
     "floaters_trained": 500,
     "gt_floaters_export": null,
     "mapper_seconds": 60.73759202394285,
+    "recipe": "C",
     "methods": null,
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/aria1253/cc_s0_probe",
@@ -160,6 +168,7 @@
   {
     "scene": "aria1253",
     "arm": "cgslam",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/aria1253/cgslam_s0_probe",
     "category": "sensor_free_space",
@@ -171,6 +180,7 @@
     "floaters_trained": 627,
     "gt_floaters_export": null,
     "mapper_seconds": 61.73374802502076,
+    "recipe": "C",
     "methods": {
       "cgslam": {
         "kf_views": 3138,
@@ -229,6 +239,7 @@
   {
     "scene": "aria1253",
     "arm": "d4",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/aria1253/d4_s0_probe",
     "category": "frontend_depth_regularization",
@@ -240,6 +251,7 @@
     "floaters_trained": 710,
     "gt_floaters_export": null,
     "mapper_seconds": 53.67413718005264,
+    "recipe": "C",
     "methods": null,
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/aria1253/d4_s0_probe",
@@ -292,6 +304,7 @@
   {
     "scene": "aria1253",
     "arm": "dng_hard",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/aria1253/dng_hard_s0_probe",
     "category": "frontend_depth_regularization",
@@ -303,6 +316,7 @@
     "floaters_trained": 567,
     "gt_floaters_export": null,
     "mapper_seconds": 58.67776349000633,
+    "recipe": "C",
     "methods": null,
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/aria1253/dng_hard_s0_probe",
@@ -355,6 +369,7 @@
   {
     "scene": "aria1253",
     "arm": "dng_soft",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/aria1253/dng_soft_s0_probe",
     "category": "frontend_depth_regularization",
@@ -366,6 +381,7 @@
     "floaters_trained": 637,
     "gt_floaters_export": null,
     "mapper_seconds": 57.64280309715832,
+    "recipe": "C",
     "methods": null,
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/aria1253/dng_soft_s0_probe",
@@ -418,6 +434,7 @@
   {
     "scene": "aria1253",
     "arm": "dngaussian",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/aria1253/dngaussian_s0_probe",
     "category": "frontend_depth_regularization",
@@ -429,6 +446,7 @@
     "floaters_trained": 589,
     "gt_floaters_export": null,
     "mapper_seconds": 81.66062885605061,
+    "recipe": "C",
     "methods": {
       "dngaussian": {
         "kf_views": 3138,
@@ -488,6 +506,7 @@
   {
     "scene": "aria1253",
     "arm": "dsnerf_kl",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/aria1253/dsnerf_kl_s0_probe",
     "category": "termination_distribution",
@@ -499,6 +518,7 @@
     "floaters_trained": 651,
     "gt_floaters_export": null,
     "mapper_seconds": 56.87330723199557,
+    "recipe": "C",
     "methods": {
       "ray_losses": {
         "kf_views": 3138,
@@ -557,6 +577,7 @@
   {
     "scene": "aria1253",
     "arm": "gof_distortion",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/aria1253/gof_distortion_s0_probe",
     "category": "ray_statistics",
@@ -568,6 +589,7 @@
     "floaters_trained": 582,
     "gt_floaters_export": null,
     "mapper_seconds": 124.46892629905051,
+    "recipe": "C",
     "methods": {
       "gof_distortion": {
         "renders": 6216,
@@ -626,6 +648,7 @@
   {
     "scene": "aria1253",
     "arm": "gs3d",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/aria1253/gs3d_s0_probe",
     "category": "map_maintenance",
@@ -637,6 +660,7 @@
     "floaters_trained": 1466,
     "gt_floaters_export": null,
     "mapper_seconds": 55.725336185176275,
+    "recipe": "C",
     "methods": {
       "maintenance": {
         "resets": [
@@ -714,6 +738,7 @@
   {
     "scene": "aria1253",
     "arm": "maint_t03",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/aria1253/maint_t03_s0_probe",
     "category": "map_maintenance",
@@ -725,6 +750,7 @@
     "floaters_trained": 579,
     "gt_floaters_export": null,
     "mapper_seconds": 51.60141417301929,
+    "recipe": "C",
     "methods": {
       "maintenance": {
         "resets": []
@@ -781,6 +807,7 @@
   {
     "scene": "aria1253",
     "arm": "maint_t05",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/aria1253/maint_t05_s0_probe",
     "category": "map_maintenance",
@@ -792,6 +819,7 @@
     "floaters_trained": 558,
     "gt_floaters_export": null,
     "mapper_seconds": 50.10318553694378,
+    "recipe": "C",
     "methods": {
       "maintenance": {
         "resets": []
@@ -848,6 +876,7 @@
   {
     "scene": "aria1253",
     "arm": "monogs",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/aria1253/monogs_s0_probe",
     "category": "map_maintenance",
@@ -859,6 +888,7 @@
     "floaters_trained": 92,
     "gt_floaters_export": null,
     "mapper_seconds": 46.38948326406535,
+    "recipe": "C",
     "methods": {
       "maintenance": {
         "resets": []
@@ -915,6 +945,7 @@
   {
     "scene": "aria1253",
     "arm": "sensor_carve",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/aria1253/sensor_carve_s0_probe",
     "category": "sensor_free_space",
@@ -926,6 +957,7 @@
     "floaters_trained": 609,
     "gt_floaters_export": null,
     "mapper_seconds": 64.09021341108019,
+    "recipe": "C",
     "methods": null,
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/aria1253/sensor_carve_s0_probe",
@@ -978,6 +1010,7 @@
   {
     "scene": "aria1253",
     "arm": "sheng2026_phi09",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/aria1253/sheng2026_phi09_s0_probe",
     "category": "judge_and_delete",
@@ -989,6 +1022,7 @@
     "floaters_trained": 38,
     "gt_floaters_export": null,
     "mapper_seconds": 55.432148889944074,
+    "recipe": "C",
     "methods": {
       "sheng2026": {
         "rounds": 47,
@@ -1048,6 +1082,7 @@
   {
     "scene": "aria1253",
     "arm": "sheng2026",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/aria1253/sheng2026_s0_probe",
     "category": "judge_and_delete",
@@ -1059,6 +1094,7 @@
     "floaters_trained": 111,
     "gt_floaters_export": null,
     "mapper_seconds": 55.522561616948224,
+    "recipe": "C",
     "methods": {
       "sheng2026": {
         "rounds": 47,
@@ -1118,6 +1154,7 @@
   {
     "scene": "aria1253",
     "arm": "sparsegs",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/aria1253/sparsegs_s0_probe",
     "category": "judge_and_delete",
@@ -1129,6 +1166,7 @@
     "floaters_trained": 381,
     "gt_floaters_export": null,
     "mapper_seconds": 53.85936605010647,
+    "recipe": "C",
     "methods": {
       "sparsegs": {}
     },
@@ -1137,6 +1175,7 @@
   {
     "scene": "aria1253",
     "arm": "splatad",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/aria1253/splatad_s0_probe",
     "category": "sensor_free_space",
@@ -1148,6 +1187,7 @@
     "floaters_trained": 647,
     "gt_floaters_export": null,
     "mapper_seconds": 53.08138321903243,
+    "recipe": "C",
     "methods": {
       "ray_losses": {
         "kf_views": 3138,
@@ -1206,6 +1246,7 @@
   {
     "scene": "table_06",
     "arm": "base",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/table_06/base_s0_probe",
     "category": "base",
@@ -1217,6 +1258,7 @@
     "floaters_trained": 381,
     "gt_floaters_export": null,
     "mapper_seconds": 148.24675918114372,
+    "recipe": "C",
     "methods": {},
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/table_06/base_s0_probe",
@@ -1269,6 +1311,7 @@
   {
     "scene": "table_06",
     "arm": "cc",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/table_06/cc_s0_probe",
     "category": "ours",
@@ -1280,6 +1323,7 @@
     "floaters_trained": 134,
     "gt_floaters_export": null,
     "mapper_seconds": 169.01401403792988,
+    "recipe": "C",
     "methods": {},
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/table_06/cc_s0_probe",
@@ -1332,6 +1376,7 @@
   {
     "scene": "table_06",
     "arm": "cgslam",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/table_06/cgslam_s0_probe",
     "category": "sensor_free_space",
@@ -1343,6 +1388,7 @@
     "floaters_trained": 414,
     "gt_floaters_export": null,
     "mapper_seconds": 174.5740340849443,
+    "recipe": "C",
     "methods": {
       "cgslam": {
         "kf_views": 6528,
@@ -1401,6 +1447,7 @@
   {
     "scene": "table_06",
     "arm": "d4",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/table_06/d4_s0_probe",
     "category": "frontend_depth_regularization",
@@ -1412,6 +1459,7 @@
     "floaters_trained": 420,
     "gt_floaters_export": null,
     "mapper_seconds": 147.78331330415676,
+    "recipe": "C",
     "methods": {},
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/table_06/d4_s0_probe",
@@ -1464,6 +1512,7 @@
   {
     "scene": "table_06",
     "arm": "dng_hard",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/table_06/dng_hard_s0_probe",
     "category": "frontend_depth_regularization",
@@ -1475,6 +1524,7 @@
     "floaters_trained": 348,
     "gt_floaters_export": null,
     "mapper_seconds": 164.3169481960358,
+    "recipe": "C",
     "methods": {},
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/table_06/dng_hard_s0_probe",
@@ -1527,6 +1577,7 @@
   {
     "scene": "table_06",
     "arm": "dng_soft",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/table_06/dng_soft_s0_probe",
     "category": "frontend_depth_regularization",
@@ -1538,6 +1589,7 @@
     "floaters_trained": 430,
     "gt_floaters_export": null,
     "mapper_seconds": 158.1068203091054,
+    "recipe": "C",
     "methods": {},
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/table_06/dng_soft_s0_probe",
@@ -1590,6 +1642,7 @@
   {
     "scene": "table_06",
     "arm": "dngaussian",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/table_06/dngaussian_s0_probe",
     "category": "frontend_depth_regularization",
@@ -1601,6 +1654,7 @@
     "floaters_trained": 377,
     "gt_floaters_export": null,
     "mapper_seconds": 215.415092919975,
+    "recipe": "C",
     "methods": {
       "dngaussian": {
         "kf_views": 6528,
@@ -1660,6 +1714,7 @@
   {
     "scene": "table_06",
     "arm": "dsnerf_kl",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/table_06/dsnerf_kl_s0_probe",
     "category": "termination_distribution",
@@ -1671,6 +1726,7 @@
     "floaters_trained": 254,
     "gt_floaters_export": null,
     "mapper_seconds": 182.10780122900178,
+    "recipe": "C",
     "methods": {
       "ray_losses": {
         "kf_views": 6528,
@@ -1729,6 +1785,7 @@
   {
     "scene": "table_06",
     "arm": "gof_distortion",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/table_06/gof_distortion_s0_probe",
     "category": "ray_statistics",
@@ -1740,6 +1797,7 @@
     "floaters_trained": 380,
     "gt_floaters_export": null,
     "mapper_seconds": 440.1568082098893,
+    "recipe": "C",
     "methods": {
       "gof_distortion": {
         "renders": 12996,
@@ -1798,6 +1856,7 @@
   {
     "scene": "table_06",
     "arm": "gs3d",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/table_06/gs3d_s0_probe",
     "category": "map_maintenance",
@@ -1809,6 +1868,7 @@
     "floaters_trained": 1038,
     "gt_floaters_export": null,
     "mapper_seconds": 173.36573800123733,
+    "recipe": "C",
     "methods": {
       "maintenance": {
         "resets": [
@@ -1886,6 +1946,7 @@
   {
     "scene": "table_06",
     "arm": "gsslam_eq9",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/table_06/gsslam_eq9_s0_probe",
     "category": "sensor_free_space",
@@ -1897,6 +1958,7 @@
     "floaters_trained": 27,
     "gt_floaters_export": null,
     "mapper_seconds": 133.58766024502256,
+    "recipe": "C",
     "methods": {
       "gsslam_eq9": {
         "keyframes": 213,
@@ -1954,6 +2016,7 @@
   {
     "scene": "table_06",
     "arm": "maint_t03",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/table_06/maint_t03_s0_probe",
     "category": "map_maintenance",
@@ -1965,6 +2028,7 @@
     "floaters_trained": 396,
     "gt_floaters_export": null,
     "mapper_seconds": 133.28969164912996,
+    "recipe": "C",
     "methods": {
       "maintenance": {
         "resets": []
@@ -2021,6 +2085,7 @@
   {
     "scene": "table_06",
     "arm": "maint_t05",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/table_06/maint_t05_s0_probe",
     "category": "map_maintenance",
@@ -2032,6 +2097,7 @@
     "floaters_trained": 381,
     "gt_floaters_export": null,
     "mapper_seconds": 127.58866721511731,
+    "recipe": "C",
     "methods": {
       "maintenance": {
         "resets": []
@@ -2088,6 +2154,7 @@
   {
     "scene": "table_06",
     "arm": "monogs",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/table_06/monogs_s0_probe",
     "category": "map_maintenance",
@@ -2099,6 +2166,7 @@
     "floaters_trained": 30,
     "gt_floaters_export": null,
     "mapper_seconds": 113.05906276014139,
+    "recipe": "C",
     "methods": {
       "maintenance": {
         "resets": []
@@ -2155,6 +2223,7 @@
   {
     "scene": "table_06",
     "arm": "sensor_carve",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/table_06/sensor_carve_s0_probe",
     "category": "sensor_free_space",
@@ -2166,6 +2235,7 @@
     "floaters_trained": 398,
     "gt_floaters_export": null,
     "mapper_seconds": 181.34655034412572,
+    "recipe": "C",
     "methods": {},
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/table_06/sensor_carve_s0_probe",
@@ -2218,6 +2288,7 @@
   {
     "scene": "table_06",
     "arm": "sheng2026_phi09",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/table_06/sheng2026_phi09_s0_probe",
     "category": "judge_and_delete",
@@ -2229,6 +2300,7 @@
     "floaters_trained": 2,
     "gt_floaters_export": null,
     "mapper_seconds": 146.95496109093074,
+    "recipe": "C",
     "methods": {
       "sheng2026": {
         "rounds": 58,
@@ -2288,6 +2360,7 @@
   {
     "scene": "table_06",
     "arm": "sheng2026",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/table_06/sheng2026_s0_probe",
     "category": "judge_and_delete",
@@ -2299,6 +2372,7 @@
     "floaters_trained": 1,
     "gt_floaters_export": null,
     "mapper_seconds": 145.52716038400104,
+    "recipe": "C",
     "methods": {
       "sheng2026": {
         "rounds": 58,
@@ -2358,6 +2432,7 @@
   {
     "scene": "table_06",
     "arm": "sparsegs",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/table_06/sparsegs_s0_probe",
     "category": "judge_and_delete",
@@ -2369,6 +2444,7 @@
     "floaters_trained": 73,
     "gt_floaters_export": null,
     "mapper_seconds": 147.6201980290789,
+    "recipe": "C",
     "methods": {
       "sparsegs": {}
     },
@@ -2423,6 +2499,7 @@
   {
     "scene": "table_06",
     "arm": "splatad",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/table_06/splatad_s0_probe",
     "category": "sensor_free_space",
@@ -2434,6 +2511,7 @@
     "floaters_trained": 306,
     "gt_floaters_export": null,
     "mapper_seconds": 139.4013424069708,
+    "recipe": "C",
     "methods": {
       "ray_losses": {
         "kf_views": 6528,
@@ -2492,6 +2570,7 @@
   {
     "scene": "tum_fr1_desk",
     "arm": "base",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/tum_fr1_desk/base_s0_probe",
     "category": "base",
@@ -2503,6 +2582,7 @@
     "floaters_trained": 90,
     "gt_floaters_export": 384,
     "mapper_seconds": 24.733131517969014,
+    "recipe": "C",
     "methods": {},
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/tum_fr1_desk/base_s0_probe",
@@ -2555,6 +2635,7 @@
   {
     "scene": "tum_fr1_desk",
     "arm": "cc",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/tum_fr1_desk/cc_s0_probe",
     "category": "ours",
@@ -2566,6 +2647,7 @@
     "floaters_trained": 92,
     "gt_floaters_export": 385,
     "mapper_seconds": 28.191991650950513,
+    "recipe": "C",
     "methods": {},
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/tum_fr1_desk/cc_s0_probe",
@@ -2618,6 +2700,7 @@
   {
     "scene": "tum_fr1_desk",
     "arm": "cgslam",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/tum_fr1_desk/cgslam_s0_probe",
     "category": "sensor_free_space",
@@ -2629,6 +2712,7 @@
     "floaters_trained": 83,
     "gt_floaters_export": 505,
     "mapper_seconds": 27.878771551950194,
+    "recipe": "C",
     "methods": {
       "cgslam": {
         "kf_views": 1497,
@@ -2687,6 +2771,7 @@
   {
     "scene": "tum_fr1_desk",
     "arm": "dngaussian",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/tum_fr1_desk/dngaussian_s0_probe",
     "category": "frontend_depth_regularization",
@@ -2698,6 +2783,7 @@
     "floaters_trained": 83,
     "gt_floaters_export": 443,
     "mapper_seconds": 37.940249774968834,
+    "recipe": "C",
     "methods": {
       "dngaussian": {
         "kf_views": 1497,
@@ -2757,6 +2843,7 @@
   {
     "scene": "tum_fr1_desk",
     "arm": "dsnerf_kl",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/tum_fr1_desk/dsnerf_kl_s0_probe",
     "category": "termination_distribution",
@@ -2768,6 +2855,7 @@
     "floaters_trained": 106,
     "gt_floaters_export": 40,
     "mapper_seconds": 26.746196123072878,
+    "recipe": "C",
     "methods": {
       "ray_losses": {
         "kf_views": 1497,
@@ -2826,6 +2914,7 @@
   {
     "scene": "tum_fr1_desk",
     "arm": "gof_distortion",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/tum_fr1_desk/gof_distortion_s0_probe",
     "category": "ray_statistics",
@@ -2837,6 +2926,7 @@
     "floaters_trained": 75,
     "gt_floaters_export": 425,
     "mapper_seconds": 68.2799889619564,
+    "recipe": "C",
     "methods": {
       "gof_distortion": {
         "renders": 2934,
@@ -2895,6 +2985,7 @@
   {
     "scene": "tum_fr1_desk",
     "arm": "gs3d",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/tum_fr1_desk/gs3d_s0_probe",
     "category": "map_maintenance",
@@ -2906,6 +2997,7 @@
     "floaters_trained": 486,
     "gt_floaters_export": 418,
     "mapper_seconds": 26.821868745915708,
+    "recipe": "C",
     "methods": {
       "maintenance": {
         "resets": [
@@ -2983,6 +3075,7 @@
   {
     "scene": "tum_fr1_desk",
     "arm": "monogs",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/tum_fr1_desk/monogs_s0_probe",
     "category": "map_maintenance",
@@ -2994,6 +3087,7 @@
     "floaters_trained": 16,
     "gt_floaters_export": 131,
     "mapper_seconds": 22.76669739902718,
+    "recipe": "C",
     "methods": {
       "maintenance": {
         "resets": []
@@ -3050,6 +3144,7 @@
   {
     "scene": "tum_fr1_desk",
     "arm": "sensor_carve",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/tum_fr1_desk/sensor_carve_s0_probe",
     "category": "sensor_free_space",
@@ -3061,6 +3156,7 @@
     "floaters_trained": 81,
     "gt_floaters_export": 202,
     "mapper_seconds": 28.065839360999234,
+    "recipe": "C",
     "methods": {},
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/tum_fr1_desk/sensor_carve_s0_probe",
@@ -3113,6 +3209,7 @@
   {
     "scene": "tum_fr1_desk",
     "arm": "sheng2026",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/tum_fr1_desk/sheng2026_s0_probe",
     "category": "judge_and_delete",
@@ -3124,6 +3221,7 @@
     "floaters_trained": 7,
     "gt_floaters_export": 260,
     "mapper_seconds": 24.56289683595969,
+    "recipe": "C",
     "methods": {
       "sheng2026": {
         "rounds": 37,
@@ -3183,6 +3281,7 @@
   {
     "scene": "tum_fr1_desk",
     "arm": "sparsegs",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/tum_fr1_desk/sparsegs_s0_probe",
     "category": "judge_and_delete",
@@ -3194,6 +3293,7 @@
     "floaters_trained": 104,
     "gt_floaters_export": 150,
     "mapper_seconds": 24.598989336976956,
+    "recipe": "C",
     "methods": {
       "sparsegs": {}
     },
@@ -3248,6 +3348,7 @@
   {
     "scene": "tum_fr1_desk",
     "arm": "splatad",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/tum_fr1_desk/splatad_s0_probe",
     "category": "sensor_free_space",
@@ -3259,6 +3360,7 @@
     "floaters_trained": 140,
     "gt_floaters_export": 62,
     "mapper_seconds": 24.45985464897967,
+    "recipe": "C",
     "methods": {
       "ray_losses": {
         "kf_views": 1497,
@@ -3317,6 +3419,7 @@
   {
     "scene": "aria1253",
     "arm": "gsslam_eq9",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_gsslam/aria1253/gsslam_eq9_s0_probe",
     "category": "sensor_free_space",
@@ -3328,6 +3431,7 @@
     "floaters_trained": 243,
     "gt_floaters_export": null,
     "mapper_seconds": 50.72964343203057,
+    "recipe": "C",
     "methods": {
       "gsslam_eq9": {
         "keyframes": 112,
@@ -3385,6 +3489,7 @@
   {
     "scene": "tum_fr1_desk",
     "arm": "gsslam_eq9",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_gsslam/tum_fr1_desk/gsslam_eq9_s0_probe",
     "category": "sensor_free_space",
@@ -3396,6 +3501,7 @@
     "floaters_trained": 13,
     "gt_floaters_export": 157,
     "mapper_seconds": 22.33227233598882,
+    "recipe": "C",
     "methods": {
       "gsslam_eq9": {
         "keyframes": 87,
@@ -3453,6 +3559,7 @@
   {
     "scene": "aria1253",
     "arm": "dsnerf_kl_w001",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_sweep/aria1253/dsnerf_kl_w001_s0_probe",
     "category": "termination_distribution",
@@ -3464,6 +3571,7 @@
     "floaters_trained": 629,
     "gt_floaters_export": null,
     "mapper_seconds": 58.93260345902672,
+    "recipe": "C",
     "methods": {
       "ray_losses": {
         "kf_views": 3138,
@@ -3522,6 +3630,7 @@
   {
     "scene": "aria1253",
     "arm": "dsnerf_kl_w01",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_sweep/aria1253/dsnerf_kl_w01_s0_probe",
     "category": "termination_distribution",
@@ -3533,6 +3642,7 @@
     "floaters_trained": 657,
     "gt_floaters_export": null,
     "mapper_seconds": 57.84921727885376,
+    "recipe": "C",
     "methods": {
       "ray_losses": {
         "kf_views": 3138,
@@ -3591,6 +3701,7 @@
   {
     "scene": "aria1253",
     "arm": "splatad_w001",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_sweep/aria1253/splatad_w001_s0_probe",
     "category": "sensor_free_space",
@@ -3602,6 +3713,7 @@
     "floaters_trained": 620,
     "gt_floaters_export": null,
     "mapper_seconds": 56.56918638111529,
+    "recipe": "C",
     "methods": {
       "ray_losses": {
         "kf_views": 3138,
@@ -3660,6 +3772,7 @@
   {
     "scene": "aria1253",
     "arm": "splatad_w01",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_sweep/aria1253/splatad_w01_s0_probe",
     "category": "sensor_free_space",
@@ -3671,6 +3784,7 @@
     "floaters_trained": 617,
     "gt_floaters_export": null,
     "mapper_seconds": 55.35242507090152,
+    "recipe": "C",
     "methods": {
       "ray_losses": {
         "kf_views": 3138,
@@ -3729,6 +3843,7 @@
   {
     "scene": "table_06",
     "arm": "dsnerf_kl_w001",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_sweep/table_06/dsnerf_kl_w001_s0_probe",
     "category": "termination_distribution",
@@ -3740,6 +3855,7 @@
     "floaters_trained": 302,
     "gt_floaters_export": null,
     "mapper_seconds": 173.57982277788687,
+    "recipe": "C",
     "methods": {
       "ray_losses": {
         "kf_views": 6528,
@@ -3798,6 +3914,7 @@
   {
     "scene": "table_06",
     "arm": "splatad_w001",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_sweep/table_06/splatad_w001_s0_probe",
     "category": "sensor_free_space",
@@ -3809,6 +3926,7 @@
     "floaters_trained": 394,
     "gt_floaters_export": null,
     "mapper_seconds": 153.58717870120017,
+    "recipe": "C",
     "methods": {
       "ray_losses": {
         "kf_views": 6528,
@@ -3867,6 +3985,7 @@
   {
     "scene": "tum_fr1_desk",
     "arm": "dsnerf_kl_w001",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_sweep/tum_fr1_desk/dsnerf_kl_w001_s0_probe",
     "category": "termination_distribution",
@@ -3878,6 +3997,7 @@
     "floaters_trained": 57,
     "gt_floaters_export": 153,
     "mapper_seconds": 25.75351423194661,
+    "recipe": "C",
     "methods": {
       "ray_losses": {
         "kf_views": 1497,
@@ -3936,6 +4056,7 @@
   {
     "scene": "tum_fr1_desk",
     "arm": "splatad_w001",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_sweep/tum_fr1_desk/splatad_w001_s0_probe",
     "category": "sensor_free_space",
@@ -3947,6 +4068,7 @@
     "floaters_trained": 78,
     "gt_floaters_export": 276,
     "mapper_seconds": 25.070577738988504,
+    "recipe": "C",
     "methods": {
       "ray_losses": {
         "kf_views": 1497,
@@ -4004,7 +4126,73 @@
   },
   {
     "scene": "aria1253",
+    "arm": "carve_l02_nogate",
+    "seed": 0,
+    "probe": true,
+    "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/aria1253/carve_l02_nogate_s0_probe",
+    "category": "ours_ablation",
+    "psnr": 26.94800882561262,
+    "ssim": 0.8825311914894932,
+    "lpips": 0.22283338703388392,
+    "gaussians": 175266,
+    "floaters_export": 5,
+    "floaters_trained": 541,
+    "gt_floaters_export": null,
+    "mapper_seconds": 60.849624404008864,
+    "recipe": "C",
+    "methods": {},
+    "mechanism": {
+      "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/aria1253/carve_l02_nogate_s0_probe",
+      "gaussians": 192553,
+      "windows": 20,
+      "survivor": {
+        "n": 5,
+        "rgb_fade_share": 0.26270461124201744,
+        "rgb_per_seen": 6.690386672531683e-06,
+        "rgb_deeper_share": 0.4011040411930256,
+        "geom_fade_share": 0.5206671058073725,
+        "geom_per_seen": 4.959966016782696e-06,
+        "geom_deeper_share": 0.6423952633224215,
+        "inject_fade_share": 1.0,
+        "inject_per_seen": 3.970217056526164e-06,
+        "born_last10pct": 0.2,
+        "born_median_window": 10.0,
+        "final_opacity_median": 0.12540210783481598
+      },
+      "floater": {
+        "n": 541,
+        "rgb_fade_share": 0.8211977351440072,
+        "rgb_per_seen": 2.4488170495302164e-06,
+        "rgb_deeper_share": 0.7992748926681755,
+        "geom_fade_share": 0.8981165326601012,
+        "geom_per_seen": 4.101688377933875e-06,
+        "geom_deeper_share": 0.9284225887778034,
+        "inject_fade_share": 1.0,
+        "inject_per_seen": 2.830041277293656e-06,
+        "born_last10pct": 0.8059149722735675,
+        "born_median_window": 19.0,
+        "final_opacity_median": 0.00777474045753479
+      },
+      "surface": {
+        "n": 180634,
+        "rgb_fade_share": 0.47291776366959104,
+        "rgb_per_seen": 5.278488627434156e-07,
+        "rgb_deeper_share": 0.4565787156233312,
+        "geom_fade_share": 0.521523634111471,
+        "geom_per_seen": 1.7308810196582264e-07,
+        "geom_deeper_share": 0.5243915365719307,
+        "inject_fade_share": 1.0,
+        "inject_per_seen": 5.755200700356108e-09,
+        "born_last10pct": 0.06839797601780395,
+        "born_median_window": 10.0,
+        "final_opacity_median": 0.742487907409668
+      }
+    }
+  },
+  {
+    "scene": "aria1253",
     "arm": "carve_only",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/aria1253/carve_only_s0_probe",
     "category": "ours_ablation",
@@ -4016,6 +4204,7 @@
     "floaters_trained": 499,
     "gt_floaters_export": null,
     "mapper_seconds": 62.85796829004539,
+    "recipe": "C",
     "methods": {},
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/aria1253/carve_only_s0_probe",
@@ -4067,7 +4256,73 @@
   },
   {
     "scene": "aria1253",
+    "arm": "cc_nogate",
+    "seed": 0,
+    "probe": true,
+    "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/aria1253/cc_nogate_s0_probe",
+    "category": "ours_ablation",
+    "psnr": 24.78065803439118,
+    "ssim": 0.8525020639563716,
+    "lpips": 0.27445351696291637,
+    "gaussians": 155080,
+    "floaters_export": 0,
+    "floaters_trained": 583,
+    "gt_floaters_export": null,
+    "mapper_seconds": 60.85449096699813,
+    "recipe": "C",
+    "methods": {},
+    "mechanism": {
+      "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/aria1253/cc_nogate_s0_probe",
+      "gaussians": 173089,
+      "windows": 20,
+      "survivor": {
+        "n": 0,
+        "rgb_fade_share": null,
+        "rgb_per_seen": 0.0,
+        "rgb_deeper_share": null,
+        "geom_fade_share": null,
+        "geom_per_seen": 0.0,
+        "geom_deeper_share": null,
+        "inject_fade_share": null,
+        "inject_per_seen": 0.0,
+        "born_last10pct": null,
+        "born_median_window": null,
+        "final_opacity_median": null
+      },
+      "floater": {
+        "n": 583,
+        "rgb_fade_share": 0.7980193624274532,
+        "rgb_per_seen": 2.333551492401295e-06,
+        "rgb_deeper_share": 0.7544496491521167,
+        "geom_fade_share": 0.7726394500360283,
+        "geom_per_seen": 4.1303684007065415e-06,
+        "geom_deeper_share": 0.7892674426811193,
+        "inject_fade_share": 1.0,
+        "inject_per_seen": 4.263912990824449e-05,
+        "born_last10pct": 0.8421955403087479,
+        "born_median_window": 19.0,
+        "final_opacity_median": 0.00511553417891264
+      },
+      "surface": {
+        "n": 161818,
+        "rgb_fade_share": 0.4728509846960505,
+        "rgb_per_seen": 5.773858939550332e-07,
+        "rgb_deeper_share": 0.4480540632990307,
+        "geom_fade_share": 0.5102472841850915,
+        "geom_per_seen": 1.700495746665328e-07,
+        "geom_deeper_share": 0.5117713357525373,
+        "inject_fade_share": 1.0,
+        "inject_per_seen": 2.3539457217755402e-08,
+        "born_last10pct": 0.07437367907154951,
+        "born_median_window": 10.0,
+        "final_opacity_median": 0.7365752458572388
+      }
+    }
+  },
+  {
+    "scene": "aria1253",
     "arm": "fm_only",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/aria1253/fm_only_s0_probe",
     "category": "ours_ablation",
@@ -4079,6 +4334,7 @@
     "floaters_trained": 597,
     "gt_floaters_export": null,
     "mapper_seconds": 57.05823090809281,
+    "recipe": "C",
     "methods": {},
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/aria1253/fm_only_s0_probe",
@@ -4131,6 +4387,7 @@
   {
     "scene": "aria1253",
     "arm": "sensor_carve_l3",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/aria1253/sensor_carve_l3_s0_probe",
     "category": "sensor_free_space",
@@ -4142,6 +4399,7 @@
     "floaters_trained": 536,
     "gt_floaters_export": null,
     "mapper_seconds": 62.40500185388373,
+    "recipe": "C",
     "methods": {},
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/aria1253/sensor_carve_l3_s0_probe",
@@ -4193,7 +4451,73 @@
   },
   {
     "scene": "table_06",
+    "arm": "carve_l02_nogate",
+    "seed": 0,
+    "probe": true,
+    "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/table_06/carve_l02_nogate_s0_probe",
+    "category": "ours_ablation",
+    "psnr": 23.627117068842466,
+    "ssim": 0.7911162298179598,
+    "lpips": 0.18839295300725648,
+    "gaussians": 187729,
+    "floaters_export": 0,
+    "floaters_trained": 333,
+    "gt_floaters_export": null,
+    "mapper_seconds": 172.45903902301507,
+    "recipe": "C",
+    "methods": {},
+    "mechanism": {
+      "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/table_06/carve_l02_nogate_s0_probe",
+      "gaussians": 206787,
+      "windows": 43,
+      "survivor": {
+        "n": 0,
+        "rgb_fade_share": null,
+        "rgb_per_seen": 0.0,
+        "rgb_deeper_share": null,
+        "geom_fade_share": null,
+        "geom_per_seen": 0.0,
+        "geom_deeper_share": null,
+        "inject_fade_share": null,
+        "inject_per_seen": 0.0,
+        "born_last10pct": null,
+        "born_median_window": null,
+        "final_opacity_median": null
+      },
+      "floater": {
+        "n": 333,
+        "rgb_fade_share": 0.8371772413820985,
+        "rgb_per_seen": 3.8054403945768116e-07,
+        "rgb_deeper_share": 0.9170341817131994,
+        "geom_fade_share": 0.7993598666019636,
+        "geom_per_seen": 1.0270862530301244e-06,
+        "geom_deeper_share": 0.8798534172938786,
+        "inject_fade_share": 1.0,
+        "inject_per_seen": 6.203143969708396e-07,
+        "born_last10pct": 0.8798798798798799,
+        "born_median_window": 39.0,
+        "final_opacity_median": 0.00485505536198616
+      },
+      "surface": {
+        "n": 199100,
+        "rgb_fade_share": 0.4916667421875359,
+        "rgb_per_seen": 1.4214740320637755e-07,
+        "rgb_deeper_share": 0.5128535360210852,
+        "geom_fade_share": 0.5035895329413905,
+        "geom_per_seen": 3.441127538852455e-08,
+        "geom_deeper_share": 0.5654555590875893,
+        "inject_fade_share": 1.0,
+        "inject_per_seen": 7.028494431230087e-10,
+        "born_last10pct": 0.11598694123556003,
+        "born_median_window": 17.0,
+        "final_opacity_median": 0.8083021640777588
+      }
+    }
+  },
+  {
+    "scene": "table_06",
     "arm": "carve_only",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/table_06/carve_only_s0_probe",
     "category": "ours_ablation",
@@ -4205,6 +4529,7 @@
     "floaters_trained": 144,
     "gt_floaters_export": null,
     "mapper_seconds": 167.8538456290844,
+    "recipe": "C",
     "methods": {},
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/table_06/carve_only_s0_probe",
@@ -4256,7 +4581,73 @@
   },
   {
     "scene": "table_06",
+    "arm": "cc_nogate",
+    "seed": 0,
+    "probe": true,
+    "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/table_06/cc_nogate_s0_probe",
+    "category": "ours_ablation",
+    "psnr": 21.280872277984336,
+    "ssim": 0.745819292866148,
+    "lpips": 0.27806044905661653,
+    "gaussians": 148333,
+    "floaters_export": 0,
+    "floaters_trained": 242,
+    "gt_floaters_export": null,
+    "mapper_seconds": 162.45318995796515,
+    "recipe": "C",
+    "methods": {},
+    "mechanism": {
+      "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/table_06/cc_nogate_s0_probe",
+      "gaussians": 168621,
+      "windows": 43,
+      "survivor": {
+        "n": 0,
+        "rgb_fade_share": null,
+        "rgb_per_seen": 0.0,
+        "rgb_deeper_share": null,
+        "geom_fade_share": null,
+        "geom_per_seen": 0.0,
+        "geom_deeper_share": null,
+        "inject_fade_share": null,
+        "inject_per_seen": 0.0,
+        "born_last10pct": null,
+        "born_median_window": null,
+        "final_opacity_median": null
+      },
+      "floater": {
+        "n": 242,
+        "rgb_fade_share": 0.7589067008833665,
+        "rgb_per_seen": 4.3605680108661843e-07,
+        "rgb_deeper_share": 0.7023796930698758,
+        "geom_fade_share": 0.7296509892692119,
+        "geom_per_seen": 1.164214426713801e-06,
+        "geom_deeper_share": 0.6009637564880448,
+        "inject_fade_share": 1.0,
+        "inject_per_seen": 1.0013293630918168e-05,
+        "born_last10pct": 0.9421487603305785,
+        "born_median_window": 42.0,
+        "final_opacity_median": 0.004136936739087105
+      },
+      "surface": {
+        "n": 160240,
+        "rgb_fade_share": 0.4806277517300499,
+        "rgb_per_seen": 1.561680702535795e-07,
+        "rgb_deeper_share": 0.5048315160220785,
+        "geom_fade_share": 0.5102079720073328,
+        "geom_per_seen": 4.168664060868047e-08,
+        "geom_deeper_share": 0.557752175468488,
+        "inject_fade_share": 1.0,
+        "inject_per_seen": 7.914562536090725e-09,
+        "born_last10pct": 0.1339053919121318,
+        "born_median_window": 20.0,
+        "final_opacity_median": 0.7870805859565735
+      }
+    }
+  },
+  {
+    "scene": "table_06",
     "arm": "fm_only",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/table_06/fm_only_s0_probe",
     "category": "ours_ablation",
@@ -4268,6 +4659,7 @@
     "floaters_trained": 381,
     "gt_floaters_export": null,
     "mapper_seconds": 158.7900837650377,
+    "recipe": "C",
     "methods": {},
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/table_06/fm_only_s0_probe",
@@ -4320,6 +4712,7 @@
   {
     "scene": "table_06",
     "arm": "sensor_carve_l3",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/table_06/sensor_carve_l3_s0_probe",
     "category": "sensor_free_space",
@@ -4331,6 +4724,7 @@
     "floaters_trained": 294,
     "gt_floaters_export": null,
     "mapper_seconds": 175.61987829480495,
+    "recipe": "C",
     "methods": {},
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/table_06/sensor_carve_l3_s0_probe",
@@ -4382,7 +4776,73 @@
   },
   {
     "scene": "tum_fr1_desk",
+    "arm": "carve_l02_nogate",
+    "seed": 0,
+    "probe": true,
+    "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/tum_fr1_desk/carve_l02_nogate_s0_probe",
+    "category": "ours_ablation",
+    "psnr": 19.89041074629753,
+    "ssim": 0.7071315795183182,
+    "lpips": 0.34755319308850074,
+    "gaussians": 101684,
+    "floaters_export": 8,
+    "floaters_trained": 70,
+    "gt_floaters_export": 271,
+    "mapper_seconds": 28.175588062991665,
+    "recipe": "C",
+    "methods": {},
+    "mechanism": {
+      "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/tum_fr1_desk/carve_l02_nogate_s0_probe",
+      "gaussians": 118955,
+      "windows": 9,
+      "survivor": {
+        "n": 8,
+        "rgb_fade_share": 0.13051172214878326,
+        "rgb_per_seen": 3.5954772976956316e-06,
+        "rgb_deeper_share": 0.1973995559554293,
+        "geom_fade_share": 0.9585839560266186,
+        "geom_per_seen": 1.984672757029204e-06,
+        "geom_deeper_share": 0.8390381481589638,
+        "inject_fade_share": 1.0,
+        "inject_per_seen": 2.4416153159095357e-06,
+        "born_last10pct": 0.0,
+        "born_median_window": 7.0,
+        "final_opacity_median": 0.21157729625701904
+      },
+      "floater": {
+        "n": 70,
+        "rgb_fade_share": 0.22815898798405612,
+        "rgb_per_seen": 6.584500542048443e-07,
+        "rgb_deeper_share": 0.3678893609877256,
+        "geom_fade_share": 0.9677405270454711,
+        "geom_per_seen": 7.027095884975154e-07,
+        "geom_deeper_share": 0.908678921520709,
+        "inject_fade_share": 1.0,
+        "inject_per_seen": 7.261647380488519e-07,
+        "born_last10pct": 0.0,
+        "born_median_window": 7.0,
+        "final_opacity_median": 0.00931575894355774
+      },
+      "surface": {
+        "n": 89222,
+        "rgb_fade_share": 0.4785322386731633,
+        "rgb_per_seen": 4.871383839298376e-07,
+        "rgb_deeper_share": 0.48939405984070616,
+        "geom_fade_share": 0.545515956540013,
+        "geom_per_seen": 1.0974218976717913e-07,
+        "geom_deeper_share": 0.5972162153683134,
+        "inject_fade_share": 1.0,
+        "inject_per_seen": 4.516717612218582e-09,
+        "born_last10pct": 0.0,
+        "born_median_window": 2.0,
+        "final_opacity_median": 0.4367747902870178
+      }
+    }
+  },
+  {
+    "scene": "tum_fr1_desk",
     "arm": "carve_only",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/tum_fr1_desk/carve_only_s0_probe",
     "category": "ours_ablation",
@@ -4394,6 +4854,7 @@
     "floaters_trained": 90,
     "gt_floaters_export": 363,
     "mapper_seconds": 27.016209809939028,
+    "recipe": "C",
     "methods": {},
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/tum_fr1_desk/carve_only_s0_probe",
@@ -4445,7 +4906,73 @@
   },
   {
     "scene": "tum_fr1_desk",
+    "arm": "cc_nogate",
+    "seed": 0,
+    "probe": true,
+    "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/tum_fr1_desk/cc_nogate_s0_probe",
+    "category": "ours_ablation",
+    "psnr": 18.99811900815656,
+    "ssim": 0.6789613265183664,
+    "lpips": 0.3913077933173026,
+    "gaussians": 92494,
+    "floaters_export": 2,
+    "floaters_trained": 92,
+    "gt_floaters_export": 194,
+    "mapper_seconds": 27.232344195985206,
+    "recipe": "C",
+    "methods": {},
+    "mechanism": {
+      "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/tum_fr1_desk/cc_nogate_s0_probe",
+      "gaussians": 111024,
+      "windows": 9,
+      "survivor": {
+        "n": 2,
+        "rgb_fade_share": 0.0,
+        "rgb_per_seen": 3.2029190559039e-08,
+        "rgb_deeper_share": 0.0,
+        "geom_fade_share": 0.983018112893969,
+        "geom_per_seen": 1.2691770100066908e-06,
+        "geom_deeper_share": 1.0,
+        "inject_fade_share": 1.0,
+        "inject_per_seen": 1.7258728595000623e-05,
+        "born_last10pct": 0.0,
+        "born_median_window": 7.5,
+        "final_opacity_median": 0.4333285093307495
+      },
+      "floater": {
+        "n": 92,
+        "rgb_fade_share": 0.6294318695417993,
+        "rgb_per_seen": 3.7983076672628216e-07,
+        "rgb_deeper_share": 0.621848682312248,
+        "geom_fade_share": 0.8625610372534211,
+        "geom_per_seen": 1.2843498518680055e-06,
+        "geom_deeper_share": 0.8985038462668204,
+        "inject_fade_share": 1.0,
+        "inject_per_seen": 1.7664806481480016e-05,
+        "born_last10pct": 0.0,
+        "born_median_window": 8.0,
+        "final_opacity_median": 0.006897917948663235
+      },
+      "surface": {
+        "n": 83877,
+        "rgb_fade_share": 0.47823665438058643,
+        "rgb_per_seen": 4.580775143700048e-07,
+        "rgb_deeper_share": 0.4884453901969659,
+        "geom_fade_share": 0.5245794829241118,
+        "geom_per_seen": 9.667572581621071e-08,
+        "geom_deeper_share": 0.5856354442975105,
+        "inject_fade_share": 1.0,
+        "inject_per_seen": 2.7347005821262835e-08,
+        "born_last10pct": 0.0,
+        "born_median_window": 2.0,
+        "final_opacity_median": 0.4256630539894104
+      }
+    }
+  },
+  {
+    "scene": "tum_fr1_desk",
     "arm": "fm_only",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/tum_fr1_desk/fm_only_s0_probe",
     "category": "ours_ablation",
@@ -4457,6 +4984,7 @@
     "floaters_trained": 73,
     "gt_floaters_export": 388,
     "mapper_seconds": 25.407743779040175,
+    "recipe": "C",
     "methods": {},
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/tum_fr1_desk/fm_only_s0_probe",
@@ -4509,6 +5037,7 @@
   {
     "scene": "tum_fr1_desk",
     "arm": "sensor_carve_l3",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/tum_fr1_desk/sensor_carve_l3_s0_probe",
     "category": "sensor_free_space",
@@ -4520,6 +5049,7 @@
     "floaters_trained": 116,
     "gt_floaters_export": 120,
     "mapper_seconds": 28.863475798993022,
+    "recipe": "C",
     "methods": {},
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/tum_fr1_desk/sensor_carve_l3_s0_probe",
@@ -4572,6 +5102,7 @@
   {
     "scene": "aria1253",
     "arm": "cc_sensor02",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_combo/aria1253/cc_sensor02_s0_probe",
     "category": "ours_combo",
@@ -4583,6 +5114,7 @@
     "floaters_trained": 509,
     "gt_floaters_export": null,
     "mapper_seconds": 66.91125124193786,
+    "recipe": "C",
     "methods": {},
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_combo/aria1253/cc_sensor02_s0_probe",
@@ -4635,6 +5167,7 @@
   {
     "scene": "aria1253",
     "arm": "cc_slow",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_combo/aria1253/cc_slow_s0_probe",
     "category": "ours_ablation",
@@ -4646,6 +5179,7 @@
     "floaters_trained": 513,
     "gt_floaters_export": null,
     "mapper_seconds": 67.01604064910498,
+    "recipe": "C",
     "methods": {},
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_combo/aria1253/cc_slow_s0_probe",
@@ -4698,6 +5232,7 @@
   {
     "scene": "table_06",
     "arm": "cc_sensor02",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_combo/table_06/cc_sensor02_s0_probe",
     "category": "ours_combo",
@@ -4709,6 +5244,7 @@
     "floaters_trained": 146,
     "gt_floaters_export": null,
     "mapper_seconds": 190.5855212022725,
+    "recipe": "C",
     "methods": {},
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_combo/table_06/cc_sensor02_s0_probe",
@@ -4761,6 +5297,7 @@
   {
     "scene": "table_06",
     "arm": "cc_slow",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_combo/table_06/cc_slow_s0_probe",
     "category": "ours_ablation",
@@ -4772,6 +5309,7 @@
     "floaters_trained": 140,
     "gt_floaters_export": null,
     "mapper_seconds": 191.89011260589177,
+    "recipe": "C",
     "methods": {},
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_combo/table_06/cc_slow_s0_probe",
@@ -4824,6 +5362,7 @@
   {
     "scene": "tum_fr1_desk",
     "arm": "base_depthdump",
+    "seed": 0,
     "probe": false,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_combo/tum_fr1_desk/base_depthdump_s0",
     "category": "analysis",
@@ -4835,6 +5374,7 @@
     "floaters_trained": 81,
     "gt_floaters_export": null,
     "mapper_seconds": 18.921371503849514,
+    "recipe": "C",
     "methods": {
       "depth_dump": {
         "keyframes": 87
@@ -4844,6 +5384,7 @@
   {
     "scene": "tum_fr1_desk",
     "arm": "cc_sensor02",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_combo/tum_fr1_desk/cc_sensor02_s0_probe",
     "category": "ours_combo",
@@ -4855,6 +5396,7 @@
     "floaters_trained": 102,
     "gt_floaters_export": 196,
     "mapper_seconds": 29.985574223959702,
+    "recipe": "C",
     "methods": {},
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_combo/tum_fr1_desk/cc_sensor02_s0_probe",
@@ -4907,6 +5449,7 @@
   {
     "scene": "tum_fr1_desk",
     "arm": "cc_slow",
+    "seed": 0,
     "probe": true,
     "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_combo/tum_fr1_desk/cc_slow_s0_probe",
     "category": "ours_ablation",
@@ -4918,6 +5461,7 @@
     "floaters_trained": 95,
     "gt_floaters_export": 372,
     "mapper_seconds": 30.12368725311535,
+    "recipe": "C",
     "methods": {},
     "mechanism": {
       "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_combo/tum_fr1_desk/cc_slow_s0_probe",
@@ -4966,5 +5510,301 @@
         "final_opacity_median": 0.4459802508354187
       }
     }
+  },
+  {
+    "scene": "aria1253",
+    "arm": "base",
+    "seed": 0,
+    "probe": true,
+    "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_D/aria1253/base_s0_probe",
+    "category": "base",
+    "psnr": 27.39443605999614,
+    "ssim": 0.8840844254623088,
+    "lpips": 0.22355715214282043,
+    "gaussians": 112156,
+    "floaters_export": 16,
+    "floaters_trained": 197,
+    "gt_floaters_export": null,
+    "mapper_seconds": 53.503260344998125,
+    "recipe": "D",
+    "methods": {},
+    "mechanism": {
+      "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_D/aria1253/base_s0_probe",
+      "gaussians": 135106,
+      "windows": 20,
+      "survivor": {
+        "n": 16,
+        "rgb_fade_share": 0.5552852310029244,
+        "rgb_per_seen": 3.8513592824139505e-06,
+        "rgb_deeper_share": 0.6520540974450532,
+        "geom_fade_share": 0.4837445619372799,
+        "geom_per_seen": 7.837269207689606e-06,
+        "geom_deeper_share": 0.4092366335152172,
+        "inject_fade_share": null,
+        "inject_per_seen": 0.0,
+        "born_last10pct": 0.1875,
+        "born_median_window": 15.0,
+        "final_opacity_median": 0.20995379984378815
+      },
+      "floater": {
+        "n": 197,
+        "rgb_fade_share": 0.5968264794170367,
+        "rgb_per_seen": 2.6342067252530933e-06,
+        "rgb_deeper_share": 0.6421579835200867,
+        "geom_fade_share": 0.6371265560590192,
+        "geom_per_seen": 4.924536688602607e-06,
+        "geom_deeper_share": 0.4408765522938587,
+        "inject_fade_share": null,
+        "inject_per_seen": 0.0,
+        "born_last10pct": 0.8324873096446701,
+        "born_median_window": 19.0,
+        "final_opacity_median": 0.009590677917003632
+      },
+      "surface": {
+        "n": 118252,
+        "rgb_fade_share": 0.471052406618842,
+        "rgb_per_seen": 8.209155614746203e-07,
+        "rgb_deeper_share": 0.47453259155455285,
+        "geom_fade_share": 0.5212644004417446,
+        "geom_per_seen": 3.2685129683984194e-07,
+        "geom_deeper_share": 0.5104526764336583,
+        "inject_fade_share": null,
+        "inject_per_seen": 0.0,
+        "born_last10pct": 0.0607008760951189,
+        "born_median_window": 8.0,
+        "final_opacity_median": 0.7210303544998169
+      }
+    }
+  },
+  {
+    "scene": "aria1253",
+    "arm": "cc",
+    "seed": 0,
+    "probe": true,
+    "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_D/aria1253/cc_s0_probe",
+    "category": "ours",
+    "psnr": 27.40675616449164,
+    "ssim": 0.8838121084741843,
+    "lpips": 0.22430853736261988,
+    "gaussians": 111684,
+    "floaters_export": 1,
+    "floaters_trained": 78,
+    "gt_floaters_export": null,
+    "mapper_seconds": 61.79769292796664,
+    "recipe": "D",
+    "methods": {},
+    "mechanism": {
+      "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_D/aria1253/cc_s0_probe",
+      "gaussians": 134633,
+      "windows": 20,
+      "survivor": {
+        "n": 1,
+        "rgb_fade_share": 0.04043712225170117,
+        "rgb_per_seen": 1.6621031875909052e-06,
+        "rgb_deeper_share": 0.04772949213302819,
+        "geom_fade_share": 0.2319826737431918,
+        "geom_per_seen": 4.32101030638827e-06,
+        "geom_deeper_share": 0.26805867791685073,
+        "inject_fade_share": 1.0,
+        "inject_per_seen": 3.9073589570242414e-08,
+        "born_last10pct": 0.0,
+        "born_median_window": 15.0,
+        "final_opacity_median": 0.16820892691612244
+      },
+      "floater": {
+        "n": 78,
+        "rgb_fade_share": 0.5440748754017984,
+        "rgb_per_seen": 3.7058072682823418e-06,
+        "rgb_deeper_share": 0.4296937037487251,
+        "geom_fade_share": 0.6100787734473601,
+        "geom_per_seen": 2.8560029448357847e-06,
+        "geom_deeper_share": 0.6134710031333614,
+        "inject_fade_share": 1.0,
+        "inject_per_seen": 3.5877954219990616e-05,
+        "born_last10pct": 0.8333333333333334,
+        "born_median_window": 19.0,
+        "final_opacity_median": 0.004496908280998468
+      },
+      "surface": {
+        "n": 117646,
+        "rgb_fade_share": 0.4678725275017243,
+        "rgb_per_seen": 8.349999059072915e-07,
+        "rgb_deeper_share": 0.4706139333328512,
+        "geom_fade_share": 0.5251346698965073,
+        "geom_per_seen": 3.3283345335040893e-07,
+        "geom_deeper_share": 0.5124079343524592,
+        "inject_fade_share": 1.0,
+        "inject_per_seen": 1.101337095325017e-10,
+        "born_last10pct": 0.061013549121942096,
+        "born_median_window": 8.0,
+        "final_opacity_median": 0.7242733240127563
+      }
+    }
+  },
+  {
+    "scene": "aria1253",
+    "arm": "releaseD",
+    "seed": 0,
+    "probe": false,
+    "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_D/aria1253/releaseD_s0",
+    "category": null,
+    "psnr": 27.411832972090373,
+    "ssim": 0.8843823615894761,
+    "lpips": 0.22292768781961397,
+    "gaussians": 110347,
+    "floaters_export": null,
+    "floaters_trained": null,
+    "gt_floaters_export": null,
+    "mapper_seconds": 51.812140360007106,
+    "recipe": "D",
+    "methods": null
+  },
+  {
+    "scene": "tum_fr1_desk",
+    "arm": "base",
+    "seed": 0,
+    "probe": true,
+    "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_D/tum_fr1_desk/base_s0_probe",
+    "category": "base",
+    "psnr": 19.958951427090554,
+    "ssim": 0.7065110898786976,
+    "lpips": 0.3568533662586443,
+    "gaussians": 46638,
+    "floaters_export": 5,
+    "floaters_trained": 15,
+    "gt_floaters_export": 295,
+    "mapper_seconds": 23.32038772800115,
+    "recipe": "D",
+    "methods": {},
+    "mechanism": {
+      "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_D/tum_fr1_desk/base_s0_probe",
+      "gaussians": 65861,
+      "windows": 9,
+      "survivor": {
+        "n": 5,
+        "rgb_fade_share": 0.439626501879655,
+        "rgb_per_seen": 1.5385979833472262e-05,
+        "rgb_deeper_share": 0.4339088677156081,
+        "geom_fade_share": 0.5293752807539966,
+        "geom_per_seen": 8.459927753986172e-06,
+        "geom_deeper_share": 0.669473108641599,
+        "inject_fade_share": null,
+        "inject_per_seen": 0.0,
+        "born_last10pct": 0.0,
+        "born_median_window": 1.0,
+        "final_opacity_median": 0.16787835955619812
+      },
+      "floater": {
+        "n": 15,
+        "rgb_fade_share": 0.4492306008740807,
+        "rgb_per_seen": 1.0441768992400955e-05,
+        "rgb_deeper_share": 0.436457580451605,
+        "geom_fade_share": 0.5315464438605435,
+        "geom_per_seen": 5.756344188701559e-06,
+        "geom_deeper_share": 0.661641049020984,
+        "inject_fade_share": null,
+        "inject_per_seen": 0.0,
+        "born_last10pct": 0.0,
+        "born_median_window": 7.0,
+        "final_opacity_median": 0.02265017479658127
+      },
+      "surface": {
+        "n": 46925,
+        "rgb_fade_share": 0.4727755765137289,
+        "rgb_per_seen": 1.0401346109657262e-06,
+        "rgb_deeper_share": 0.48594592454912683,
+        "geom_fade_share": 0.5350521793562643,
+        "geom_per_seen": 2.6297286260259315e-07,
+        "geom_deeper_share": 0.5821880097228442,
+        "inject_fade_share": null,
+        "inject_per_seen": 0.0,
+        "born_last10pct": 0.0,
+        "born_median_window": 1.0,
+        "final_opacity_median": 0.46934473514556885
+      }
+    }
+  },
+  {
+    "scene": "tum_fr1_desk",
+    "arm": "cc",
+    "seed": 0,
+    "probe": true,
+    "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_D/tum_fr1_desk/cc_s0_probe",
+    "category": "ours",
+    "psnr": 19.95219378317556,
+    "ssim": 0.707625362661577,
+    "lpips": 0.3531421912052939,
+    "gaussians": 47021,
+    "floaters_export": 0,
+    "floaters_trained": 8,
+    "gt_floaters_export": 289,
+    "mapper_seconds": 26.45806271999936,
+    "recipe": "D",
+    "methods": {},
+    "mechanism": {
+      "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_D/tum_fr1_desk/cc_s0_probe",
+      "gaussians": 66121,
+      "windows": 9,
+      "survivor": {
+        "n": 0,
+        "rgb_fade_share": null,
+        "rgb_per_seen": 0.0,
+        "rgb_deeper_share": null,
+        "geom_fade_share": null,
+        "geom_per_seen": 0.0,
+        "geom_deeper_share": null,
+        "inject_fade_share": null,
+        "inject_per_seen": 0.0,
+        "born_last10pct": null,
+        "born_median_window": null,
+        "final_opacity_median": null
+      },
+      "floater": {
+        "n": 8,
+        "rgb_fade_share": 0.4498373959555532,
+        "rgb_per_seen": 4.263407635538295e-07,
+        "rgb_deeper_share": 0.31104091622580493,
+        "geom_fade_share": 0.6534280461919783,
+        "geom_per_seen": 4.874001975895808e-07,
+        "geom_deeper_share": 0.5645776117351269,
+        "inject_fade_share": 1.0,
+        "inject_per_seen": 5.2091261074914625e-08,
+        "born_last10pct": 0.0,
+        "born_median_window": 2.5,
+        "final_opacity_median": 0.0422353595495224
+      },
+      "surface": {
+        "n": 47409,
+        "rgb_fade_share": 0.4691854258133086,
+        "rgb_per_seen": 1.0428284520677458e-06,
+        "rgb_deeper_share": 0.4837744858325107,
+        "geom_fade_share": 0.5465179780091972,
+        "geom_per_seen": 2.4871337667065964e-07,
+        "geom_deeper_share": 0.5828311287245219,
+        "inject_fade_share": 1.0,
+        "inject_per_seen": 1.271521216414574e-10,
+        "born_last10pct": 0.0,
+        "born_median_window": 1.0,
+        "final_opacity_median": 0.4692463278770447
+      }
+    }
+  },
+  {
+    "scene": "tum_fr1_desk",
+    "arm": "releaseD",
+    "seed": 0,
+    "probe": false,
+    "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_D/tum_fr1_desk/releaseD_s0",
+    "category": null,
+    "psnr": 19.91101800241778,
+    "ssim": 0.7053712654498315,
+    "lpips": 0.3601751321506116,
+    "gaussians": 46784,
+    "floaters_export": null,
+    "floaters_trained": null,
+    "gt_floaters_export": null,
+    "mapper_seconds": 21.901019859011285,
+    "recipe": "D",
+    "methods": null
   }
 ]

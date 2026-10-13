@@ -1,4 +1,4 @@
-> 3090 작업 폴더(aria-online-3dgs-bench `analysis/bcd_baselines_20261009/PREREG_MECHANISM_BASELINES.md`)의 사본, 2026-10-13. 경로는 3090 기준이며 코드 구조 §5는 계획 시점 초안이다(실제 구조는 VIGS `scripts/floaterlab/README.md`). 결과 1–12는 실행 순서대로 아래에 덧붙였다.
+> 3090 작업 폴더(aria-online-3dgs-bench `analysis/bcd_baselines_20261009/PREREG_MECHANISM_BASELINES.md`)의 사본, 2026-10-13. 경로는 3090 기준이며 코드 구조 §5는 계획 시점 초안이다(실제 구조는 VIGS `scripts/floaterlab/README.md`). 결과 1–13은 실행 순서대로 아래에 덧붙였다.
 
 # 사전등록: baseline 방법이 왜 우리 목적에 안 맞는가 — 학습 중 기전 측정 (3090, 2026-10-09)
 
@@ -194,3 +194,8 @@ aria: release D 27.412/110,347 · cc_D 27.407/111,684 (export 1, trained 78) · 
 TUM: release D 19.911/46,784 · cc_D 19.952/47,021 (0, 8; GT 289) · base_D 19.959/46,638 (5, 15; GT 295).
 (1) 패리티: PSNR aria 통과(−.005), TUM 경계 밖(+.041); G +1.2%/+.5%(경계). 덮인 출생 수 동일(111/86) → patch 적용은 같음; 후보 원인 run 변동·probe·run_d.py의 vendor sys.path 순서. 5090에서 재확인.
 (2) base_D floater 16/5 < C base 44/16 (예측 맞음). (3) cc_D/base_D = 1/16, 0/5 → "D에서도 유효"; 단 절대 수 작음, TUM은 "D가 이미 대부분 해결" 경계. 카드: gs_floaterLab campaigns/07_floater_mechanism/results_D_pilot/README.md.
+
+## 결과 13 — stage 14 carve_l02_nogate (자기 median, λ .2, gate OFF, FM OFF) vs sensor_carve λ .2, 2026-10-13
+carve_l02_nogate: ΔPSNR −.062/−.037/−.010, G −1.6/−2.7/−1.9%, export 5/0/8, trained 541/333/70, 표면 주입 5.8e-9/7.0e-10/4.5e-9, 선택성 492/883/161, TUM GT 271, within10 90.46%.
+sensor_carve λ.2: −.154/−.111/+.013, G −6.6/−7.9/−3.4%, export 18/3/6, 표면 주입 1.6e-8/3.5e-9/1.2e-8, 선택성 143/132/40.
+판정: 예측대로 자기 median의 손실이 작고 표면 주입이 작다 → **기준 깊이도 기여(선택성 3~7배)**. gate(stage 12, 100~1,000배)가 주, 기준 깊이가 부. 남은 교란: view 집합(모든 render vs KF만; floater 주입 크기는 비슷 2.8e-6 vs 2.2e-6).

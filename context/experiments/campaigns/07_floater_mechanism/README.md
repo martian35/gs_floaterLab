@@ -13,7 +13,7 @@ Status: **EVIDENCE** (카테고리별 실패 지점과 우리 방법의 작용 �
 ① opacity로는 floater와 표면이 구분되지 않는다 ② 앞/뒤 방향을 구분 못 해 지우지 않고 옮긴다 ③ 외부 깊이를 믿어 그 오차만큼 표면을 지운다
 ④ 지우는 세기와 지도를 지키는 세기가 양립하지 않는다 ⑤ 되돌릴 수 없는 삭제를 한다.
 Consensus Carving은 지도 자신의 median 기준·앞쪽만·opacity만·지속성 gate·soft gradient로 다섯을 각각 피한다.
-**gate 대조(stage 12, 2026-10-13):** cc에서 persistence gate만 끄면(λ3 그대로) 표면 주입이 6e-11 → 2.4e-8(aria)·1.7e-12 → 7.9e-9(table)·3e-10 → 2.7e-8(TUM)로 올라 sensor λ3(7.4e-8/2.0e-8/6.3e-8)의 1/3~1/2.5 수준이 되고, PSNR은 −2.23/−2.39/−.92 dB(sensor λ3 −1.63/−1.73/−.41)로 더 나쁘다. 즉 λ3에서 표면을 지키는 결정적 부품은 **persistence gate**이고, 기준 깊이(자기 median vs frontend)의 몫은 선택성 2~3배다. 가중치 .2·gate 없음·FM 없음 조건의 기준 깊이 대조(stage 14)는 실행 중.
+**gate 대조(stage 12, 2026-10-13):** cc에서 persistence gate만 끄면(λ3 그대로) 표면 주입이 6e-11 → 2.4e-8(aria)·1.7e-12 → 7.9e-9(table)·3e-10 → 2.7e-8(TUM)로 올라 sensor λ3(7.4e-8/2.0e-8/6.3e-8)의 1/3~1/2.5 수준이 되고, PSNR은 −2.23/−2.39/−.92 dB(sensor λ3 −1.63/−1.73/−.41)로 더 나쁘다. 즉 λ3에서 표면을 지키는 결정적 부품은 **persistence gate**이고, 기준 깊이(자기 median vs frontend)의 몫은 선택성 2~3배다. 같은 λ .2·gate 없음·FM 없음 조건의 기준 깊이 대조(stage 14): 자기 median이 frontend 기준보다 PSNR 손실 2.5~3배 작고 선택성 3~7배 높다 → 기준 깊이의 몫은 3~7배, gate의 몫은 100~1,000배.
 표면에 가는 힘이 floater에 가는 힘의 1/10⁴–1/10⁶이고, PSNR·지도 크기·깊이 정확도는 그대로, floater는 44/6/16 → 3/0/3.
 
 ## 질문
@@ -66,7 +66,7 @@ TeX: [`results/campaigns/07_floater_mechanism/tables/TABLE_BASELINE_MAIN.tex`](.
 - **라벨 순환성.** floater‰는 학습에 안 쓴 view에서 재지만 판정 규칙이 우리 방법과 같다. 외부 기준(TUM GT-front, Acc)에서 우리는 base와 같다.
   주장은 "깊이 정확도와 화질을 해치지 않고 지도가 스스로와 모순되는 floater를 지운다"로 맞춘다.
 - **GT-front는 한쪽만 센다.** 걸린 것의 86–95%가 지도 기준 표면. 표면을 뒤로 미는 방법이 유리해 보이므로 양방향 지표와 함께 낸다 ([gt_label_audit](gt_label_audit/README.md)). 양방향(10% 일치율)에서는 모든 arm이 base ±0.3 %p 안이거나 아래이며(GOF +0.26 %p가 최대), seed 1개라 어느 쪽도 판정하지 않는다.
-- **sensor carve 비교는 단일 요소 비교가 아니다.** 기준 깊이 외에 view 집합(KF만)과 persistence gate 유무가 함께 다르다. 표면 주입 ~1,000배 차이를 기준 깊이만의 효과로 단정하지 않는다. **분리 결과(stage 12): 주원인은 gate.** **gate 대조(stage 12, 2026-10-13):** cc에서 persistence gate만 끄면(λ3 그대로) 표면 주입이 6e-11 → 2.4e-8(aria)·1.7e-12 → 7.9e-9(table)·3e-10 → 2.7e-8(TUM)로 올라 sensor λ3(7.4e-8/2.0e-8/6.3e-8)의 1/3~1/2.5 수준이 되고, PSNR은 −2.23/−2.39/−.92 dB(sensor λ3 −1.63/−1.73/−.41)로 더 나쁘다. 즉 λ3에서 표면을 지키는 결정적 부품은 **persistence gate**이고, 기준 깊이(자기 median vs frontend)의 몫은 선택성 2~3배다. 가중치 .2·gate 없음·FM 없음 조건의 기준 깊이 대조(stage 14)는 실행 중.
+- **sensor carve 비교는 단일 요소 비교가 아니다.** 기준 깊이 외에 view 집합(KF만)과 persistence gate 유무가 함께 다르다. 표면 주입 ~1,000배 차이를 기준 깊이만의 효과로 단정하지 않는다. **분리 결과(stage 12): 주원인은 gate.** **gate 대조(stage 12, 2026-10-13):** cc에서 persistence gate만 끄면(λ3 그대로) 표면 주입이 6e-11 → 2.4e-8(aria)·1.7e-12 → 7.9e-9(table)·3e-10 → 2.7e-8(TUM)로 올라 sensor λ3(7.4e-8/2.0e-8/6.3e-8)의 1/3~1/2.5 수준이 되고, PSNR은 −2.23/−2.39/−.92 dB(sensor λ3 −1.63/−1.73/−.41)로 더 나쁘다. 즉 λ3에서 표면을 지키는 결정적 부품은 **persistence gate**이고, 기준 깊이(자기 median vs frontend)의 몫은 선택성 2~3배다. 같은 λ .2·gate 없음·FM 없음 조건의 기준 깊이 대조(stage 14): 자기 median이 frontend 기준보다 PSNR 손실 2.5~3배 작고 선택성 3~7배 높다 → 기준 깊이의 몫은 3~7배, gate의 몫은 100~1,000배.
 - seed 1개, 3090. ±.1 dB 이내는 판정하지 않는다. SparseGS는 공식의 삭제 후 10k 회복 학습이 없는 조건. GOF 시간 2.3–3×는 추가 렌더(이식) 비용.
 - 미공개 하이퍼파라미터 추정: GS-SLAM η γ, Sheng φ, SplatAD 가중치, DS-NeRF σ.
 - 부품 비교다(같은 mapper). 시스템 전체 비교가 아니다.

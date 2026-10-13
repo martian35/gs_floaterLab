@@ -1,82 +1,94 @@
-| scene | arm | category | probe | PSNR | Gaussians | floaters export | (trained) | GT floaters export | mapper s |
-|---|---|---|---|---|---|---|---|---|---|
-| aria1253 | base | base |  | 27.027 | 178488 | 36 | 591 | None | 41.5 |
-| aria1253 | base | base | y | 27.010 | 178105 | 44 | 619 | None | 53.6 |
-| aria1253 | cc | ours |  | 27.037 | 177844 | 2 | 498 | None | 49.6 |
-| aria1253 | cc | ours | y | 27.014 | 178585 | 3 | 500 | None | 60.7 |
-| aria1253 | dngaussian | frontend_depth_regularization | y | 26.750 | 174189 | 43 | 589 | None | 81.7 |
-| aria1253 | d4 | frontend_depth_regularization | y | 26.169 | 171272 | 92 | 710 | None | 53.7 |
-| aria1253 | dng_soft | frontend_depth_regularization | y | 26.914 | 171810 | 54 | 637 | None | 57.6 |
-| aria1253 | dng_hard | frontend_depth_regularization | y | 26.992 | 180539 | 36 | 567 | None | 58.7 |
-| aria1253 | dsnerf_kl | termination_distribution | y | 18.070 | 53911 | 31 | 651 | None | 56.9 |
-| aria1253 | gof_distortion | ray_statistics | y | 26.869 | 178862 | 42 | 582 | None | 124.5 |
-| aria1253 | sensor_carve | sensor_free_space | y | 26.856 | 166402 | 18 | 609 | None | 64.1 |
-| aria1253 | gsslam_eq9 | sensor_free_space | y | 26.328 | 108948 | 12 | 243 | None | 50.7 |
-| aria1253 | cgslam | sensor_free_space | y | 27.137 | 193373 | 23 | 627 | None | 61.7 |
-| aria1253 | splatad | sensor_free_space | y | 22.156 | 71482 | 6 | 647 | None | 53.1 |
-| aria1253 | monogs | map_maintenance | y | 25.786 | 58440 | 0 | 92 | None | 46.4 |
-| aria1253 | gs3d | map_maintenance | y | 26.910 | 176392 | 68 | 1466 | None | 55.7 |
-| aria1253 | maint_t03 | map_maintenance | y | 26.779 | 133032 | 18 | 579 | None | 51.6 |
-| aria1253 | maint_t05 | map_maintenance | y | 26.485 | 108631 | 9 | 558 | None | 50.1 |
-| aria1253 | sheng2026 | judge_and_delete | y | 26.557 | 128928 | 20 | 111 | None | 55.5 |
-| aria1253 | sheng2026_phi09 | judge_and_delete | y | 26.531 | 129093 | 5 | 38 | None | 55.4 |
-| aria1253 | sparsegs | judge_and_delete | y | 24.216 | 169389 | 34 | 381 | None | 53.9 |
-| aria1253 | carve_only | ours_ablation | y | 27.022 | 177769 | 8 | 499 | None | 62.9 |
-| aria1253 | fm_only | ours_ablation | y | 26.992 | 178334 | 11 | 597 | None | 57.1 |
-| aria1253 | cc_slow | ours_ablation | y | 26.973 | 178290 | 2 | 513 | None | 67.0 |
-| aria1253 | cc_sensor02 | ours_combo | y | 26.846 | 166746 | 1 | 509 | None | 66.9 |
-| aria1253 | sensor_carve_l3 | sensor_free_space | y | 25.378 | 144402 | 8 | 536 | None | 62.4 |
-| aria1253 | dsnerf_kl_w01 | termination_distribution | y | 20.986 | 71229 | 26 | 657 | None | 57.8 |
-| aria1253 | dsnerf_kl_w001 | termination_distribution | y | 25.663 | 132759 | 64 | 629 | None | 58.9 |
-| aria1253 | splatad_w01 | sensor_free_space | y | 26.314 | 122374 | 30 | 617 | None | 55.4 |
-| aria1253 | splatad_w001 | sensor_free_space | y | 26.945 | 161870 | 49 | 620 | None | 56.6 |
-| table_06 | base | base | y | 23.664 | 192993 | 6 | 381 | None | 148.2 |
-| table_06 | cc | ours | y | 23.672 | 193061 | 0 | 134 | None | 169.0 |
-| table_06 | dngaussian | frontend_depth_regularization | y | 23.559 | 199365 | 32 | 377 | None | 215.4 |
-| table_06 | d4 | frontend_depth_regularization | y | 23.362 | 181214 | 13 | 420 | None | 147.8 |
-| table_06 | dng_soft | frontend_depth_regularization | y | 23.616 | 183402 | 16 | 430 | None | 158.1 |
-| table_06 | dng_hard | frontend_depth_regularization | y | 23.672 | 194892 | 8 | 348 | None | 164.3 |
-| table_06 | dsnerf_kl | termination_distribution | y | 13.231 | 56686 | 92 | 254 | None | 182.1 |
-| table_06 | gof_distortion | ray_statistics | y | 23.643 | 192664 | 7 | 380 | None | 440.2 |
-| table_06 | sensor_carve | sensor_free_space | y | 23.553 | 177773 | 3 | 398 | None | 181.3 |
-| table_06 | gsslam_eq9 | sensor_free_space | y | 23.261 | 117604 | 4 | 27 | None | 133.6 |
-| table_06 | cgslam | sensor_free_space | y | 23.561 | 209333 | 2 | 414 | None | 174.6 |
-| table_06 | splatad | sensor_free_space | y | 20.738 | 53504 | 0 | 306 | None | 139.4 |
-| table_06 | monogs | map_maintenance | y | 22.969 | 40617 | 0 | 30 | None | 113.1 |
-| table_06 | gs3d | map_maintenance | y | 23.555 | 243296 | 19 | 1038 | None | 173.4 |
-| table_06 | maint_t03 | map_maintenance | y | 23.484 | 122562 | 2 | 396 | None | 133.3 |
-| table_06 | maint_t05 | map_maintenance | y | 23.346 | 95279 | 2 | 381 | None | 127.6 |
-| table_06 | sheng2026 | judge_and_delete | y | 23.470 | 160147 | 0 | 1 | None | 145.5 |
-| table_06 | sheng2026_phi09 | judge_and_delete | y | 23.462 | 159741 | 1 | 2 | None | 147.0 |
-| table_06 | sparsegs | judge_and_delete | y | 21.036 | 175025 | 12 | 73 | None | 147.6 |
-| table_06 | carve_only | ours_ablation | y | 23.659 | 193052 | 0 | 144 | None | 167.9 |
-| table_06 | fm_only | ours_ablation | y | 23.671 | 193026 | 0 | 381 | None | 158.8 |
-| table_06 | cc_slow | ours_ablation | y | 23.669 | 192974 | 0 | 140 | None | 191.9 |
-| table_06 | cc_sensor02 | ours_combo | y | 23.545 | 178262 | 0 | 146 | None | 190.6 |
-| table_06 | sensor_carve_l3 | sensor_free_space | y | 21.932 | 137035 | 0 | 294 | None | 175.6 |
-| table_06 | dsnerf_kl_w001 | termination_distribution | y | 14.999 | 65127 | 65 | 302 | None | 173.6 |
-| table_06 | splatad_w001 | sensor_free_space | y | 23.621 | 175065 | 11 | 394 | None | 153.6 |
-| tum_fr1_desk | base | base | y | 19.900 | 103661 | 16 | 90 | 384 | 24.7 |
-| tum_fr1_desk | cc | ours | y | 19.917 | 103561 | 3 | 92 | 385 | 28.2 |
-| tum_fr1_desk | dngaussian | frontend_depth_regularization | y | 19.729 | 111425 | 11 | 83 | 443 | 37.9 |
-| tum_fr1_desk | dsnerf_kl | termination_distribution | y | 13.390 | 23416 | 8 | 106 | 40 | 26.7 |
-| tum_fr1_desk | gof_distortion | ray_statistics | y | 19.816 | 104763 | 15 | 75 | 425 | 68.3 |
-| tum_fr1_desk | sensor_carve | sensor_free_space | y | 19.913 | 100130 | 6 | 81 | 202 | 28.1 |
-| tum_fr1_desk | gsslam_eq9 | sensor_free_space | y | 19.718 | 55854 | 4 | 13 | 157 | 22.3 |
-| tum_fr1_desk | cgslam | sensor_free_space | y | 19.864 | 117542 | 6 | 83 | 505 | 27.9 |
-| tum_fr1_desk | splatad | sensor_free_space | y | 19.089 | 63921 | 9 | 140 | 62 | 24.5 |
-| tum_fr1_desk | monogs | map_maintenance | y | 19.508 | 19527 | 1 | 16 | 131 | 22.8 |
-| tum_fr1_desk | gs3d | map_maintenance | y | 19.864 | 79250 | 13 | 486 | 418 | 26.8 |
-| tum_fr1_desk | sheng2026 | judge_and_delete | y | 19.718 | 60430 | 1 | 7 | 260 | 24.6 |
-| tum_fr1_desk | sparsegs | judge_and_delete | y | 17.103 | 98614 | 36 | 104 | 150 | 24.6 |
-| tum_fr1_desk | carve_only | ours_ablation | y | 19.919 | 103883 | 8 | 90 | 363 | 27.0 |
-| tum_fr1_desk | fm_only | ours_ablation | y | 19.910 | 103397 | 2 | 73 | 388 | 25.4 |
-| tum_fr1_desk | cc_slow | ours_ablation | y | 19.915 | 103322 | 1 | 95 | 372 | 30.1 |
-| tum_fr1_desk | cc_sensor02 | ours_combo | y | 19.910 | 99961 | 2 | 102 | 196 | 30.0 |
-| tum_fr1_desk | sensor_carve_l3 | sensor_free_space | y | 19.489 | 90469 | 4 | 116 | 120 | 28.9 |
-| tum_fr1_desk | dsnerf_kl_w001 | termination_distribution | y | 18.437 | 38033 | 12 | 57 | 153 | 25.8 |
-| tum_fr1_desk | splatad_w001 | sensor_free_space | y | 19.932 | 97828 | 14 | 78 | 276 | 25.1 |
-| tum_fr1_desk | base_depthdump | analysis |  | 19.901 | 104106 | 16 | 81 | None | 18.9 |
+| scene | arm | recipe | seed | category | probe | PSNR | Gaussians | floaters export | (trained) | GT floaters export | mapper s |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| aria1253 | base | C | 0 | base |  | 27.027 | 178488 | 36 | 591 | None | 41.5 |
+| aria1253 | base | C | 0 | base | y | 27.010 | 178105 | 44 | 619 | None | 53.6 |
+| aria1253 | cc | C | 0 | ours |  | 27.037 | 177844 | 2 | 498 | None | 49.6 |
+| aria1253 | cc | C | 0 | ours | y | 27.014 | 178585 | 3 | 500 | None | 60.7 |
+| aria1253 | dngaussian | C | 0 | frontend_depth_regularization | y | 26.750 | 174189 | 43 | 589 | None | 81.7 |
+| aria1253 | d4 | C | 0 | frontend_depth_regularization | y | 26.169 | 171272 | 92 | 710 | None | 53.7 |
+| aria1253 | dng_soft | C | 0 | frontend_depth_regularization | y | 26.914 | 171810 | 54 | 637 | None | 57.6 |
+| aria1253 | dng_hard | C | 0 | frontend_depth_regularization | y | 26.992 | 180539 | 36 | 567 | None | 58.7 |
+| aria1253 | dsnerf_kl | C | 0 | termination_distribution | y | 18.070 | 53911 | 31 | 651 | None | 56.9 |
+| aria1253 | gof_distortion | C | 0 | ray_statistics | y | 26.869 | 178862 | 42 | 582 | None | 124.5 |
+| aria1253 | sensor_carve | C | 0 | sensor_free_space | y | 26.856 | 166402 | 18 | 609 | None | 64.1 |
+| aria1253 | gsslam_eq9 | C | 0 | sensor_free_space | y | 26.328 | 108948 | 12 | 243 | None | 50.7 |
+| aria1253 | cgslam | C | 0 | sensor_free_space | y | 27.137 | 193373 | 23 | 627 | None | 61.7 |
+| aria1253 | splatad | C | 0 | sensor_free_space | y | 22.156 | 71482 | 6 | 647 | None | 53.1 |
+| aria1253 | monogs | C | 0 | map_maintenance | y | 25.786 | 58440 | 0 | 92 | None | 46.4 |
+| aria1253 | gs3d | C | 0 | map_maintenance | y | 26.910 | 176392 | 68 | 1466 | None | 55.7 |
+| aria1253 | maint_t03 | C | 0 | map_maintenance | y | 26.779 | 133032 | 18 | 579 | None | 51.6 |
+| aria1253 | maint_t05 | C | 0 | map_maintenance | y | 26.485 | 108631 | 9 | 558 | None | 50.1 |
+| aria1253 | sheng2026 | C | 0 | judge_and_delete | y | 26.557 | 128928 | 20 | 111 | None | 55.5 |
+| aria1253 | sheng2026_phi09 | C | 0 | judge_and_delete | y | 26.531 | 129093 | 5 | 38 | None | 55.4 |
+| aria1253 | sparsegs | C | 0 | judge_and_delete | y | 24.216 | 169389 | 34 | 381 | None | 53.9 |
+| aria1253 | carve_only | C | 0 | ours_ablation | y | 27.022 | 177769 | 8 | 499 | None | 62.9 |
+| aria1253 | fm_only | C | 0 | ours_ablation | y | 26.992 | 178334 | 11 | 597 | None | 57.1 |
+| aria1253 | cc_slow | C | 0 | ours_ablation | y | 26.973 | 178290 | 2 | 513 | None | 67.0 |
+| aria1253 | cc_sensor02 | C | 0 | ours_combo | y | 26.846 | 166746 | 1 | 509 | None | 66.9 |
+| aria1253 | sensor_carve_l3 | C | 0 | sensor_free_space | y | 25.378 | 144402 | 8 | 536 | None | 62.4 |
+| aria1253 | dsnerf_kl_w01 | C | 0 | termination_distribution | y | 20.986 | 71229 | 26 | 657 | None | 57.8 |
+| aria1253 | dsnerf_kl_w001 | C | 0 | termination_distribution | y | 25.663 | 132759 | 64 | 629 | None | 58.9 |
+| aria1253 | splatad_w01 | C | 0 | sensor_free_space | y | 26.314 | 122374 | 30 | 617 | None | 55.4 |
+| aria1253 | splatad_w001 | C | 0 | sensor_free_space | y | 26.945 | 161870 | 49 | 620 | None | 56.6 |
+| aria1253 | carve_l02_nogate | C | 0 | ours_ablation | y | 26.948 | 175266 | 5 | 541 | None | 60.8 |
+| aria1253 | cc_nogate | C | 0 | ours_ablation | y | 24.781 | 155080 | 0 | 583 | None | 60.9 |
+| aria1253 | base | D | 0 | base | y | 27.394 | 112156 | 16 | 197 | None | 53.5 |
+| aria1253 | cc | D | 0 | ours | y | 27.407 | 111684 | 1 | 78 | None | 61.8 |
+| aria1253 | releaseD | D | 0 | None |  | 27.412 | 110347 | None | None | None | 51.8 |
+| table_06 | base | C | 0 | base | y | 23.664 | 192993 | 6 | 381 | None | 148.2 |
+| table_06 | cc | C | 0 | ours | y | 23.672 | 193061 | 0 | 134 | None | 169.0 |
+| table_06 | dngaussian | C | 0 | frontend_depth_regularization | y | 23.559 | 199365 | 32 | 377 | None | 215.4 |
+| table_06 | d4 | C | 0 | frontend_depth_regularization | y | 23.362 | 181214 | 13 | 420 | None | 147.8 |
+| table_06 | dng_soft | C | 0 | frontend_depth_regularization | y | 23.616 | 183402 | 16 | 430 | None | 158.1 |
+| table_06 | dng_hard | C | 0 | frontend_depth_regularization | y | 23.672 | 194892 | 8 | 348 | None | 164.3 |
+| table_06 | dsnerf_kl | C | 0 | termination_distribution | y | 13.231 | 56686 | 92 | 254 | None | 182.1 |
+| table_06 | gof_distortion | C | 0 | ray_statistics | y | 23.643 | 192664 | 7 | 380 | None | 440.2 |
+| table_06 | sensor_carve | C | 0 | sensor_free_space | y | 23.553 | 177773 | 3 | 398 | None | 181.3 |
+| table_06 | gsslam_eq9 | C | 0 | sensor_free_space | y | 23.261 | 117604 | 4 | 27 | None | 133.6 |
+| table_06 | cgslam | C | 0 | sensor_free_space | y | 23.561 | 209333 | 2 | 414 | None | 174.6 |
+| table_06 | splatad | C | 0 | sensor_free_space | y | 20.738 | 53504 | 0 | 306 | None | 139.4 |
+| table_06 | monogs | C | 0 | map_maintenance | y | 22.969 | 40617 | 0 | 30 | None | 113.1 |
+| table_06 | gs3d | C | 0 | map_maintenance | y | 23.555 | 243296 | 19 | 1038 | None | 173.4 |
+| table_06 | maint_t03 | C | 0 | map_maintenance | y | 23.484 | 122562 | 2 | 396 | None | 133.3 |
+| table_06 | maint_t05 | C | 0 | map_maintenance | y | 23.346 | 95279 | 2 | 381 | None | 127.6 |
+| table_06 | sheng2026 | C | 0 | judge_and_delete | y | 23.470 | 160147 | 0 | 1 | None | 145.5 |
+| table_06 | sheng2026_phi09 | C | 0 | judge_and_delete | y | 23.462 | 159741 | 1 | 2 | None | 147.0 |
+| table_06 | sparsegs | C | 0 | judge_and_delete | y | 21.036 | 175025 | 12 | 73 | None | 147.6 |
+| table_06 | carve_only | C | 0 | ours_ablation | y | 23.659 | 193052 | 0 | 144 | None | 167.9 |
+| table_06 | fm_only | C | 0 | ours_ablation | y | 23.671 | 193026 | 0 | 381 | None | 158.8 |
+| table_06 | cc_slow | C | 0 | ours_ablation | y | 23.669 | 192974 | 0 | 140 | None | 191.9 |
+| table_06 | cc_sensor02 | C | 0 | ours_combo | y | 23.545 | 178262 | 0 | 146 | None | 190.6 |
+| table_06 | sensor_carve_l3 | C | 0 | sensor_free_space | y | 21.932 | 137035 | 0 | 294 | None | 175.6 |
+| table_06 | dsnerf_kl_w001 | C | 0 | termination_distribution | y | 14.999 | 65127 | 65 | 302 | None | 173.6 |
+| table_06 | splatad_w001 | C | 0 | sensor_free_space | y | 23.621 | 175065 | 11 | 394 | None | 153.6 |
+| table_06 | carve_l02_nogate | C | 0 | ours_ablation | y | 23.627 | 187729 | 0 | 333 | None | 172.5 |
+| table_06 | cc_nogate | C | 0 | ours_ablation | y | 21.281 | 148333 | 0 | 242 | None | 162.5 |
+| tum_fr1_desk | base | C | 0 | base | y | 19.900 | 103661 | 16 | 90 | 384 | 24.7 |
+| tum_fr1_desk | cc | C | 0 | ours | y | 19.917 | 103561 | 3 | 92 | 385 | 28.2 |
+| tum_fr1_desk | dngaussian | C | 0 | frontend_depth_regularization | y | 19.729 | 111425 | 11 | 83 | 443 | 37.9 |
+| tum_fr1_desk | dsnerf_kl | C | 0 | termination_distribution | y | 13.390 | 23416 | 8 | 106 | 40 | 26.7 |
+| tum_fr1_desk | gof_distortion | C | 0 | ray_statistics | y | 19.816 | 104763 | 15 | 75 | 425 | 68.3 |
+| tum_fr1_desk | sensor_carve | C | 0 | sensor_free_space | y | 19.913 | 100130 | 6 | 81 | 202 | 28.1 |
+| tum_fr1_desk | gsslam_eq9 | C | 0 | sensor_free_space | y | 19.718 | 55854 | 4 | 13 | 157 | 22.3 |
+| tum_fr1_desk | cgslam | C | 0 | sensor_free_space | y | 19.864 | 117542 | 6 | 83 | 505 | 27.9 |
+| tum_fr1_desk | splatad | C | 0 | sensor_free_space | y | 19.089 | 63921 | 9 | 140 | 62 | 24.5 |
+| tum_fr1_desk | monogs | C | 0 | map_maintenance | y | 19.508 | 19527 | 1 | 16 | 131 | 22.8 |
+| tum_fr1_desk | gs3d | C | 0 | map_maintenance | y | 19.864 | 79250 | 13 | 486 | 418 | 26.8 |
+| tum_fr1_desk | sheng2026 | C | 0 | judge_and_delete | y | 19.718 | 60430 | 1 | 7 | 260 | 24.6 |
+| tum_fr1_desk | sparsegs | C | 0 | judge_and_delete | y | 17.103 | 98614 | 36 | 104 | 150 | 24.6 |
+| tum_fr1_desk | carve_only | C | 0 | ours_ablation | y | 19.919 | 103883 | 8 | 90 | 363 | 27.0 |
+| tum_fr1_desk | fm_only | C | 0 | ours_ablation | y | 19.910 | 103397 | 2 | 73 | 388 | 25.4 |
+| tum_fr1_desk | cc_slow | C | 0 | ours_ablation | y | 19.915 | 103322 | 1 | 95 | 372 | 30.1 |
+| tum_fr1_desk | cc_sensor02 | C | 0 | ours_combo | y | 19.910 | 99961 | 2 | 102 | 196 | 30.0 |
+| tum_fr1_desk | sensor_carve_l3 | C | 0 | sensor_free_space | y | 19.489 | 90469 | 4 | 116 | 120 | 28.9 |
+| tum_fr1_desk | dsnerf_kl_w001 | C | 0 | termination_distribution | y | 18.437 | 38033 | 12 | 57 | 153 | 25.8 |
+| tum_fr1_desk | splatad_w001 | C | 0 | sensor_free_space | y | 19.932 | 97828 | 14 | 78 | 276 | 25.1 |
+| tum_fr1_desk | base_depthdump | C | 0 | analysis |  | 19.901 | 104106 | 16 | 81 | None | 18.9 |
+| tum_fr1_desk | carve_l02_nogate | C | 0 | ours_ablation | y | 19.890 | 101684 | 8 | 70 | 271 | 28.2 |
+| tum_fr1_desk | cc_nogate | C | 0 | ours_ablation | y | 18.998 | 92494 | 2 | 92 | 194 | 27.2 |
+| tum_fr1_desk | base | D | 0 | base | y | 19.959 | 46638 | 5 | 15 | 295 | 23.3 |
+| tum_fr1_desk | cc | D | 0 | ours | y | 19.952 | 47021 | 0 | 8 | 289 | 26.5 |
+| tum_fr1_desk | releaseD | D | 0 | None |  | 19.911 | 46784 | None | None | None | 21.9 |
 
 ## Mechanism (survivor = export floater; shares > .5 mean the term pushes opacity down / positions deeper)
 | scene | arm | group | n | rgb fade | geom fade | inject fade | geom deeper | inject per seen | born last 10% | opacity |
@@ -135,6 +147,14 @@
 | aria1253 | splatad_w01 | surface | 137400 | 0.451 | 0.472 | 1 | 0.489 | 1.06e-07 | 0.0918 | 0.574 |
 | aria1253 | splatad_w001 | survivor | 49 | 0.379 | 0.572 | 1 | 0.582 | 5.52e-07 | 0.143 | 0.231 |
 | aria1253 | splatad_w001 | surface | 170859 | 0.469 | 0.522 | 1 | 0.524 | 1.42e-08 | 0.072 | 0.671 |
+| aria1253 | carve_l02_nogate | survivor | 5 | 0.263 | 0.521 | 1 | 0.642 | 3.97e-06 | 0.2 | 0.125 |
+| aria1253 | carve_l02_nogate | surface | 180634 | 0.473 | 0.522 | 1 | 0.524 | 5.76e-09 | 0.0684 | 0.742 |
+| aria1253 | cc_nogate | survivor | 0 | - | - | - | - | 0 | - | - |
+| aria1253 | cc_nogate | surface | 161818 | 0.473 | 0.51 | 1 | 0.512 | 2.35e-08 | 0.0744 | 0.737 |
+| aria1253 | base | survivor | 16 | 0.555 | 0.484 | - | 0.409 | 0 | 0.188 | 0.21 |
+| aria1253 | base | surface | 118252 | 0.471 | 0.521 | - | 0.51 | 0 | 0.0607 | 0.721 |
+| aria1253 | cc | survivor | 1 | 0.0404 | 0.232 | 1 | 0.268 | 3.91e-08 | 0 | 0.168 |
+| aria1253 | cc | surface | 117646 | 0.468 | 0.525 | 1 | 0.512 | 1.1e-10 | 0.061 | 0.724 |
 | table_06 | base | survivor | 6 | 0.818 | 0.304 | - | 0.383 | 0 | 0.333 | 0.221 |
 | table_06 | base | surface | 204207 | 0.495 | 0.499 | - | 0.569 | 0 | 0.114 | 0.813 |
 | table_06 | cc | survivor | 0 | - | - | - | - | 0 | - | - |
@@ -187,6 +207,10 @@
 | table_06 | dsnerf_kl_w001 | surface | 88610 | 0.423 | 0.424 | 0.93 | 0.445 | 2.58e-07 | 0.278 | 0.184 |
 | table_06 | splatad_w001 | survivor | 11 | 0.602 | 0.438 | 1 | 0.44 | 2.72e-08 | 0.182 | 0.205 |
 | table_06 | splatad_w001 | surface | 187514 | 0.489 | 0.49 | 1 | 0.567 | 2.63e-09 | 0.124 | 0.769 |
+| table_06 | carve_l02_nogate | survivor | 0 | - | - | - | - | 0 | - | - |
+| table_06 | carve_l02_nogate | surface | 199100 | 0.492 | 0.504 | 1 | 0.565 | 7.03e-10 | 0.116 | 0.808 |
+| table_06 | cc_nogate | survivor | 0 | - | - | - | - | 0 | - | - |
+| table_06 | cc_nogate | surface | 160240 | 0.481 | 0.51 | 1 | 0.558 | 7.91e-09 | 0.134 | 0.787 |
 | tum_fr1_desk | base | survivor | 16 | 0.44 | 0.702 | - | 0.72 | 0 | 0 | 0.165 |
 | tum_fr1_desk | base | surface | 90039 | 0.479 | 0.561 | - | 0.601 | 0 | 0 | 0.443 |
 | tum_fr1_desk | cc | survivor | 3 | 0.329 | 0.08 | 1 | 0.653 | 3.97e-08 | 0 | 0.207 |
@@ -227,3 +251,11 @@
 | tum_fr1_desk | dsnerf_kl_w001 | surface | 52664 | 0.44 | 0.425 | 0.914 | 0.463 | 4.01e-07 | 0 | 0.166 |
 | tum_fr1_desk | splatad_w001 | survivor | 14 | 0.42 | 0.69 | 1 | 0.656 | 1.1e-07 | 0 | 0.219 |
 | tum_fr1_desk | splatad_w001 | surface | 85782 | 0.476 | 0.55 | 1 | 0.596 | 7.27e-09 | 0 | 0.41 |
+| tum_fr1_desk | carve_l02_nogate | survivor | 8 | 0.131 | 0.959 | 1 | 0.839 | 2.44e-06 | 0 | 0.212 |
+| tum_fr1_desk | carve_l02_nogate | surface | 89222 | 0.479 | 0.546 | 1 | 0.597 | 4.52e-09 | 0 | 0.437 |
+| tum_fr1_desk | cc_nogate | survivor | 2 | 0 | 0.983 | 1 | 1 | 1.73e-05 | 0 | 0.433 |
+| tum_fr1_desk | cc_nogate | surface | 83877 | 0.478 | 0.525 | 1 | 0.586 | 2.73e-08 | 0 | 0.426 |
+| tum_fr1_desk | base | survivor | 5 | 0.44 | 0.529 | - | 0.669 | 0 | 0 | 0.168 |
+| tum_fr1_desk | base | surface | 46925 | 0.473 | 0.535 | - | 0.582 | 0 | 0 | 0.469 |
+| tum_fr1_desk | cc | survivor | 0 | - | - | - | - | 0 | - | - |
+| tum_fr1_desk | cc | surface | 47409 | 0.469 | 0.547 | 1 | 0.583 | 1.27e-10 | 0 | 0.469 |

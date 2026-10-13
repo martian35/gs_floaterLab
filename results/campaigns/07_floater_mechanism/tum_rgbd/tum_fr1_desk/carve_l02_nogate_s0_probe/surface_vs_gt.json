@@ -1,0 +1,24 @@
+{
+  "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/tum_fr1_desk/carve_l02_nogate_s0_probe",
+  "ply": "online_map.ply",
+  "views": 114,
+  "valid": 18244134,
+  "front": 311491,
+  "behind": 259063,
+  "front_edge": 61606,
+  "front_hole": 70041,
+  "front_share": 0.01707348783998188,
+  "behind_share": 0.014199797041613485,
+  "front_at_edge": 0.19777778491192363,
+  "front_near_hole": 0.22485721898867062,
+  "within_10pct": 0.9046200274564964,
+  "ratio_quantiles": {
+    "0.01": 0.6645991802215576,
+    "0.05": 0.9141414165496826,
+    "0.25": 0.9824936389923096,
+    "0.5": 1.0051027536392212,
+    "0.75": 1.0310231447219849,
+    "0.95": 1.104356050491333,
+    "0.99": 1.3364204168319702
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "run": "floaterlab_ablation/table_06/cc_nogate_s0_probe",
+  "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/table_06/cc_nogate_s0_probe",
   "gaussians": 168621,
   "windows": 43,
   "survivor": {
