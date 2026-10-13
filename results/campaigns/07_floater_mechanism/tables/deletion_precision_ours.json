@@ -1,0 +1,110 @@
+[
+  {
+    "run": "aria1253/base_s0_probe",
+    "stage": "before_terminal_prune->online_map",
+    "deleted": 17366,
+    "floater_precision": 0.03322584360244155,
+    "floater_recall": 0.9321486268174475,
+    "surface_share": 0.74242773235057,
+    "mass_removed": 0.01421085000038147
+  },
+  {
+    "run": "aria1253/cc_s0_probe",
+    "stage": "before_terminal_prune->online_map",
+    "deleted": 17208,
+    "floater_precision": 0.02894002789400279,
+    "floater_recall": 0.996,
+    "surface_share": 0.7342515109251511,
+    "mass_removed": 0.012376911006867886
+  },
+  {
+    "run": "table_06/base_s0_probe",
+    "stage": "before_terminal_prune->online_map",
+    "deleted": 19121,
+    "floater_precision": 0.01961194498195701,
+    "floater_recall": 0.984251968503937,
+    "surface_share": 0.8664818785628366,
+    "mass_removed": 0.01047318521887064
+  },
+  {
+    "run": "table_06/cc_s0_probe",
+    "stage": "before_terminal_prune->online_map",
+    "deleted": 19053,
+    "floater_precision": 0.007033013173778408,
+    "floater_recall": 1.0,
+    "surface_share": 0.8662152941793944,
+    "mass_removed": 0.009170549921691418
+  },
+  {
+    "run": "tum_fr1_desk/base_s0_probe",
+    "stage": "before_terminal_prune->online_map",
+    "deleted": 16969,
+    "floater_precision": 0.004360893393835818,
+    "floater_recall": 0.8222222222222222,
+    "surface_share": 0.6235488243267134,
+    "mass_removed": 0.008889037184417248
+  },
+  {
+    "run": "tum_fr1_desk/cc_s0_probe",
+    "stage": "before_terminal_prune->online_map",
+    "deleted": 17007,
+    "floater_precision": 0.005233139295584171,
+    "floater_recall": 0.967391304347826,
+    "surface_share": 0.6195096136884812,
+    "mass_removed": 0.008544999174773693
+  },
+  {
+    "run": "aria1253/fm_only_s0_probe",
+    "stage": "before_terminal_prune->online_map",
+    "deleted": 17354,
+    "floater_precision": 0.034170796358188316,
+    "floater_recall": 0.9932998324958124,
+    "surface_share": 0.7352195459260112,
+    "mass_removed": 0.01484016515314579
+  },
+  {
+    "run": "aria1253/carve_only_s0_probe",
+    "stage": "before_terminal_prune->online_map",
+    "deleted": 17381,
+    "floater_precision": 0.028306771762269145,
+    "floater_recall": 0.9859719438877755,
+    "surface_share": 0.736493872619527,
+    "mass_removed": 0.012723308056592941
+  },
+  {
+    "run": "table_06/fm_only_s0_probe",
+    "stage": "before_terminal_prune->online_map",
+    "deleted": 18969,
+    "floater_precision": 0.020085402498813854,
+    "floater_recall": 1.0,
+    "surface_share": 0.8666244925931783,
+    "mass_removed": 0.01086878590285778
+  },
+  {
+    "run": "table_06/carve_only_s0_probe",
+    "stage": "before_terminal_prune->online_map",
+    "deleted": 19088,
+    "floater_precision": 0.0075440067057837385,
+    "floater_recall": 1.0,
+    "surface_share": 0.8681894383906119,
+    "mass_removed": 0.009363476186990738
+  },
+  {
+    "run": "tum_fr1_desk/fm_only_s0_probe",
+    "stage": "before_terminal_prune->online_map",
+    "deleted": 17169,
+    "floater_precision": 0.0041353602422971635,
+    "floater_recall": 0.9726027397260274,
+    "surface_share": 0.6251383307123304,
+    "mass_removed": 0.008506100624799728
+  },
+  {
+    "run": "tum_fr1_desk/carve_only_s0_probe",
+    "stage": "before_terminal_prune->online_map",
+    "deleted": 16992,
+    "floater_precision": 0.0048846516007532955,
+    "floater_recall": 0.9222222222222223,
+    "surface_share": 0.620527306967985,
+    "mass_removed": 0.008589208126068115
+  }
+]

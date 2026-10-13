@@ -1,0 +1,24 @@
+{
+  "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/tum_fr1_desk/sensor_carve_s0_probe",
+  "ply": "online_map.ply",
+  "views": 114,
+  "valid": 18245251,
+  "front": 289168,
+  "behind": 266317,
+  "front_edge": 59046,
+  "front_hole": 65849,
+  "front_share": 0.015848946117540393,
+  "behind_share": 0.014596510620763727,
+  "front_at_edge": 0.20419271841974215,
+  "front_near_hole": 0.22771883472583412,
+  "within_10pct": 0.9052605524582807,
+  "ratio_quantiles": {
+    "0.01": 0.6891316771507263,
+    "0.05": 0.9154255390167236,
+    "0.25": 0.982105016708374,
+    "0.5": 1.0048717260360718,
+    "0.75": 1.0307893753051758,
+    "0.95": 1.1049622297286987,
+    "0.99": 1.3486429452896118
+  }
+}

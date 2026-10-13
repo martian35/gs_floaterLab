@@ -1,0 +1,47 @@
+{
+  "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/table_06/maint_t05_s0_probe",
+  "gaussians": 109857,
+  "windows": 43,
+  "survivor": {
+    "n": 2,
+    "rgb_fade_share": 0.8473974725925543,
+    "rgb_per_seen": 2.991761478673354e-06,
+    "rgb_deeper_share": 0.8694505977300117,
+    "geom_fade_share": 0.2696663531163725,
+    "geom_per_seen": 6.745939893161947e-06,
+    "geom_deeper_share": 0.3387000725200338,
+    "inject_fade_share": null,
+    "inject_per_seen": 0.0,
+    "born_last10pct": 1.0,
+    "born_median_window": 39.5,
+    "final_opacity_median": 0.2618996202945709
+  },
+  "floater": {
+    "n": 381,
+    "rgb_fade_share": 0.7663360217122624,
+    "rgb_per_seen": 5.831645687110426e-07,
+    "rgb_deeper_share": 0.8275141021256812,
+    "geom_fade_share": 0.7089826660896524,
+    "geom_per_seen": 1.8069671738668487e-06,
+    "geom_deeper_share": 0.8018232444100937,
+    "inject_fade_share": null,
+    "inject_per_seen": 0.0,
+    "born_last10pct": 0.8740157480314961,
+    "born_median_window": 39.0,
+    "final_opacity_median": 0.007975760847330093
+  },
+  "surface": {
+    "n": 107166,
+    "rgb_fade_share": 0.4869149599801921,
+    "rgb_per_seen": 8.648986333983377e-08,
+    "rgb_deeper_share": 0.5199302713960341,
+    "geom_fade_share": 0.48367979587893234,
+    "geom_per_seen": 2.1353011373012243e-08,
+    "geom_deeper_share": 0.5494995165460085,
+    "inject_fade_share": null,
+    "inject_per_seen": 0.0,
+    "born_last10pct": 0.2191646604333464,
+    "born_median_window": 24.0,
+    "final_opacity_median": 0.9631893634796143
+  }
+}

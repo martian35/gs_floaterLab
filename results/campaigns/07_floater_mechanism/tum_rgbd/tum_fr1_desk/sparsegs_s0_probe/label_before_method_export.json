@@ -1,0 +1,14 @@
+{
+  "ply": "before_method_export.ply",
+  "anchor": "median",
+  "gaussians": 120685,
+  "heldout_views": 124,
+  "floaters": 69,
+  "visible": 90253,
+  "kernel_max_alpha_error": 0.0,
+  "rule": {
+    "relative_margin": 0.25,
+    "min_total": 0.5,
+    "min_front_share": 0.8
+  }
+}

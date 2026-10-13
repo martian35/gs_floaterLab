@@ -1,0 +1,24 @@
+{
+  "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/tum_fr1_desk/cgslam_s0_probe",
+  "ply": "online_map.ply",
+  "views": 114,
+  "valid": 18246525,
+  "front": 357572,
+  "behind": 226312,
+  "front_edge": 64991,
+  "front_hole": 83491,
+  "front_share": 0.019596717731184432,
+  "behind_share": 0.01240301920502671,
+  "front_at_edge": 0.18175640150794806,
+  "front_near_hole": 0.23349423332923158,
+  "within_10pct": 0.9062225821081,
+  "ratio_quantiles": {
+    "0.01": 0.6505804657936096,
+    "0.05": 0.9140862822532654,
+    "0.25": 0.9827671051025391,
+    "0.5": 1.0051268339157104,
+    "0.75": 1.0308253765106201,
+    "0.95": 1.1011022329330444,
+    "0.99": 1.2961121797561646
+  }
+}

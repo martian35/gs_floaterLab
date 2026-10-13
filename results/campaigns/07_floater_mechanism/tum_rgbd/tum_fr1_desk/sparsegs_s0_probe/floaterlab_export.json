@@ -1,0 +1,11 @@
+{
+  "sparsegs": {
+    "views": 87,
+    "avg_dip": 0.0005142413288187838,
+    "percentile": 97.62276056135057,
+    "flagged_pixels": 265743,
+    "before": 120685,
+    "removed": 6155,
+    "after": 114530
+  }
+}

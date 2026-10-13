@@ -1,0 +1,24 @@
+{
+  "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/tum_fr1_desk/gof_distortion_s0_probe",
+  "ply": "online_map.ply",
+  "views": 114,
+  "valid": 18245009,
+  "front": 345362,
+  "behind": 247834,
+  "front_edge": 63491,
+  "front_hole": 77185,
+  "front_share": 0.01892912193137312,
+  "behind_share": 0.013583660057388845,
+  "front_at_edge": 0.18383898633897186,
+  "front_near_hole": 0.22349013498879436,
+  "within_10pct": 0.9085658987616833,
+  "ratio_quantiles": {
+    "0.01": 0.6540693640708923,
+    "0.05": 0.9111396670341492,
+    "0.25": 0.9863729476928711,
+    "0.5": 1.0060018301010132,
+    "0.75": 1.0293810367584229,
+    "0.95": 1.0939621925354004,
+    "0.99": 1.3190463781356812
+  }
+}

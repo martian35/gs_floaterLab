@@ -1,0 +1,475 @@
+{
+  "training": {
+    "variant": "floaterlab:dsnerf_kl_w001",
+    "arm": {
+      "name": "dsnerf_kl_w001",
+      "category": "termination_distribution",
+      "description": "dsnerf_kl weight sweep 0.001 (prereg tuning on the dev scene)",
+      "env": {
+        "FIXED40_KF_LOSS": "d3_normal",
+        "FIXED40_D3_HARD": "0",
+        "FIXED40_D3_MAIN": "0",
+        "FIXED40_KF_PLAIN_W": "0.25",
+        "FIXED40_DENSE_SCOPE": "full",
+        "FIXED40_DENSE_DEPTH": "geo",
+        "FIXED40_DD_W": "0.25"
+      },
+      "rasterizer_env": {
+        "FR_WARP_BWD": "1"
+      },
+      "carve_required": false,
+      "fm": false,
+      "methods": [
+        {
+          "name": "ray_losses",
+          "kind": "dsnerf_kl",
+          "weight": 0.001
+        }
+      ]
+    },
+    "keyframe_loss": {
+      "mode": "d3_normal",
+      "scope": "full",
+      "w_plain": 0.25,
+      "w_hard": 0.0,
+      "w_main": 0.0,
+      "tau": 0.95,
+      "form": "metric"
+    },
+    "dense_depth": {
+      "mode": "geo",
+      "w": 0.25,
+      "eps": 0.05,
+      "disc": 0.1,
+      "wmin": 0.5,
+      "res": 1.0,
+      "frac": 1.0,
+      "form": "metric",
+      "normal": 0.0,
+      "edge": false,
+      "hard": 0.0,
+      "decouple": false,
+      "clip": 1.0,
+      "route": "all",
+      "verify": 0.0
+    },
+    "dense_depth_stats": {
+      "dense_views": 6468,
+      "transported": 6468,
+      "skipped_no_bracket": 0,
+      "skipped_no_measurement": 0,
+      "target_builds": 6468,
+      "target_pixels": 820078464.0,
+      "image_pixels": 1370684672.0,
+      "abs_err_sum": 51165356.0,
+      "target_coverage": 0.598298413013843,
+      "mean_abs_err": 0.06239080557052648,
+      "diag_flow": [],
+      "diag_geo": [
+        {
+          "both": 0.865,
+          "agree": 0.796,
+          "kept": 0.779
+        },
+        {
+          "both": 0.864,
+          "agree": 0.794,
+          "kept": 0.779
+        },
+        {
+          "both": 0.865,
+          "agree": 0.796,
+          "kept": 0.779
+        },
+        {
+          "both": 0.866,
+          "agree": 0.795,
+          "kept": 0.779
+        },
+        {
+          "both": 0.864,
+          "agree": 0.794,
+          "kept": 0.779
+        },
+        {
+          "both": 0.865,
+          "agree": 0.796,
+          "kept": 0.779
+        },
+        {
+          "both": 0.865,
+          "agree": 0.796,
+          "kept": 0.779
+        },
+        {
+          "both": 0.864,
+          "agree": 0.794,
+          "kept": 0.779
+        },
+        {
+          "both": 0.866,
+          "agree": 0.795,
+          "kept": 0.779
+        },
+        {
+          "both": 0.864,
+          "agree": 0.794,
+          "kept": 0.779
+        },
+        {
+          "both": 0.865,
+          "agree": 0.796,
+          "kept": 0.779
+        },
+        {
+          "both": 0.865,
+          "agree": 0.796,
+          "kept": 0.779
+        },
+        {
+          "both": 0.866,
+          "agree": 0.795,
+          "kept": 0.779
+        },
+        {
+          "both": 0.865,
+          "agree": 0.796,
+          "kept": 0.779
+        },
+        {
+          "both": 0.866,
+          "agree": 0.795,
+          "kept": 0.779
+        },
+        {
+          "both": 0.866,
+          "agree": 0.796,
+          "kept": 0.78
+        },
+        {
+          "both": 0.865,
+          "agree": 0.796,
+          "kept": 0.779
+        },
+        {
+          "both": 0.864,
+          "agree": 0.794,
+          "kept": 0.779
+        },
+        {
+          "both": 0.866,
+          "agree": 0.796,
+          "kept": 0.78
+        },
+        {
+          "both": 0.864,
+          "agree": 0.794,
+          "kept": 0.779
+        },
+        {
+          "both": 0.864,
+          "agree": 0.795,
+          "kept": 0.779
+        },
+        {
+          "both": 0.865,
+          "agree": 0.796,
+          "kept": 0.779
+        },
+        {
+          "both": 0.865,
+          "agree": 0.796,
+          "kept": 0.779
+        },
+        {
+          "both": 0.866,
+          "agree": 0.795,
+          "kept": 0.779
+        },
+        {
+          "both": 0.866,
+          "agree": 0.795,
+          "kept": 0.779
+        },
+        {
+          "both": 0.866,
+          "agree": 0.796,
+          "kept": 0.78
+        },
+        {
+          "both": 0.865,
+          "agree": 0.796,
+          "kept": 0.779
+        },
+        {
+          "both": 0.864,
+          "agree": 0.794,
+          "kept": 0.779
+        },
+        {
+          "both": 0.865,
+          "agree": 0.796,
+          "kept": 0.779
+        },
+        {
+          "both": 0.864,
+          "agree": 0.795,
+          "kept": 0.779
+        },
+        {
+          "both": 0.866,
+          "agree": 0.795,
+          "kept": 0.779
+        },
+        {
+          "both": 0.866,
+          "agree": 0.796,
+          "kept": 0.78
+        },
+        {
+          "both": 0.865,
+          "agree": 0.796,
+          "kept": 0.779
+        },
+        {
+          "both": 0.865,
+          "agree": 0.795,
+          "kept": 0.779
+        },
+        {
+          "both": 0.864,
+          "agree": 0.794,
+          "kept": 0.779
+        },
+        {
+          "both": 0.865,
+          "agree": 0.796,
+          "kept": 0.779
+        },
+        {
+          "both": 0.866,
+          "agree": 0.795,
+          "kept": 0.779
+        },
+        {
+          "both": 0.866,
+          "agree": 0.796,
+          "kept": 0.78
+        },
+        {
+          "both": 0.732,
+          "agree": 0.537,
+          "kept": 0.535
+        },
+        {
+          "both": 0.865,
+          "agree": 0.796,
+          "kept": 0.779
+        },
+        {
+          "both": 0.865,
+          "agree": 0.796,
+          "kept": 0.779
+        },
+        {
+          "both": 0.865,
+          "agree": 0.795,
+          "kept": 0.779
+        },
+        {
+          "both": 0.865,
+          "agree": 0.796,
+          "kept": 0.779
+        },
+        {
+          "both": 0.864,
+          "agree": 0.795,
+          "kept": 0.779
+        },
+        {
+          "both": 0.866,
+          "agree": 0.796,
+          "kept": 0.78
+        },
+        {
+          "both": 0.618,
+          "agree": 0.51,
+          "kept": 0.507
+        },
+        {
+          "both": 0.865,
+          "agree": 0.795,
+          "kept": 0.779
+        },
+        {
+          "both": 0.865,
+          "agree": 0.796,
+          "kept": 0.779
+        },
+        {
+          "both": 0.618,
+          "agree": 0.51,
+          "kept": 0.507
+        },
+        {
+          "both": 0.866,
+          "agree": 0.795,
+          "kept": 0.779
+        },
+        {
+          "both": 0.865,
+          "agree": 0.795,
+          "kept": 0.779
+        },
+        {
+          "both": 0.864,
+          "agree": 0.794,
+          "kept": 0.779
+        },
+        {
+          "both": 0.865,
+          "agree": 0.796,
+          "kept": 0.779
+        },
+        {
+          "both": 0.732,
+          "agree": 0.537,
+          "kept": 0.535
+        },
+        {
+          "both": 0.864,
+          "agree": 0.794,
+          "kept": 0.779
+        },
+        {
+          "both": 0.865,
+          "agree": 0.796,
+          "kept": 0.779
+        },
+        {
+          "both": 0.864,
+          "agree": 0.795,
+          "kept": 0.779
+        },
+        {
+          "both": 0.618,
+          "agree": 0.51,
+          "kept": 0.507
+        },
+        {
+          "both": 0.866,
+          "agree": 0.795,
+          "kept": 0.779
+        },
+        {
+          "both": 0.734,
+          "agree": 0.638,
+          "kept": 0.632
+        }
+      ],
+      "diag_verify_kept_frac": []
+    },
+    "carve": {
+      "prune_protect": null,
+      "prune_every": null,
+      "terminal_prune": null,
+      "vis": "off",
+      "tau": 0.01,
+      "min_seen": 5,
+      "fade": 0.05,
+      "dist_w": 0.0,
+      "dist_min_alpha": 0.5,
+      "dist_min_depth": 0.1,
+      "evi": "off",
+      "evi_rel": 0.25,
+      "evi_share": 0.8,
+      "evi_min_c": 0.5,
+      "evi_crit": "MED",
+      "evi_grad": 0.0,
+      "evi_grad_protected": false,
+      "evi_scope": "old",
+      "evi_trace": false,
+      "allkf_every": 0,
+      "allkf_scope": "old",
+      "cons_grad": 0.0,
+      "struct": null,
+      "struct_r": 0.15,
+      "struct_opmax": 0.5,
+      "label_ctl": null,
+      "label_every": 100,
+      "label_lambda": 0.7,
+      "self": null,
+      "self_grad": 0.0,
+      "self_decay": 0.5,
+      "self_every": 1,
+      "self_fast": false,
+      "self_stride": 1,
+      "ba_grad": 0.0,
+      "self_gate": false,
+      "self_gate_lo": 0.5,
+      "self_gate_hi": 0.8,
+      "finalize_k": 0
+    },
+    "carve_stats": {
+      "renders": 0,
+      "realigned": 0,
+      "births_padded": 0,
+      "prune_trims": 0,
+      "passes": 0,
+      "passes_skipped": 0,
+      "flagged": 0,
+      "pruned": 0,
+      "faded": 0,
+      "dist_views": 0,
+      "evi_views": 0,
+      "evi_flagged": 0,
+      "evi_pruned": 0,
+      "evi_faded": 0,
+      "evi_fidelity_max_err": 0.0,
+      "allkf_views": 0,
+      "allkf_pruned": 0,
+      "allkf_seconds": 0.0
+    },
+    "training_renders": 12996,
+    "methods": {
+      "ray_losses": {
+        "kf_views": 6528,
+        "captured": 6528,
+        "mean_loss": 598.670917242242
+      }
+    }
+  },
+  "export": {
+    "terminal_opacity": {
+      "enabled": true,
+      "threshold": 0.1,
+      "comparison": "<",
+      "protect_recent": false,
+      "before": 89782,
+      "removed": 24655,
+      "after": 65127,
+      "optimizer_updates": 0,
+      "seconds": 0.0037516729935305193,
+      "alignment_pass": true
+    },
+    "fm": {
+      "enabled": false
+    },
+    "stages": [
+      {
+        "ply": "before_terminal_prune.ply",
+        "sha256": "2d5a9cf8406feb5d149b6cbb57a1955b37f0fd49a8a0bee91154fb0ea943dd7d",
+        "gaussians": 89782
+      },
+      {
+        "ply": "after_terminal_opacity.ply",
+        "sha256": "725d944001691e556532ff68b66294f66114992165ed1037e3fec4df1f89013e",
+        "gaussians": 65127
+      }
+    ],
+    "extra_training_renders": 0,
+    "optimizer_updates": 0,
+    "postprocessing_renders": 0,
+    "training_6N_includes_FM": false
+  }
+}

@@ -1,0 +1,600 @@
+{
+  "training": {
+    "variant": "floaterlab:cc_sensor02",
+    "arm": {
+      "name": "cc_sensor02",
+      "category": "ours_combo",
+      "description": "cc (slow evidence path) + sensor carve lambda .2 referenced to the frontend BA depth on keyframes",
+      "env": {
+        "FIXED40_KF_LOSS": "d3_normal",
+        "FIXED40_D3_HARD": "0",
+        "FIXED40_D3_MAIN": "0",
+        "FIXED40_KF_PLAIN_W": "0.25",
+        "FIXED40_DENSE_SCOPE": "full",
+        "FIXED40_DENSE_DEPTH": "geo",
+        "FIXED40_DD_W": "0.25",
+        "FIXED40_SELF": "evidence",
+        "FIXED40_SELF_GRAD": "3",
+        "FIXED40_SELF_GATE": "1",
+        "FIXED40_SELF_FAST": "0",
+        "FIXED40_BA_GRAD": "0.2"
+      },
+      "rasterizer_env": {
+        "FR_WARP_BWD": "1"
+      },
+      "carve_required": true,
+      "fm": true
+    },
+    "keyframe_loss": {
+      "mode": "d3_normal",
+      "scope": "full",
+      "w_plain": 0.25,
+      "w_hard": 0.0,
+      "w_main": 0.0,
+      "tau": 0.95,
+      "form": "metric"
+    },
+    "dense_depth": {
+      "mode": "geo",
+      "w": 0.25,
+      "eps": 0.05,
+      "disc": 0.1,
+      "wmin": 0.5,
+      "res": 1.0,
+      "frac": 1.0,
+      "form": "metric",
+      "normal": 0.0,
+      "edge": false,
+      "hard": 0.0,
+      "decouple": false,
+      "clip": 1.0,
+      "route": "all",
+      "verify": 0.0
+    },
+    "dense_depth_stats": {
+      "dense_views": 1437,
+      "transported": 1437,
+      "skipped_no_bracket": 0,
+      "skipped_no_measurement": 0,
+      "target_builds": 1437,
+      "target_pixels": 175746112.0,
+      "image_pixels": 308092800.0,
+      "abs_err_sum": 7406309.0,
+      "target_coverage": 0.5704323892022144,
+      "mean_abs_err": 0.04214209302109625,
+      "diag_flow": [],
+      "diag_geo": [
+        {
+          "both": 0.828,
+          "agree": 0.594,
+          "kept": 0.593
+        },
+        {
+          "both": 0.828,
+          "agree": 0.594,
+          "kept": 0.593
+        },
+        {
+          "both": 0.672,
+          "agree": 0.406,
+          "kept": 0.406
+        },
+        {
+          "both": 0.676,
+          "agree": 0.409,
+          "kept": 0.405
+        },
+        {
+          "both": 0.672,
+          "agree": 0.406,
+          "kept": 0.406
+        },
+        {
+          "both": 0.828,
+          "agree": 0.594,
+          "kept": 0.593
+        },
+        {
+          "both": 0.828,
+          "agree": 0.594,
+          "kept": 0.593
+        },
+        {
+          "both": 0.676,
+          "agree": 0.409,
+          "kept": 0.405
+        },
+        {
+          "both": 0.672,
+          "agree": 0.406,
+          "kept": 0.406
+        },
+        {
+          "both": 0.828,
+          "agree": 0.594,
+          "kept": 0.593
+        },
+        {
+          "both": 0.661,
+          "agree": 0.409,
+          "kept": 0.407
+        },
+        {
+          "both": 0.672,
+          "agree": 0.406,
+          "kept": 0.406
+        },
+        {
+          "both": 0.676,
+          "agree": 0.409,
+          "kept": 0.405
+        },
+        {
+          "both": 0.672,
+          "agree": 0.406,
+          "kept": 0.406
+        },
+        {
+          "both": 0.676,
+          "agree": 0.409,
+          "kept": 0.405
+        },
+        {
+          "both": 0.83,
+          "agree": 0.595,
+          "kept": 0.594
+        },
+        {
+          "both": 0.661,
+          "agree": 0.409,
+          "kept": 0.407
+        },
+        {
+          "both": 0.828,
+          "agree": 0.594,
+          "kept": 0.593
+        },
+        {
+          "both": 0.83,
+          "agree": 0.595,
+          "kept": 0.594
+        },
+        {
+          "both": 0.828,
+          "agree": 0.594,
+          "kept": 0.593
+        },
+        {
+          "both": 0.667,
+          "agree": 0.404,
+          "kept": 0.403
+        },
+        {
+          "both": 0.661,
+          "agree": 0.409,
+          "kept": 0.407
+        },
+        {
+          "both": 0.672,
+          "agree": 0.406,
+          "kept": 0.406
+        },
+        {
+          "both": 0.676,
+          "agree": 0.409,
+          "kept": 0.405
+        },
+        {
+          "both": 0.676,
+          "agree": 0.409,
+          "kept": 0.405
+        },
+        {
+          "both": 0.83,
+          "agree": 0.595,
+          "kept": 0.594
+        },
+        {
+          "both": 0.672,
+          "agree": 0.406,
+          "kept": 0.406
+        },
+        {
+          "both": 0.828,
+          "agree": 0.594,
+          "kept": 0.593
+        },
+        {
+          "both": 0.661,
+          "agree": 0.409,
+          "kept": 0.407
+        },
+        {
+          "both": 0.667,
+          "agree": 0.404,
+          "kept": 0.403
+        },
+        {
+          "both": 0.676,
+          "agree": 0.409,
+          "kept": 0.405
+        },
+        {
+          "both": 0.83,
+          "agree": 0.595,
+          "kept": 0.594
+        },
+        {
+          "both": 0.661,
+          "agree": 0.409,
+          "kept": 0.407
+        },
+        {
+          "both": 0.688,
+          "agree": 0.412,
+          "kept": 0.411
+        },
+        {
+          "both": 0.828,
+          "agree": 0.594,
+          "kept": 0.593
+        },
+        {
+          "both": 0.672,
+          "agree": 0.406,
+          "kept": 0.406
+        },
+        {
+          "both": 0.679,
+          "agree": 0.411,
+          "kept": 0.408
+        },
+        {
+          "both": 0.828,
+          "agree": 0.594,
+          "kept": 0.593
+        },
+        {
+          "both": 0.83,
+          "agree": 0.595,
+          "kept": 0.594
+        },
+        {
+          "both": 0.661,
+          "agree": 0.409,
+          "kept": 0.407
+        },
+        {
+          "both": 0.688,
+          "agree": 0.412,
+          "kept": 0.411
+        },
+        {
+          "both": 0.676,
+          "agree": 0.409,
+          "kept": 0.405
+        },
+        {
+          "both": 0.661,
+          "agree": 0.409,
+          "kept": 0.407
+        },
+        {
+          "both": 0.688,
+          "agree": 0.412,
+          "kept": 0.411
+        },
+        {
+          "both": 0.667,
+          "agree": 0.404,
+          "kept": 0.403
+        },
+        {
+          "both": 0.672,
+          "agree": 0.406,
+          "kept": 0.406
+        },
+        {
+          "both": 0.679,
+          "agree": 0.411,
+          "kept": 0.408
+        },
+        {
+          "both": 0.736,
+          "agree": 0.392,
+          "kept": 0.389
+        },
+        {
+          "both": 0.667,
+          "agree": 0.404,
+          "kept": 0.403
+        },
+        {
+          "both": 0.736,
+          "agree": 0.392,
+          "kept": 0.389
+        },
+        {
+          "both": 0.679,
+          "agree": 0.411,
+          "kept": 0.408
+        },
+        {
+          "both": 0.672,
+          "agree": 0.406,
+          "kept": 0.406
+        },
+        {
+          "both": 0.661,
+          "agree": 0.409,
+          "kept": 0.407
+        },
+        {
+          "both": 0.83,
+          "agree": 0.595,
+          "kept": 0.594
+        },
+        {
+          "both": 0.676,
+          "agree": 0.409,
+          "kept": 0.405
+        },
+        {
+          "both": 0.736,
+          "agree": 0.392,
+          "kept": 0.389
+        },
+        {
+          "both": 0.679,
+          "agree": 0.411,
+          "kept": 0.408
+        },
+        {
+          "both": 0.828,
+          "agree": 0.594,
+          "kept": 0.593
+        },
+        {
+          "both": 0.661,
+          "agree": 0.409,
+          "kept": 0.407
+        },
+        {
+          "both": 0.672,
+          "agree": 0.406,
+          "kept": 0.406
+        }
+      ],
+      "diag_verify_kept_frac": []
+    },
+    "carve": {
+      "prune_protect": null,
+      "prune_every": null,
+      "terminal_prune": null,
+      "vis": "off",
+      "tau": 0.01,
+      "min_seen": 5,
+      "fade": 0.05,
+      "dist_w": 0.0,
+      "dist_min_alpha": 0.5,
+      "dist_min_depth": 0.1,
+      "evi": "off",
+      "evi_rel": 0.25,
+      "evi_share": 0.8,
+      "evi_min_c": 0.5,
+      "evi_crit": "MED",
+      "evi_grad": 0.0,
+      "evi_grad_protected": false,
+      "evi_scope": "old",
+      "evi_trace": false,
+      "allkf_every": 0,
+      "allkf_scope": "old",
+      "cons_grad": 0.0,
+      "struct": null,
+      "struct_r": 0.15,
+      "struct_opmax": 0.5,
+      "label_ctl": null,
+      "label_every": 100,
+      "label_lambda": 0.7,
+      "self": "evidence",
+      "self_grad": 3.0,
+      "self_decay": 0.5,
+      "self_every": 1,
+      "self_fast": false,
+      "self_stride": 1,
+      "ba_grad": 0.2,
+      "self_gate": true,
+      "self_gate_lo": 0.5,
+      "self_gate_hi": 0.8,
+      "finalize_k": 0
+    },
+    "carve_stats": {
+      "renders": 3020,
+      "realigned": 1,
+      "births_padded": 86,
+      "prune_trims": 9,
+      "passes": 9,
+      "passes_skipped": 0,
+      "flagged": 0,
+      "pruned": 0,
+      "faded": 0,
+      "dist_views": 0,
+      "evi_views": 2934,
+      "evi_flagged": 14,
+      "evi_pruned": 0,
+      "evi_faded": 0,
+      "evi_fidelity_max_err": 0.0,
+      "allkf_views": 0,
+      "allkf_pruned": 0,
+      "allkf_seconds": 0.0,
+      "self_seen_views": 2934,
+      "evi_ba_views": 1497,
+      "ba_grad_views": 1497,
+      "self_gate_w_mean": 0.0011953826760873199,
+      "self_grad_views": 2934,
+      "self_views": 2934,
+      "evi_grad_steps": 2934,
+      "evi_grad_abs_sum": 4.574728731730012,
+      "evi_flag_per_pass": [
+        0,
+        1,
+        0,
+        2,
+        0,
+        4,
+        3,
+        2,
+        2
+      ],
+      "self_flag_per_pass": [
+        71,
+        11,
+        4,
+        5,
+        3,
+        15,
+        4,
+        35,
+        48
+      ]
+    },
+    "training_renders": 2934,
+    "methods": {}
+  },
+  "export": {
+    "terminal_opacity": {
+      "enabled": true,
+      "threshold": 0.1,
+      "comparison": "<",
+      "protect_recent": false,
+      "before": 117276,
+      "removed": 17305,
+      "after": 99971,
+      "optimizer_updates": 0,
+      "seconds": 0.004613359007635154,
+      "alignment_pass": true
+    },
+    "fm": {
+      "enabled": true,
+      "before": 99971,
+      "removed": 10,
+      "after": 99961,
+      "keyframe_uids": [
+        1.0,
+        6.0,
+        9.0,
+        11.0,
+        13.0,
+        16.0,
+        21.0,
+        26.0,
+        29.0,
+        34.0,
+        41.0,
+        46.0,
+        54.0,
+        63.0,
+        71.0,
+        81.0,
+        86.0,
+        93.0,
+        106.0,
+        109.0,
+        116.0,
+        128.0,
+        137.0,
+        144.0,
+        151.0,
+        158.0,
+        166.0,
+        174.0,
+        179.0,
+        188.0,
+        191.0,
+        193.0,
+        198.0,
+        201.0,
+        204.0,
+        212.0,
+        216.0,
+        221.0,
+        231.0,
+        249.0,
+        264.0,
+        272.0,
+        276.0,
+        281.0,
+        287.0,
+        291.0,
+        301.0,
+        306.0,
+        312.0,
+        318.0,
+        322.0,
+        326.0,
+        329.0,
+        332.0,
+        336.0,
+        344.0,
+        352.0,
+        356.0,
+        358.0,
+        366.0,
+        371.0,
+        376.0,
+        386.0,
+        392.0,
+        396.0,
+        401.0,
+        404.0,
+        413.0,
+        427.0,
+        437.0,
+        442.0,
+        451.0,
+        464.0,
+        473.0,
+        482.0,
+        491.0,
+        499.0,
+        507.0,
+        514.0,
+        521.0,
+        527.0,
+        531.0,
+        536.0,
+        541.0,
+        547.0,
+        561.0,
+        577.0
+      ],
+      "renders": 87,
+      "empty_renders": 0,
+      "kernel_max_alpha_error": 0.0,
+      "heldout_overlap": [],
+      "optimizer_updates": 0,
+      "evidence_sha256": "2dc32602eff0e742230d0a350ec6d52e2900ea989beee337b329bc5241099a2e"
+    },
+    "stages": [
+      {
+        "ply": "before_terminal_prune.ply",
+        "sha256": "0fd50068127eda70b085f30290b13c9e389d8b37082ba97f4980c0d6c8b225c8",
+        "gaussians": 117276
+      },
+      {
+        "ply": "after_terminal_opacity.ply",
+        "sha256": "03e9aff1a0a446d83193e8fe70262053225c3b5b4bbb1b8a358153317688bf1c",
+        "gaussians": 99971
+      },
+      {
+        "ply": "online_map.ply",
+        "sha256": "88a5fbb792d6d50ace82154830b1744e8334cea8ee6fb2fa7f0dc01155431a68",
+        "gaussians": 99961
+      }
+    ],
+    "extra_training_renders": 0,
+    "optimizer_updates": 0,
+    "postprocessing_renders": 87,
+    "training_6N_includes_FM": false
+  }
+}

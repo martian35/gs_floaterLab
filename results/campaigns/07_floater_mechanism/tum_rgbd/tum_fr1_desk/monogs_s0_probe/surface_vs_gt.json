@@ -1,0 +1,24 @@
+{
+  "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/tum_fr1_desk/monogs_s0_probe",
+  "ply": "online_map.ply",
+  "views": 114,
+  "valid": 18235521,
+  "front": 352807,
+  "behind": 266021,
+  "front_edge": 65831,
+  "front_hole": 77509,
+  "front_share": 0.019347239928050316,
+  "behind_share": 0.014588066883309778,
+  "front_at_edge": 0.18659210276440094,
+  "front_near_hole": 0.21969235304288182,
+  "within_10pct": 0.9024304816955874,
+  "ratio_quantiles": {
+    "0.01": 0.6654142141342163,
+    "0.05": 0.9142818450927734,
+    "0.25": 0.9829591512680054,
+    "0.5": 1.0058752298355103,
+    "0.75": 1.0326955318450928,
+    "0.95": 1.1065233945846558,
+    "0.99": 1.331742286682129
+  }
+}

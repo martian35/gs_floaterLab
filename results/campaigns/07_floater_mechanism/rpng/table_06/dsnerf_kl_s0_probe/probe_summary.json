@@ -1,0 +1,21 @@
+{
+  "renders": 12996,
+  "probe_renders": 1299,
+  "windows": 44,
+  "check_max_rel": 2.336872285013669e-06,
+  "every": 10,
+  "window": 300,
+  "channels": [
+    "rgb_fade",
+    "rgb_grow",
+    "geom_fade",
+    "geom_grow",
+    "inject_fade",
+    "inject_grow",
+    "rgb_deeper",
+    "rgb_nearer",
+    "geom_deeper",
+    "geom_nearer",
+    "seen"
+  ]
+}

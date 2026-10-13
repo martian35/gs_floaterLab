@@ -1,0 +1,469 @@
+{
+  "training": {
+    "variant": "floaterlab:sparsegs",
+    "arm": {
+      "name": "sparsegs",
+      "category": "judge_and_delete",
+      "description": "SparseGS official prune logic (mode vs alpha depth, dip-adaptive percentile, first contributor..mode) once at export",
+      "env": {
+        "FIXED40_KF_LOSS": "d3_normal",
+        "FIXED40_D3_HARD": "0",
+        "FIXED40_D3_MAIN": "0",
+        "FIXED40_KF_PLAIN_W": "0.25",
+        "FIXED40_DENSE_SCOPE": "full",
+        "FIXED40_DENSE_DEPTH": "geo",
+        "FIXED40_DD_W": "0.25"
+      },
+      "rasterizer_env": {
+        "FR_WARP_BWD": "1"
+      },
+      "carve_required": false,
+      "fm": false,
+      "methods": [
+        {
+          "name": "sparsegs"
+        }
+      ]
+    },
+    "keyframe_loss": {
+      "mode": "d3_normal",
+      "scope": "full",
+      "w_plain": 0.25,
+      "w_hard": 0.0,
+      "w_main": 0.0,
+      "tau": 0.95,
+      "form": "metric"
+    },
+    "dense_depth": {
+      "mode": "geo",
+      "w": 0.25,
+      "eps": 0.05,
+      "disc": 0.1,
+      "wmin": 0.5,
+      "res": 1.0,
+      "frac": 1.0,
+      "form": "metric",
+      "normal": 0.0,
+      "edge": false,
+      "hard": 0.0,
+      "decouple": false,
+      "clip": 1.0,
+      "route": "all",
+      "verify": 0.0
+    },
+    "dense_depth_stats": {
+      "dense_views": 3078,
+      "transported": 3078,
+      "skipped_no_bracket": 0,
+      "skipped_no_measurement": 0,
+      "target_builds": 3078,
+      "target_pixels": 278075936.0,
+      "image_pixels": 662681088.0,
+      "abs_err_sum": 17938832.0,
+      "target_coverage": 0.41962256209732063,
+      "mean_abs_err": 0.06451055153510299,
+      "diag_flow": [],
+      "diag_geo": [
+        {
+          "both": 0.485,
+          "agree": 0.359,
+          "kept": 0.356
+        },
+        {
+          "both": 0.485,
+          "agree": 0.359,
+          "kept": 0.356
+        },
+        {
+          "both": 0.554,
+          "agree": 0.342,
+          "kept": 0.334
+        },
+        {
+          "both": 0.598,
+          "agree": 0.381,
+          "kept": 0.372
+        },
+        {
+          "both": 0.485,
+          "agree": 0.359,
+          "kept": 0.356
+        },
+        {
+          "both": 0.554,
+          "agree": 0.342,
+          "kept": 0.334
+        },
+        {
+          "both": 0.554,
+          "agree": 0.342,
+          "kept": 0.334
+        },
+        {
+          "both": 0.485,
+          "agree": 0.359,
+          "kept": 0.356
+        },
+        {
+          "both": 0.598,
+          "agree": 0.381,
+          "kept": 0.372
+        },
+        {
+          "both": 0.485,
+          "agree": 0.359,
+          "kept": 0.356
+        },
+        {
+          "both": 0.745,
+          "agree": 0.569,
+          "kept": 0.563
+        },
+        {
+          "both": 0.554,
+          "agree": 0.342,
+          "kept": 0.334
+        },
+        {
+          "both": 0.598,
+          "agree": 0.381,
+          "kept": 0.372
+        },
+        {
+          "both": 0.554,
+          "agree": 0.342,
+          "kept": 0.334
+        },
+        {
+          "both": 0.598,
+          "agree": 0.381,
+          "kept": 0.372
+        },
+        {
+          "both": 0.584,
+          "agree": 0.444,
+          "kept": 0.44
+        },
+        {
+          "both": 0.745,
+          "agree": 0.569,
+          "kept": 0.563
+        },
+        {
+          "both": 0.485,
+          "agree": 0.359,
+          "kept": 0.356
+        },
+        {
+          "both": 0.584,
+          "agree": 0.444,
+          "kept": 0.44
+        },
+        {
+          "both": 0.49,
+          "agree": 0.362,
+          "kept": 0.36
+        },
+        {
+          "both": 0.485,
+          "agree": 0.359,
+          "kept": 0.356
+        },
+        {
+          "both": 0.745,
+          "agree": 0.569,
+          "kept": 0.563
+        },
+        {
+          "both": 0.554,
+          "agree": 0.342,
+          "kept": 0.334
+        },
+        {
+          "both": 0.598,
+          "agree": 0.381,
+          "kept": 0.372
+        },
+        {
+          "both": 0.598,
+          "agree": 0.381,
+          "kept": 0.372
+        },
+        {
+          "both": 0.584,
+          "agree": 0.444,
+          "kept": 0.44
+        },
+        {
+          "both": 0.554,
+          "agree": 0.342,
+          "kept": 0.334
+        },
+        {
+          "both": 0.49,
+          "agree": 0.362,
+          "kept": 0.36
+        },
+        {
+          "both": 0.745,
+          "agree": 0.569,
+          "kept": 0.563
+        },
+        {
+          "both": 0.485,
+          "agree": 0.359,
+          "kept": 0.356
+        },
+        {
+          "both": 0.598,
+          "agree": 0.381,
+          "kept": 0.372
+        },
+        {
+          "both": 0.584,
+          "agree": 0.444,
+          "kept": 0.44
+        },
+        {
+          "both": 0.745,
+          "agree": 0.569,
+          "kept": 0.563
+        },
+        {
+          "both": 0.554,
+          "agree": 0.342,
+          "kept": 0.334
+        },
+        {
+          "both": 0.49,
+          "agree": 0.362,
+          "kept": 0.36
+        },
+        {
+          "both": 0.483,
+          "agree": 0.359,
+          "kept": 0.355
+        },
+        {
+          "both": 0.598,
+          "agree": 0.381,
+          "kept": 0.372
+        },
+        {
+          "both": 0.49,
+          "agree": 0.362,
+          "kept": 0.36
+        },
+        {
+          "both": 0.584,
+          "agree": 0.444,
+          "kept": 0.44
+        },
+        {
+          "both": 0.745,
+          "agree": 0.569,
+          "kept": 0.563
+        },
+        {
+          "both": 0.683,
+          "agree": 0.438,
+          "kept": 0.434
+        },
+        {
+          "both": 0.554,
+          "agree": 0.342,
+          "kept": 0.334
+        },
+        {
+          "both": 0.745,
+          "agree": 0.569,
+          "kept": 0.563
+        },
+        {
+          "both": 0.683,
+          "agree": 0.438,
+          "kept": 0.434
+        },
+        {
+          "both": 0.485,
+          "agree": 0.359,
+          "kept": 0.356
+        },
+        {
+          "both": 0.49,
+          "agree": 0.362,
+          "kept": 0.36
+        },
+        {
+          "both": 0.598,
+          "agree": 0.381,
+          "kept": 0.372
+        },
+        {
+          "both": 0.738,
+          "agree": 0.529,
+          "kept": 0.524
+        },
+        {
+          "both": 0.49,
+          "agree": 0.362,
+          "kept": 0.36
+        },
+        {
+          "both": 0.738,
+          "agree": 0.529,
+          "kept": 0.524
+        },
+        {
+          "both": 0.598,
+          "agree": 0.381,
+          "kept": 0.372
+        },
+        {
+          "both": 0.483,
+          "agree": 0.359,
+          "kept": 0.355
+        },
+        {
+          "both": 0.745,
+          "agree": 0.569,
+          "kept": 0.563
+        },
+        {
+          "both": 0.584,
+          "agree": 0.444,
+          "kept": 0.44
+        },
+        {
+          "both": 0.483,
+          "agree": 0.359,
+          "kept": 0.355
+        },
+        {
+          "both": 0.598,
+          "agree": 0.381,
+          "kept": 0.372
+        },
+        {
+          "both": 0.683,
+          "agree": 0.438,
+          "kept": 0.434
+        },
+        {
+          "both": 0.69,
+          "agree": 0.549,
+          "kept": 0.543
+        },
+        {
+          "both": 0.738,
+          "agree": 0.529,
+          "kept": 0.524
+        },
+        {
+          "both": 0.485,
+          "agree": 0.359,
+          "kept": 0.356
+        }
+      ],
+      "diag_verify_kept_frac": []
+    },
+    "carve": {
+      "prune_protect": null,
+      "prune_every": null,
+      "terminal_prune": null,
+      "vis": "off",
+      "tau": 0.01,
+      "min_seen": 5,
+      "fade": 0.05,
+      "dist_w": 0.0,
+      "dist_min_alpha": 0.5,
+      "dist_min_depth": 0.1,
+      "evi": "off",
+      "evi_rel": 0.25,
+      "evi_share": 0.8,
+      "evi_min_c": 0.5,
+      "evi_crit": "MED",
+      "evi_grad": 0.0,
+      "evi_grad_protected": false,
+      "evi_scope": "old",
+      "evi_trace": false,
+      "allkf_every": 0,
+      "allkf_scope": "old",
+      "cons_grad": 0.0,
+      "struct": null,
+      "struct_r": 0.15,
+      "struct_opmax": 0.5,
+      "label_ctl": null,
+      "label_every": 100,
+      "label_lambda": 0.7,
+      "self": null,
+      "self_grad": 0.0,
+      "self_decay": 0.5,
+      "self_every": 1,
+      "self_fast": false,
+      "self_stride": 1,
+      "ba_grad": 0.0,
+      "self_gate": false,
+      "self_gate_lo": 0.5,
+      "self_gate_hi": 0.8,
+      "finalize_k": 0
+    },
+    "carve_stats": {
+      "renders": 0,
+      "realigned": 0,
+      "births_padded": 0,
+      "prune_trims": 0,
+      "passes": 0,
+      "passes_skipped": 0,
+      "flagged": 0,
+      "pruned": 0,
+      "faded": 0,
+      "dist_views": 0,
+      "evi_views": 0,
+      "evi_flagged": 0,
+      "evi_pruned": 0,
+      "evi_faded": 0,
+      "evi_fidelity_max_err": 0.0,
+      "allkf_views": 0,
+      "allkf_pruned": 0,
+      "allkf_seconds": 0.0
+    },
+    "training_renders": 6216,
+    "methods": {
+      "sparsegs": {}
+    }
+  },
+  "export": {
+    "terminal_opacity": {
+      "enabled": true,
+      "threshold": 0.1,
+      "comparison": "<",
+      "protect_recent": false,
+      "before": 184682,
+      "removed": 15293,
+      "after": 169389,
+      "optimizer_updates": 0,
+      "seconds": 0.004342339998402167,
+      "alignment_pass": true
+    },
+    "fm": {
+      "enabled": false
+    },
+    "stages": [
+      {
+        "ply": "before_terminal_prune.ply",
+        "sha256": "38d63094612e580a82a7a41dd8617f235430c121ffdeb8376d072803c0872a28",
+        "gaussians": 184682
+      },
+      {
+        "ply": "after_terminal_opacity.ply",
+        "sha256": "80579035e1afc432233f60b3594696dd6682045033440f6f83e330d0ebc3d09d",
+        "gaussians": 169389
+      }
+    ],
+    "extra_training_renders": 0,
+    "optimizer_updates": 0,
+    "postprocessing_renders": 0,
+    "training_6N_includes_FM": false
+  }
+}

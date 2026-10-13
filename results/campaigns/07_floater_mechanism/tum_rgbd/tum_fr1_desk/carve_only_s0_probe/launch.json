@@ -1,0 +1,8 @@
+{
+  "recipe": null,
+  "arm": "/home/donghwi/Desktop/vigs_aria_experiments/worktrees/bcd_release_20261009/scripts/floaterlab/arms/carve_only.json",
+  "seed": 0,
+  "probe": "10,300",
+  "scene_contract": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_inputs_20261009/tum_fr1_desk/inputs/tum_rgbd/rgbd_dataset_freiburg1_desk/v1/scene_contract.json",
+  "gpu_admission": "display processes exempt (floaterlab/site/sitecustomize.py)"
+}

@@ -1,0 +1,24 @@
+{
+  "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_gsslam/tum_fr1_desk/gsslam_eq9_s0_probe",
+  "ply": "online_map.ply",
+  "views": 114,
+  "valid": 18244385,
+  "front": 317743,
+  "behind": 267025,
+  "front_edge": 61445,
+  "front_hole": 71559,
+  "front_share": 0.0174159337242664,
+  "behind_share": 0.014636009928534177,
+  "front_at_edge": 0.19337955517509434,
+  "front_near_hole": 0.2252103114781443,
+  "within_10pct": 0.9057917271533132,
+  "ratio_quantiles": {
+    "0.01": 0.6748635768890381,
+    "0.05": 0.9158713817596436,
+    "0.25": 0.9827921390533447,
+    "0.5": 1.005030870437622,
+    "0.75": 1.0307958126068115,
+    "0.95": 1.1046229600906372,
+    "0.99": 1.344698429107666
+  }
+}

@@ -1,5 +1,6 @@
 # Experiment Index
 
+- 2026-10-13 [GEO: floater baseline 기전 캠페인 인계](campaigns/07_floater_mechanism/README.md): 3090, recipe C 실행기 + 공식 이식 10 방법 + gradient 분해 probe, 3장면 seed 0, 77 run. 우리 선택성 1e4–1e6 vs 기존 ≤557; floater 44/6/16 → 3/0/3 at PSNR ±.02; GT 라벨은 한쪽만 셈(ours = base). VIGS 브랜치 `handoff/floaterlab-baselines-20261013`.
 - 2026-10-11 [D FIFO replay 저장관리·품질/시간 검증](campaigns/03_benchmark_contract/replay_storage/README.md): 무제한 논리 pool+GPU512/RAM1024/SSD FIFO. 3장면2반복 PSNR Δ−0.016~+0.003dB, mapper+2.25~5.78%; native Aria 학습−3.04%지만 유입포함 mapper+9.86%/stream+1.95%. 17 평가/audit PASS.
 - 2026-10-03 effect decomposition, 19 scenes × 3 seeds (budget 25): K=16 without-replacement group vs with replacement +0.106 dB [+0.04,+0.18] (14/19); ERVS count term vs uniform group −0.061 [−0.14,+0.00] (6/19); total ERVS vs iid +0.045. Worst-region metrics not improved by either. → [card](campaigns/06_gain_attribution/ervs_vs_iid_scenes/README.md)
 

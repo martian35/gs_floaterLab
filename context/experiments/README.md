@@ -14,6 +14,7 @@ store다.
 | dense view와 ERCB의 실제 효과 | [DENSE](campaigns/05_dense_ercb_integration/README.md) | supplementary dense는 안전하지만 ERCB 독립 PSNR 이득은 미입증 |
 | local topology 및 pruning | [TOPO](campaigns/04_local_topology/README.md) | bounded ticket은 품질 보존; aggressive KF→dense replacement는 기각 |
 | strict realtime 계보 | [LIVE](campaigns/01_strict_streaming/README.md) | strict/live와 mapping-only B-track은 분리해서 해석해야 함 |
+| floater 억제: 기존 방법 vs Consensus Carving | [GEO](campaigns/07_floater_mechanism/README.md) | 기존 방법은 5지점 중 하나에서 막힘; ours 선택성 1e4–1e6, floater 44/6/16 → 3/0/3 at PSNR ±.02; 외부(GT) 기준은 한쪽 지표라 ours = base |
 
 ## Campaign 구조
 
@@ -26,6 +27,7 @@ store다.
 | `TOPO` | exp95–110, 121 | birth/prune/local topology와 source-backed operator |
 | `DENSE` | exp111–123 | dense/ERCB 활성화 및 공격적 통합의 원인 분석 |
 | `ATTR` | 다음 작업 | vanilla 대비 bulk gain의 causal attribution |
+| `GEO` | floaterlab 2026-10 | floater 억제 기존 방법의 실패 기전과 Consensus Carving의 작용 차이 |
 
 - [전체 campaign catalog](campaigns/README.md)
 - [기존 시간순 ledger](INDEX.md)

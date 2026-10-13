@@ -1,0 +1,14 @@
+{
+  "ply": "before_terminal_prune.ply",
+  "anchor": "median",
+  "gaussians": 120875,
+  "heldout_views": 124,
+  "floaters": 90,
+  "visible": 90615,
+  "kernel_max_alpha_error": 0.0,
+  "rule": {
+    "relative_margin": 0.25,
+    "min_total": 0.5,
+    "min_front_share": 0.8
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab/tum_fr1_desk/cc_s0_probe",
+  "ply": "online_map.ply",
+  "views": 114,
+  "valid": 18245776,
+  "front": 331663,
+  "behind": 239929,
+  "front_edge": 64897,
+  "front_hole": 75516,
+  "front_share": 0.018177522293379027,
+  "behind_share": 0.013149838077591219,
+  "front_at_edge": 0.19567150993629076,
+  "front_near_hole": 0.22768894932506792,
+  "within_10pct": 0.9061502782890681,
+  "ratio_quantiles": {
+    "0.01": 0.6584987044334412,
+    "0.05": 0.9138264060020447,
+    "0.25": 0.9823247194290161,
+    "0.5": 1.0050122737884521,
+    "0.75": 1.0306731462478638,
+    "0.95": 1.1008023023605347,
+    "0.99": 1.307951807975769
+  }
+}

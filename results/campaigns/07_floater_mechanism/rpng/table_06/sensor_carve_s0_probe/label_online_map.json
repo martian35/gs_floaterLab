@@ -1,0 +1,14 @@
+{
+  "ply": "online_map.ply",
+  "anchor": "median",
+  "gaussians": 177773,
+  "heldout_views": 541,
+  "floaters": 3,
+  "visible": 173428,
+  "kernel_max_alpha_error": 0.0,
+  "rule": {
+    "relative_margin": 0.25,
+    "min_total": 0.5,
+    "min_front_share": 0.8
+  }
+}

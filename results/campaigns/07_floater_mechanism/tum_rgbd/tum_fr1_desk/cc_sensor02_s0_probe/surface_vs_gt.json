@@ -1,0 +1,24 @@
+{
+  "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_combo/tum_fr1_desk/cc_sensor02_s0_probe",
+  "ply": "online_map.ply",
+  "views": 114,
+  "valid": 18245518,
+  "front": 291665,
+  "behind": 265762,
+  "front_edge": 60307,
+  "front_hole": 66901,
+  "front_share": 0.01598556971635445,
+  "behind_share": 0.014565878590018656,
+  "front_at_edge": 0.20676803867450672,
+  "front_near_hole": 0.22937616786381637,
+  "within_10pct": 0.9068863377844356,
+  "ratio_quantiles": {
+    "0.01": 0.6835193037986755,
+    "0.05": 0.9165269136428833,
+    "0.25": 0.9825049638748169,
+    "0.5": 1.0050195455551147,
+    "0.75": 1.0307679176330566,
+    "0.95": 1.1038633584976196,
+    "0.99": 1.3419932126998901
+  }
+}

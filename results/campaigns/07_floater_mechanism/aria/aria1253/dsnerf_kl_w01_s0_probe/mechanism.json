@@ -1,0 +1,47 @@
+{
+  "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_sweep/aria1253/dsnerf_kl_w01_s0_probe",
+  "gaussians": 97258,
+  "windows": 20,
+  "survivor": {
+    "n": 26,
+    "rgb_fade_share": 0.3215585192458118,
+    "rgb_per_seen": 9.482606627838833e-06,
+    "rgb_deeper_share": 0.4319127923268108,
+    "geom_fade_share": 0.35161956890296064,
+    "geom_per_seen": 5.736801922837334e-06,
+    "geom_deeper_share": 0.27061288352112356,
+    "inject_fade_share": 0.8708240809747979,
+    "inject_per_seen": 9.678406027471754e-06,
+    "born_last10pct": 0.038461538461538464,
+    "born_median_window": 16.0,
+    "final_opacity_median": 0.15690234303474426
+  },
+  "floater": {
+    "n": 657,
+    "rgb_fade_share": 0.6766089713152239,
+    "rgb_per_seen": 2.1418765879571706e-06,
+    "rgb_deeper_share": 0.6452817144149456,
+    "geom_fade_share": 0.6630888195232475,
+    "geom_per_seen": 4.866962703104082e-06,
+    "geom_deeper_share": 0.6501988309959237,
+    "inject_fade_share": 0.8694891109970623,
+    "inject_per_seen": 4.2903024983195065e-06,
+    "born_last10pct": 0.8143074581430746,
+    "born_median_window": 19.0,
+    "final_opacity_median": 0.016375189647078514
+  },
+  "surface": {
+    "n": 93563,
+    "rgb_fade_share": 0.4046984488609384,
+    "rgb_per_seen": 3.5018363377281185e-06,
+    "rgb_deeper_share": 0.396849552699495,
+    "geom_fade_share": 0.3844521413430791,
+    "geom_per_seen": 7.632970450095389e-07,
+    "geom_deeper_share": 0.3735930608002736,
+    "inject_fade_share": 0.7409259215878774,
+    "inject_per_seen": 2.184288898840435e-06,
+    "born_last10pct": 0.14178681743851737,
+    "born_median_window": 14.0,
+    "final_opacity_median": 0.16936981678009033
+  }
+}

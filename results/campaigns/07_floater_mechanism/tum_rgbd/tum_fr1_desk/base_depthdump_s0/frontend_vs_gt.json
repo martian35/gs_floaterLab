@@ -1,0 +1,23 @@
+{
+  "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_combo/tum_fr1_desk/base_depthdump_s0",
+  "views": 77,
+  "valid": 12287790,
+  "front": 209970,
+  "behind": 444757,
+  "front_edge": 36730,
+  "front_hole": 44216,
+  "front_share": 0.017087694369776828,
+  "behind_share": 0.03619503588521614,
+  "front_at_edge": 0.17492975186931467,
+  "front_near_hole": 0.21058246416154688,
+  "within_10pct": 0.8145024451101459,
+  "ratio_quantiles": {
+    "0.01": 0.6753914952278137,
+    "0.05": 0.9042456150054932,
+    "0.25": 0.9893333315849304,
+    "0.5": 1.0229649543762207,
+    "0.75": 1.0592401027679443,
+    "0.95": 1.206291675567627,
+    "0.99": 1.4855282306671143
+  }
+}

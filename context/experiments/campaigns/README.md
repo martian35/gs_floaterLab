@@ -9,6 +9,7 @@ LEGACY ──> LIVE ──> BENCH ──> ATTR
                   SCHED ──> DENSE
                              \
                               TOPO
+LEGACY(carve) + BENCH(recipe C) ──> GEO
 ```
 
 | Campaign | 읽을 때 | 핵심 산출물 |
@@ -20,6 +21,7 @@ LEGACY ──> LIVE ──> BENCH ──> ATTR
 | [TOPO](04_local_topology/README.md) | birth/prune/local densify 근거를 볼 때 | exp95–110, 121 |
 | [DENSE](05_dense_ercb_integration/README.md) | 현 코드에서 dense/ERCB가 실제로 무엇을 하는지 볼 때 | exp111–123 |
 | [ATTR](06_gain_attribution/README.md) | vanilla 대비 +dB의 원인을 분리할 때 | 다음 active campaign |
+| [GEO](07_floater_mechanism/README.md) | 기존 floater 억제 방법이 왜 안 되고 Consensus Carving(recipe C)이 어떻게 푸는지 볼 때 | 3090 floaterlab 캠페인 2026-10-09~11 (공식 이식 10 방법, 기전 probe, 77 run) |
 
 상태 표기:
 
