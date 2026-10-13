@@ -50,5 +50,6 @@ recipe D 실행기로 base를 옮기려면 `run_arm_worker.py`의 실행기 모�
 - VIGS 브랜치 7c17993b: `launch.py --recipe-base D --arm <arm.json>`. 팀 D addon(`mapper_recipe_d/vendor/d_recipe_shim.py`, scale cap .5 + 덮인 출생 .02)을
   run_d.py와 같은 순서로 우리 worker에 씌운다. arm JSON은 그대로: `base.json` = D − SEW3 − FM, `cc.json` = D. `make_jobs.py --recipe-base D`.
 - 5090 순서: ① `launch.py --recipe D`(release D)와 `--recipe-base D --arm cc.json` 패리티(±.03 dB) ② `base cc carve_only fm_only monogs dngaussian cgslam gsslam_eq9 sparsegs`를 D 위에서 seed 0,1,2.
-- 3090 파일럿(stage 13, aria1253·TUM, release D vs cc/base on D)이 돌고 있다. D의 덮인 출생 .02가 우리가 지우는 신생 floater와 겹치므로 base_D의 floater 수와 우리 효과 폭을 먼저 본다.
+- 3090 파일럿 결과([results_D_pilot](results_D_pilot/README.md)): D 경로 동작, PSNR 패리티 aria −.005 dB(TUM +.04, 경계 밖 → 5090에서 재확인), Gaussian +1.2%/+.5%.
+  D는 base floater를 2.7~3배 줄이고(44 → 16, 16 → 5), 우리 효과는 유지된다(cc_D 1/0, PSNR ±.01). 절대 수가 작으므로 5090에서 seed 3개·장면 추가가 필요하다.
 - tiered FIFO replay storage(gs_floaterLab `replay_storage/run_mapper.py`)는 아직 floaterlab에 연결하지 않았다(팀원 검증: 품질 Δ ≤ .016 dB).

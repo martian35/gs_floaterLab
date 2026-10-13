@@ -1,10 +1,10 @@
 {
   "ply": "online_map.ply",
   "anchor": "gt",
-  "gaussians": 103661,
+  "gaussians": 46638,
   "heldout_views": 114,
-  "floaters": 384,
-  "visible": 78920,
+  "floaters": 295,
+  "visible": 42018,
   "kernel_max_alpha_error": 0.0,
   "rule": {
     "relative_margin": 0.25,

@@ -52,107 +52,107 @@
       "skipped_no_bracket": 0,
       "skipped_no_measurement": 0,
       "target_builds": 3078,
-      "target_pixels": 277960288.0,
+      "target_pixels": 277818816.0,
       "image_pixels": 662681088.0,
-      "abs_err_sum": 18014294.0,
-      "target_coverage": 0.41944804678053527,
-      "mean_abs_err": 0.06480887658311824,
+      "abs_err_sum": 16466456.0,
+      "target_coverage": 0.4192345624929016,
+      "mean_abs_err": 0.05927048512077742,
       "diag_flow": [],
       "diag_geo": [
         {
           "both": 0.486,
-          "agree": 0.36,
+          "agree": 0.359,
           "kept": 0.356
         },
         {
           "both": 0.486,
-          "agree": 0.36,
+          "agree": 0.359,
           "kept": 0.356
         },
         {
-          "both": 0.554,
-          "agree": 0.341,
-          "kept": 0.333
+          "both": 0.553,
+          "agree": 0.344,
+          "kept": 0.336
         },
         {
           "both": 0.598,
-          "agree": 0.379,
-          "kept": 0.371
+          "agree": 0.384,
+          "kept": 0.375
         },
         {
           "both": 0.486,
-          "agree": 0.36,
+          "agree": 0.359,
           "kept": 0.356
         },
         {
-          "both": 0.554,
-          "agree": 0.341,
-          "kept": 0.333
+          "both": 0.553,
+          "agree": 0.344,
+          "kept": 0.336
         },
         {
-          "both": 0.554,
-          "agree": 0.341,
-          "kept": 0.333
+          "both": 0.553,
+          "agree": 0.344,
+          "kept": 0.336
         },
         {
           "both": 0.486,
-          "agree": 0.36,
+          "agree": 0.359,
           "kept": 0.356
         },
         {
           "both": 0.598,
-          "agree": 0.379,
-          "kept": 0.371
+          "agree": 0.384,
+          "kept": 0.375
         },
         {
           "both": 0.486,
-          "agree": 0.36,
+          "agree": 0.359,
           "kept": 0.356
         },
         {
           "both": 0.745,
-          "agree": 0.569,
-          "kept": 0.563
+          "agree": 0.568,
+          "kept": 0.562
         },
         {
-          "both": 0.554,
-          "agree": 0.341,
-          "kept": 0.333
-        },
-        {
-          "both": 0.598,
-          "agree": 0.379,
-          "kept": 0.371
-        },
-        {
-          "both": 0.554,
-          "agree": 0.341,
-          "kept": 0.333
+          "both": 0.553,
+          "agree": 0.344,
+          "kept": 0.336
         },
         {
           "both": 0.598,
-          "agree": 0.379,
-          "kept": 0.371
+          "agree": 0.384,
+          "kept": 0.375
+        },
+        {
+          "both": 0.553,
+          "agree": 0.344,
+          "kept": 0.336
+        },
+        {
+          "both": 0.598,
+          "agree": 0.384,
+          "kept": 0.375
         },
         {
           "both": 0.584,
           "agree": 0.445,
-          "kept": 0.44
+          "kept": 0.441
         },
         {
           "both": 0.745,
-          "agree": 0.569,
-          "kept": 0.563
+          "agree": 0.568,
+          "kept": 0.562
         },
         {
           "both": 0.486,
-          "agree": 0.36,
+          "agree": 0.359,
           "kept": 0.356
         },
         {
           "both": 0.584,
           "agree": 0.445,
-          "kept": 0.44
+          "kept": 0.441
         },
         {
           "both": 0.49,
@@ -161,38 +161,38 @@
         },
         {
           "both": 0.486,
-          "agree": 0.36,
+          "agree": 0.359,
           "kept": 0.356
         },
         {
           "both": 0.745,
-          "agree": 0.569,
-          "kept": 0.563
+          "agree": 0.568,
+          "kept": 0.562
         },
         {
-          "both": 0.554,
-          "agree": 0.341,
-          "kept": 0.333
-        },
-        {
-          "both": 0.598,
-          "agree": 0.379,
-          "kept": 0.371
+          "both": 0.553,
+          "agree": 0.344,
+          "kept": 0.336
         },
         {
           "both": 0.598,
-          "agree": 0.379,
-          "kept": 0.371
+          "agree": 0.384,
+          "kept": 0.375
+        },
+        {
+          "both": 0.598,
+          "agree": 0.384,
+          "kept": 0.375
         },
         {
           "both": 0.584,
           "agree": 0.445,
-          "kept": 0.44
+          "kept": 0.441
         },
         {
-          "both": 0.554,
-          "agree": 0.341,
-          "kept": 0.333
+          "both": 0.553,
+          "agree": 0.344,
+          "kept": 0.336
         },
         {
           "both": 0.49,
@@ -201,33 +201,33 @@
         },
         {
           "both": 0.745,
-          "agree": 0.569,
-          "kept": 0.563
+          "agree": 0.568,
+          "kept": 0.562
         },
         {
           "both": 0.486,
-          "agree": 0.36,
+          "agree": 0.359,
           "kept": 0.356
         },
         {
           "both": 0.598,
-          "agree": 0.379,
-          "kept": 0.371
+          "agree": 0.384,
+          "kept": 0.375
         },
         {
           "both": 0.584,
           "agree": 0.445,
-          "kept": 0.44
+          "kept": 0.441
         },
         {
           "both": 0.745,
-          "agree": 0.569,
-          "kept": 0.563
+          "agree": 0.568,
+          "kept": 0.562
         },
         {
-          "both": 0.554,
-          "agree": 0.341,
-          "kept": 0.333
+          "both": 0.553,
+          "agree": 0.344,
+          "kept": 0.336
         },
         {
           "both": 0.49,
@@ -235,14 +235,14 @@
           "kept": 0.36
         },
         {
-          "both": 0.483,
-          "agree": 0.36,
+          "both": 0.484,
+          "agree": 0.359,
           "kept": 0.355
         },
         {
           "both": 0.598,
-          "agree": 0.379,
-          "kept": 0.371
+          "agree": 0.384,
+          "kept": 0.375
         },
         {
           "both": 0.49,
@@ -252,36 +252,36 @@
         {
           "both": 0.584,
           "agree": 0.445,
-          "kept": 0.44
+          "kept": 0.441
         },
         {
           "both": 0.745,
-          "agree": 0.569,
-          "kept": 0.563
+          "agree": 0.568,
+          "kept": 0.562
         },
         {
           "both": 0.682,
-          "agree": 0.433,
-          "kept": 0.428
+          "agree": 0.434,
+          "kept": 0.43
         },
         {
-          "both": 0.554,
-          "agree": 0.341,
-          "kept": 0.333
+          "both": 0.553,
+          "agree": 0.344,
+          "kept": 0.336
         },
         {
           "both": 0.745,
-          "agree": 0.569,
-          "kept": 0.563
+          "agree": 0.568,
+          "kept": 0.562
         },
         {
           "both": 0.682,
-          "agree": 0.433,
-          "kept": 0.428
+          "agree": 0.434,
+          "kept": 0.43
         },
         {
           "both": 0.486,
-          "agree": 0.36,
+          "agree": 0.359,
           "kept": 0.356
         },
         {
@@ -291,8 +291,8 @@
         },
         {
           "both": 0.598,
-          "agree": 0.379,
-          "kept": 0.371
+          "agree": 0.384,
+          "kept": 0.375
         },
         {
           "both": 0.738,
@@ -311,38 +311,38 @@
         },
         {
           "both": 0.598,
-          "agree": 0.379,
-          "kept": 0.371
+          "agree": 0.384,
+          "kept": 0.375
         },
         {
-          "both": 0.483,
-          "agree": 0.36,
+          "both": 0.484,
+          "agree": 0.359,
           "kept": 0.355
         },
         {
           "both": 0.745,
-          "agree": 0.569,
-          "kept": 0.563
+          "agree": 0.568,
+          "kept": 0.562
         },
         {
           "both": 0.584,
           "agree": 0.445,
-          "kept": 0.44
+          "kept": 0.441
         },
         {
-          "both": 0.483,
-          "agree": 0.36,
+          "both": 0.484,
+          "agree": 0.359,
           "kept": 0.355
         },
         {
           "both": 0.598,
-          "agree": 0.379,
-          "kept": 0.371
+          "agree": 0.384,
+          "kept": 0.375
         },
         {
           "both": 0.682,
-          "agree": 0.433,
-          "kept": 0.428
+          "agree": 0.434,
+          "kept": 0.43
         },
         {
           "both": 0.69,
@@ -356,7 +356,7 @@
         },
         {
           "both": 0.486,
-          "agree": 0.36,
+          "agree": 0.359,
           "kept": 0.356
         }
       ],
@@ -423,7 +423,8 @@
       "allkf_pruned": 0,
       "allkf_seconds": 0.0
     },
-    "training_renders": 6216
+    "training_renders": 6216,
+    "methods": {}
   },
   "export": {
     "terminal_opacity": {
@@ -431,11 +432,11 @@
       "threshold": 0.1,
       "comparison": "<",
       "protect_recent": false,
-      "before": 195471,
-      "removed": 17366,
-      "after": 178105,
+      "before": 135106,
+      "removed": 22950,
+      "after": 112156,
       "optimizer_updates": 0,
-      "seconds": 0.004387308996228967,
+      "seconds": 0.003937956998925074,
       "alignment_pass": true
     },
     "fm": {
@@ -444,13 +445,13 @@
     "stages": [
       {
         "ply": "before_terminal_prune.ply",
-        "sha256": "80426dc3c554d71c743bc6dddf447294e9bc799e69b609592cd60444c6d8f775",
-        "gaussians": 195471
+        "sha256": "0ba5fdedd38f08c994da55e8930c078a95d48c60901e7248df2ca1a082bd9a96",
+        "gaussians": 135106
       },
       {
         "ply": "after_terminal_opacity.ply",
-        "sha256": "80f99eba0426fa6f74dbb1bde015f58649551af08912432289b431d2a345fb50",
-        "gaussians": 178105
+        "sha256": "bb699da47b6cab45ef68514f55f4d9892bee1e777a188573ccf3056702cd8170",
+        "gaussians": 112156
       }
     ],
     "extra_training_renders": 0,

@@ -52,11 +52,11 @@
       "skipped_no_bracket": 0,
       "skipped_no_measurement": 0,
       "target_builds": 1437,
-      "target_pixels": 175756912.0,
+      "target_pixels": 175748752.0,
       "image_pixels": 308092800.0,
-      "abs_err_sum": 7561567.0,
-      "target_coverage": 0.5704674435754422,
-      "mean_abs_err": 0.04302287127120213,
+      "abs_err_sum": 7475002.5,
+      "target_coverage": 0.5704409580490034,
+      "mean_abs_err": 0.04253232193648806,
       "diag_flow": [],
       "diag_geo": [
         {
@@ -161,7 +161,7 @@
         },
         {
           "both": 0.667,
-          "agree": 0.404,
+          "agree": 0.405,
           "kept": 0.404
         },
         {
@@ -206,7 +206,7 @@
         },
         {
           "both": 0.667,
-          "agree": 0.404,
+          "agree": 0.405,
           "kept": 0.404
         },
         {
@@ -226,7 +226,7 @@
         },
         {
           "both": 0.688,
-          "agree": 0.412,
+          "agree": 0.413,
           "kept": 0.412
         },
         {
@@ -241,7 +241,7 @@
         },
         {
           "both": 0.679,
-          "agree": 0.411,
+          "agree": 0.41,
           "kept": 0.407
         },
         {
@@ -261,7 +261,7 @@
         },
         {
           "both": 0.688,
-          "agree": 0.412,
+          "agree": 0.413,
           "kept": 0.412
         },
         {
@@ -276,12 +276,12 @@
         },
         {
           "both": 0.688,
-          "agree": 0.412,
+          "agree": 0.413,
           "kept": 0.412
         },
         {
           "both": 0.667,
-          "agree": 0.404,
+          "agree": 0.405,
           "kept": 0.404
         },
         {
@@ -291,27 +291,27 @@
         },
         {
           "both": 0.679,
-          "agree": 0.411,
+          "agree": 0.41,
           "kept": 0.407
         },
         {
           "both": 0.736,
           "agree": 0.392,
-          "kept": 0.389
+          "kept": 0.39
         },
         {
           "both": 0.667,
-          "agree": 0.404,
+          "agree": 0.405,
           "kept": 0.404
         },
         {
           "both": 0.736,
           "agree": 0.392,
-          "kept": 0.389
+          "kept": 0.39
         },
         {
           "both": 0.679,
-          "agree": 0.411,
+          "agree": 0.41,
           "kept": 0.407
         },
         {
@@ -337,11 +337,11 @@
         {
           "both": 0.736,
           "agree": 0.392,
-          "kept": 0.389
+          "kept": 0.39
         },
         {
           "both": 0.679,
-          "agree": 0.411,
+          "agree": 0.41,
           "kept": 0.407
         },
         {
@@ -432,11 +432,11 @@
       "threshold": 0.1,
       "comparison": "<",
       "protect_recent": false,
-      "before": 120630,
-      "removed": 16969,
-      "after": 103661,
+      "before": 65861,
+      "removed": 19223,
+      "after": 46638,
       "optimizer_updates": 0,
-      "seconds": 0.003397246000531595,
+      "seconds": 0.0032932060003076913,
       "alignment_pass": true
     },
     "fm": {
@@ -445,13 +445,13 @@
     "stages": [
       {
         "ply": "before_terminal_prune.ply",
-        "sha256": "aee84ba631e76e09b26b87e962885bee06140154df29e695cb838991c22d5147",
-        "gaussians": 120630
+        "sha256": "559f292c713e0537fa01fbfcff056b5e9e0cd3c44e38a0518fd7b71170a6680f",
+        "gaussians": 65861
       },
       {
         "ply": "after_terminal_opacity.ply",
-        "sha256": "094ab5e507beee33b2ae91be8ef723e7c53568470028aa0acc38d47b901d31c1",
-        "gaussians": 103661
+        "sha256": "3a8e13f1325e9b3ad0ece5afbd684a639faa4aa7ddca58c52c59695d7bd0f3b7",
+        "gaussians": 46638
       }
     ],
     "extra_training_renders": 0,

@@ -1,0 +1,10 @@
+{
+  "recipe": "D",
+  "arm": null,
+  "recipe_base": null,
+  "recipe_d": null,
+  "seed": 0,
+  "probe": null,
+  "scene_contract": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_inputs_20261009/aria1253/inputs/aria/aria1253/v1/scene_contract.json",
+  "gpu_admission": "display processes exempt (floaterlab/site/sitecustomize.py)"
+}

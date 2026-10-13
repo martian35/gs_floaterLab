@@ -1,10 +1,10 @@
 {
   "ply": "before_terminal_prune.ply",
   "anchor": "median",
-  "gaussians": 120568,
+  "gaussians": 66121,
   "heldout_views": 124,
-  "floaters": 92,
-  "visible": 90516,
+  "floaters": 8,
+  "visible": 47611,
   "kernel_max_alpha_error": 0.0,
   "rule": {
     "relative_margin": 0.25,

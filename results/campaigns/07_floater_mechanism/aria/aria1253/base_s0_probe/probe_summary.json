@@ -2,7 +2,7 @@
   "renders": 6216,
   "probe_renders": 621,
   "windows": 21,
-  "check_max_rel": 1.4248399793359567e-06,
+  "check_max_rel": 3.625479394031572e-06,
   "every": 10,
   "window": 300,
   "channels": [

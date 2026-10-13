@@ -24,7 +24,7 @@ Consensus Carving은 지도 자신의 median 기준·앞쪽만·opacity만·지�
 4. 외부 기준(Kinect GT) floater 라벨은 실제로 무엇을 재는가? → [gt_label_audit](gt_label_audit/README.md)
 5. 이식은 공식 코드와 얼마나 같은가? → [baseline_ports](baseline_ports/README.md)
 
-사전등록과 단계별 판정: [PREREG.md](PREREG.md). 이 캠페인까지의 geometry 연구 이력: [HISTORY.md](HISTORY.md).
+사전등록과 단계별 판정: [PREREG.md](PREREG.md). 최신 baseline(D) 위의 파일럿: [results_D_pilot](results_D_pilot/README.md) — D는 base floater를 2.7~3배 줄이고 우리 효과는 유지(cc_D 1/0 vs base_D 16/5, PSNR ±.01). 이 캠페인까지의 geometry 연구 이력: [HISTORY.md](HISTORY.md).
 확정 결론: [knowledge/floater_baseline_mechanisms.md](../../../knowledge/floater_baseline_mechanisms.md).
 
 ## 하네스와 arm

@@ -56,11 +56,11 @@
       "skipped_no_bracket": 0,
       "skipped_no_measurement": 0,
       "target_builds": 1437,
-      "target_pixels": 175747968.0,
+      "target_pixels": 175746288.0,
       "image_pixels": 308092800.0,
-      "abs_err_sum": 7553417.5,
-      "target_coverage": 0.5704384133611691,
-      "mean_abs_err": 0.042978690370974876,
+      "abs_err_sum": 7474392.0,
+      "target_coverage": 0.570432960458667,
+      "mean_abs_err": 0.04252944449102675,
       "diag_flow": [],
       "diag_geo": [
         {
@@ -166,7 +166,7 @@
         {
           "both": 0.667,
           "agree": 0.404,
-          "kept": 0.404
+          "kept": 0.403
         },
         {
           "both": 0.661,
@@ -211,7 +211,7 @@
         {
           "both": 0.667,
           "agree": 0.404,
-          "kept": 0.404
+          "kept": 0.403
         },
         {
           "both": 0.676,
@@ -286,7 +286,7 @@
         {
           "both": 0.667,
           "agree": 0.404,
-          "kept": 0.404
+          "kept": 0.403
         },
         {
           "both": 0.672,
@@ -306,7 +306,7 @@
         {
           "both": 0.667,
           "agree": 0.404,
-          "kept": 0.404
+          "kept": 0.403
         },
         {
           "both": 0.736,
@@ -408,7 +408,7 @@
       "finalize_k": 0
     },
     "carve_stats": {
-      "renders": 3020,
+      "renders": 3106,
       "realigned": 1,
       "births_padded": 86,
       "prune_trims": 9,
@@ -428,11 +428,11 @@
       "allkf_seconds": 0.0,
       "self_seen_views": 2934,
       "self_phase": 0,
-      "self_gate_w_mean": 0.0010372578399255872,
+      "self_gate_w_mean": 0.004490015096962452,
       "self_grad_views": 2934,
       "self_views": 2934,
       "evi_grad_steps": 2934,
-      "evi_grad_abs_sum": 0.9436228254641739,
+      "evi_grad_abs_sum": 0.7173436527445114,
       "evi_flag_per_pass": [
         0,
         0,
@@ -445,15 +445,15 @@
         0
       ],
       "self_flag_per_pass": [
-        69,
-        10,
-        5,
-        8,
-        5,
-        16,
-        2,
-        31,
-        49
+        144,
+        59,
+        39,
+        40,
+        22,
+        265,
+        303,
+        166,
+        138
       ]
     },
     "training_renders": 2934,
@@ -465,18 +465,18 @@
       "threshold": 0.1,
       "comparison": "<",
       "protect_recent": false,
-      "before": 120568,
-      "removed": 16996,
-      "after": 103572,
+      "before": 66121,
+      "removed": 19096,
+      "after": 47025,
       "optimizer_updates": 0,
-      "seconds": 0.0044414930016500875,
+      "seconds": 0.0037615190012729727,
       "alignment_pass": true
     },
     "fm": {
       "enabled": true,
-      "before": 103572,
-      "removed": 11,
-      "after": 103561,
+      "before": 47025,
+      "removed": 4,
+      "after": 47021,
       "keyframe_uids": [
         1.0,
         6.0,
@@ -571,23 +571,23 @@
       "kernel_max_alpha_error": 0.0,
       "heldout_overlap": [],
       "optimizer_updates": 0,
-      "evidence_sha256": "b525c15736665a44b99b4871bb9085cbbd07c16a47ceb6f3007da80337025119"
+      "evidence_sha256": "2de6acab9aae578c78e1e6c525a2e443fa95aa4ccbc1dcf14cfa46ad4d5dfde9"
     },
     "stages": [
       {
         "ply": "before_terminal_prune.ply",
-        "sha256": "16c8405f7527e11eb350d61f034aaca4ab0fb67da1102bb58688cadfeedddffe",
-        "gaussians": 120568
+        "sha256": "1972f8b2a9caf34f1602a48c70dfb2457342fdcaa4962b73232474db6aecfa13",
+        "gaussians": 66121
       },
       {
         "ply": "after_terminal_opacity.ply",
-        "sha256": "c46a4bc078b7544b142a51dc71ceaadfeef6a597ea0790250fa3fad75aedd6bc",
-        "gaussians": 103572
+        "sha256": "bb39d2e71891ad601a962b06b0c6e5898b24fbaee6d124f075ba4ae340f2b4a3",
+        "gaussians": 47025
       },
       {
         "ply": "online_map.ply",
-        "sha256": "57a89f7346dcf24c4cdb09341206f18bf7434fd08a39e49bc6ec51acf33c103b",
-        "gaussians": 103561
+        "sha256": "3ecffbb3d9d0b3455c0a4616e0a9ec0596e86d960cb060b96a4e9ca2b6379337",
+        "gaussians": 47021
       }
     ],
     "extra_training_renders": 0,

@@ -1,4 +1,4 @@
-> 3090 작업 폴더(aria-online-3dgs-bench `analysis/bcd_baselines_20261009/PREREG_MECHANISM_BASELINES.md`)의 사본, 2026-10-13. 경로는 3090 기준이며 코드 구조 §5는 계획 시점 초안이다(실제 구조는 VIGS `scripts/floaterlab/README.md`). 결과 1–10은 실행 순서대로 아래에 덧붙였다.
+> 3090 작업 폴더(aria-online-3dgs-bench `analysis/bcd_baselines_20261009/PREREG_MECHANISM_BASELINES.md`)의 사본, 2026-10-13. 경로는 3090 기준이며 코드 구조 §5는 계획 시점 초안이다(실제 구조는 VIGS `scripts/floaterlab/README.md`). 결과 1–12는 실행 순서대로 아래에 덧붙였다.
 
 # 사전등록: baseline 방법이 왜 우리 목적에 안 맞는가 — 학습 중 기전 측정 (3090, 2026-10-09)
 
@@ -135,7 +135,7 @@ export floater carve_only 8 / 0 / 8, fm_only 11 / 0 / 2, cc 3 / 0 / 3 (base 44 /
 
 ## 결과 9 — 용량 맞춘 sensor carve (stage 9, λ 3)
 ΔPSNR −1.63 / −1.73 / −.41, Gaussian −19% / −29% / −13%, export floater 8 / 0 / 4, TUM GT 120. floater 주입 4.1e-5 (cc 2.2e-5), 표면 주입 7.4e-8 (cc 6e-11, ~1,000배).
-예측 모두 맞음 → "기준 깊이가 틀린 곳에서 같은 세기로 밀면 실제 표면을 지운다" 지지. 센서 정확한 TUM에서는 외부 기준 floater 최저 (대가 −.41 dB).
+예측 모두 맞음 → "기준 깊이가 틀린 곳에서 같은 세기로 밀면 실제 표면을 지운다" 지지. 센서 정확한 TUM에서는 지도를 유지한 arm 중 외부 기준 floater 최저 1.74‰ (대가 −.41 dB; KL w.1·SplatAD w1은 더 낮으나 지도 붕괴). sensor arm은 KF만·gate 없음이라 기준 깊이 단독 비교는 아님 [2026-10-13 정정].
 
 ## 사전등록 — stage 11: GT 라벨이 재는 것 + 우리 방법 × sensor carve 조합, 2026-10-10
 배경: TUM GT floater의 86–95%가 지도 기준으로는 표면이다 (GT 라벨은 대부분 "지도 표면이 Kinect보다 앞" 을 센다).
@@ -161,3 +161,36 @@ SparseGS의 GT 감소는 지도 크기 때문이 아니다 (보이는 Gaussian 7
     예측 대부분 맞음 (TUM export 2 vs 1은 1개 차). 두 기준의 효과는 더해지고, 비용은 sensor carve 단독 비용(−.15/−.11, −7/−8%)과 같다.
     cc_slow vs cc (빠른 경로): ΔPSNR −.04 / .00 / .00, export 2/0/1 vs 3/0/3 → 경로 차이는 잡음 수준.
     base_depthdump vs base: PSNR 19.901 vs 19.900, 앞 1.84% vs 1.83% → 기록 plugin은 학습을 바꾸지 않음.
+
+## 사전등록 — stage 12: cc_nogate (cc에서 persistence gate만 끔, SELF_GATE=0), 3장면 seed 0, 2026-10-13
+이유(5090 검토): sensor_carve_l3와 cc는 기준 깊이 외에 KF-only·gate 유무가 함께 다르다. gate의 몫을 분리한다.
+예측: gate를 끄면 표면 주입(per seen)이 cc보다 커지지만 sensor λ3(~7e-8)보다는 작게 남는다(선택성 1e3 이상); export floater는 cc ±3; PSNR ±.05.
+판정: 표면 주입이 sensor λ3 수준까지 오르면 "1,000배 차이의 주원인은 gate"로, 그대로 작으면 "주원인은 기준 깊이"로 보고한다. 중간이면 둘 다로 보고한다.
+
+## 사전등록 — stage 13: recipe D 모체 파일럿 (3090, aria1253·TUM, seed 0), 2026-10-13
+이유: 논문 표는 5090 최신 baseline(D) 위에서 내야 하고, D의 덮인 출생 .02는 우리가 지우는 신생 floater 집단과 겹친다.
+(1) 패리티: `--recipe-base D --arm cc.json` PSNR = release D(`--recipe D`) ±.03 dB, Gaussian 수 ±1%.
+(2) 예측: D base의 export floater는 C base(44/16)보다 적다(출생 .02). 우리 효과(cc−base)는 유지되나 폭은 줄 수 있다.
+판정: cc_D의 floater가 base_D 대비 절반 이하이면 "D에서도 유효"; base_D 자체가 ≤5개면 "D가 이미 대부분 해결, 우리 방법의 추가 가치는 작다"로 정직하게 보고한다.
+
+## 결과 11 — stage 12 cc_nogate (λ3, persistence gate OFF, FM ON), 3장면 seed 0, 2026-10-13
+| arm | ΔPSNR(base) | Gaussian | export floater | 학습 지도 floater | 표면 주입/seen | 선택성(floater/표면) |
+|---|---|---|---|---|---|---|
+| cc (gate ON) | +.00 / +.01 / +.02 | 0% | 3 / 0 / 3 | 500 / 134 / 92 | 6.1e-11 / 1.7e-12 / 3.1e-10 | 3.6e5 / 6.1e6 / 1.1e4 |
+| cc_nogate | **−2.23 / −2.39 / −.92** | −13 / −23 / −11% | 0 / 0 / 2 | 583 / 242 / 92 | 2.4e-8 / 7.9e-9 / 2.7e-8 | 1.8e3 / 1.3e3 / 646 |
+| sensor λ3 (gate 없음, KF만, FM 없음) | −1.63 / −1.73 / −.41 | −19 / −29 / −13% | 8 / 0 / 4 | 536 / 294 / 116 | 7.4e-8 / 2.0e-8 / 6.3e-8 | 557 / 295 / 324 |
+판정(사전 규칙): gate를 끄자 표면 주입이 sensor λ3의 1/3~1/2.5 수준까지 올랐다 → **"1,000배 선택성 차이의 주원인은 gate"**. 기준 깊이의 몫은 남은 2~3배.
+PSNR 손실은 gate 없는 자기 median carve가 sensor λ3보다 크다(dose는 다름: 우리는 모든 training render, sensor는 KF만).
+TUM GT floater 194(cc 385, sensor λ3 120), 양방향 10% 일치 87.2%(base 90.6, SparseGS 87.6), 앞 1.44% / 뒤 3.64%: gate 없는 carve는 판정-삭제 계열처럼 표면을 벗겨 뒤 오차를 만든다.
+**정정:** stage 9의 "frontend 깊이가 틀린 곳에서 같은 세기로 밀면 표면이 지워진다"는 과장. λ3에서 표면을 지키는 부품은 persistence gate이며, 기준 깊이의 효과는 아직 분리되지 않았다.
+
+## 사전등록 — stage 14: carve_l02_nogate (자기 median, λ .2, gate OFF, FM OFF = S36 SEG2 운영점), 3장면 seed 0
+목적: sensor_carve λ .2(gate 없음, FM 없음, KF만)와 같은 세기·같은 gate 조건에서 기준 깊이의 몫을 분리한다(남는 차이: view 집합).
+예측: ΔPSNR ±.05(S36의 SEG2 −.02), export floater는 base(44/6/16)와 carve_only(8/0/8) 사이, 표면 주입은 sensor λ.2(1.6e-8/3.5e-9/1.2e-8)보다 작다.
+판정: 자기 median λ.2의 PSNR 손실이 sensor λ.2(−.15/−.11/+.01)보다 작고 표면 주입이 작으면 "기준 깊이도 선택성에 기여"; 비슷하면 "λ.2에서는 기준 깊이 효과 미미, gate가 전부".
+
+## 결과 12 — stage 13 D 파일럿 (3090, seed 0)
+aria: release D 27.412/110,347 · cc_D 27.407/111,684 (export 1, trained 78) · base_D 27.394/112,156 (export 16, trained 197).
+TUM: release D 19.911/46,784 · cc_D 19.952/47,021 (0, 8; GT 289) · base_D 19.959/46,638 (5, 15; GT 295).
+(1) 패리티: PSNR aria 통과(−.005), TUM 경계 밖(+.041); G +1.2%/+.5%(경계). 덮인 출생 수 동일(111/86) → patch 적용은 같음; 후보 원인 run 변동·probe·run_d.py의 vendor sys.path 순서. 5090에서 재확인.
+(2) base_D floater 16/5 < C base 44/16 (예측 맞음). (3) cc_D/base_D = 1/16, 0/5 → "D에서도 유효"; 단 절대 수 작음, TUM은 "D가 이미 대부분 해결" 경계. 카드: gs_floaterLab campaigns/07_floater_mechanism/results_D_pilot/README.md.

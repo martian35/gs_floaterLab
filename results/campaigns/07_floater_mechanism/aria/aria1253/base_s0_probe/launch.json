@@ -1,6 +1,33 @@
 {
   "recipe": null,
   "arm": "/home/donghwi/Desktop/vigs_aria_experiments/worktrees/bcd_release_20261009/scripts/floaterlab/arms/base.json",
+  "recipe_base": "D",
+  "recipe_d": {
+    "scale_cap": 0.5,
+    "covered_opacity": 0.02,
+    "coverage_alpha": 0.6,
+    "depth_residual_multiplier": 40.0,
+    "birth_count_and_positions_changed": false,
+    "extra_coverage_renders": 111,
+    "projection_calls": 100,
+    "C_backbone": "/home/donghwi/Desktop/vigs_aria_experiments/worktrees/bcd_release_20261009/scripts/floaterlab/run_arm_worker.py",
+    "recipe_d_provenance": {
+      "source_checkout": "/home/intern/gs_floaterLab_recipe_d",
+      "commit": "2f50d243d25ede73f5db1879679d7659ff26cfe2",
+      "files": {
+        "d_recipe_shim.py": "1bb52dec23ae549b0154e1767e761b35b2122eef20129a489ef02c25c96a0a75",
+        "scale_cap_patch.py": "06940867045b392bfdfad476f1cc888e44f26a66d388c65a07fc4cf1fefa7774",
+        "selop_patch.py": "947323abd73c8f20fb90d443a80e07d8a6a9b8398bb3c1d6e5c9edba9e27c083"
+      },
+      "recipe": {
+        "scale_cap": 0.5,
+        "covered_opacity": 0.02,
+        "alpha": 0.6,
+        "depth_multiplier": 40
+      },
+      "note": "Byte-identical team addon modules; no edits to native C; shim runs without the optional birth probe/sampling-mode patch."
+    }
+  },
   "seed": 0,
   "probe": "10,300",
   "scene_contract": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_inputs_20261009/aria1253/inputs/aria/aria1253/v1/scene_contract.json",
