@@ -8,6 +8,9 @@
 | sawo0150/gs_floaterLab | `handoff/floater-mechanism-20261013` | 이 캠페인 폴더, knowledge, 경량 결과, STATUS/INDEX 항목 |
 
 둘 다 main에 merge하지 않았다. 검토 후 merge한다.
+2026-10-13 현재 gs_floaterLab 브랜치는 **fork `martian35/gs_floaterLab`**에 있다(martian35는 sawo0150/gs_floaterLab 읽기 전용이라 push 거부).
+5090에서: `git fetch git@github.com:martian35/gs_floaterLab.git handoff/floater-mechanism-20261013:handoff/floater-mechanism-20261013`,
+또는 sawo0150이 fork에서 PR을 받는다. 같은 내용의 git bundle이 3090 `vigs_aria_experiments/handoff_20261013/`에도 있다.
 
 ## 순서
 
