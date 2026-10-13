@@ -1640,6 +1640,32 @@
   "root": "floaterlab_ablation",
   "scene": "aria1253",
   "dataset": "aria",
+  "run": "cc_nogate_s0_probe",
+  "arm": "cc_nogate",
+  "probe": true,
+  "psnr": 24.78065803439118,
+  "ssim": 0.8525020639563716,
+  "lpips": 0.27445351696291637,
+  "gaussians": 155080,
+  "floaters_export": 0,
+  "floaters_trained": 583,
+  "gt_floaters_export": null,
+  "mapper_seconds": 60.85449096699813,
+  "source_run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/aria1253/cc_nogate_s0_probe",
+  "files": [
+   "geometry_c.json",
+   "label_before_terminal_prune.json",
+   "label_online_map.json",
+   "launch.json",
+   "mechanism.json",
+   "probe_summary.json",
+   "quality.json"
+  ]
+ },
+ {
+  "root": "floaterlab_ablation",
+  "scene": "aria1253",
+  "dataset": "aria",
   "run": "fm_only_s0_probe",
   "arm": "fm_only",
   "probe": true,
@@ -1704,6 +1730,32 @@
   "gt_floaters_export": null,
   "mapper_seconds": 167.8538456290844,
   "source_run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/table_06/carve_only_s0_probe",
+  "files": [
+   "geometry_c.json",
+   "label_before_terminal_prune.json",
+   "label_online_map.json",
+   "launch.json",
+   "mechanism.json",
+   "probe_summary.json",
+   "quality.json"
+  ]
+ },
+ {
+  "root": "floaterlab_ablation",
+  "scene": "table_06",
+  "dataset": "rpng",
+  "run": "cc_nogate_s0_probe",
+  "arm": "cc_nogate",
+  "probe": true,
+  "psnr": 21.280872277984336,
+  "ssim": 0.745819292866148,
+  "lpips": 0.27806044905661653,
+  "gaussians": 148333,
+  "floaters_export": 0,
+  "floaters_trained": 242,
+  "gt_floaters_export": null,
+  "mapper_seconds": 162.45318995796515,
+  "source_run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/table_06/cc_nogate_s0_probe",
   "files": [
    "geometry_c.json",
    "label_before_terminal_prune.json",
@@ -1797,6 +1849,34 @@
   "root": "floaterlab_ablation",
   "scene": "tum_fr1_desk",
   "dataset": "tum_rgbd",
+  "run": "cc_nogate_s0_probe",
+  "arm": "cc_nogate",
+  "probe": true,
+  "psnr": 18.99811900815656,
+  "ssim": 0.6789613265183664,
+  "lpips": 0.3913077933173026,
+  "gaussians": 92494,
+  "floaters_export": 2,
+  "floaters_trained": 92,
+  "gt_floaters_export": 194,
+  "mapper_seconds": 27.232344195985206,
+  "source_run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/tum_fr1_desk/cc_nogate_s0_probe",
+  "files": [
+   "geometry_c.json",
+   "label_before_terminal_prune.json",
+   "label_gt_online_map.json",
+   "label_online_map.json",
+   "launch.json",
+   "mechanism.json",
+   "probe_summary.json",
+   "quality.json",
+   "surface_vs_gt.json"
+  ]
+ },
+ {
+  "root": "floaterlab_ablation",
+  "scene": "tum_fr1_desk",
+  "dataset": "tum_rgbd",
   "run": "fm_only_s0_probe",
   "arm": "fm_only",
   "probe": true,
@@ -1869,6 +1949,7 @@
    "label_before_terminal_prune.json",
    "label_online_map.json",
    "launch.json",
+   "mechanism.json",
    "probe_summary.json",
    "quality.json"
   ]
@@ -1894,6 +1975,7 @@
    "label_before_terminal_prune.json",
    "label_online_map.json",
    "launch.json",
+   "mechanism.json",
    "probe_summary.json",
    "quality.json"
   ]
@@ -1919,6 +2001,7 @@
    "label_before_terminal_prune.json",
    "label_online_map.json",
    "launch.json",
+   "mechanism.json",
    "probe_summary.json",
    "quality.json"
   ]
@@ -1944,6 +2027,7 @@
    "label_before_terminal_prune.json",
    "label_online_map.json",
    "launch.json",
+   "mechanism.json",
    "probe_summary.json",
    "quality.json"
   ]
@@ -1998,6 +2082,7 @@
    "label_gt_online_map.json",
    "label_online_map.json",
    "launch.json",
+   "mechanism.json",
    "probe_summary.json",
    "quality.json",
    "surface_vs_gt.json"
@@ -2025,6 +2110,7 @@
    "label_gt_online_map.json",
    "label_online_map.json",
    "launch.json",
+   "mechanism.json",
    "probe_summary.json",
    "quality.json",
    "surface_vs_gt.json"

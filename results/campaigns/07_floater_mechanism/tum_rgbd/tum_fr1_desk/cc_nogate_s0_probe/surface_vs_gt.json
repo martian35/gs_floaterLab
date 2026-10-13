@@ -1,0 +1,24 @@
+{
+  "run": "/home/donghwi/Desktop/vigs_aria_experiments/bcd_runs_20261009/floaterlab_ablation/tum_fr1_desk/cc_nogate_s0_probe",
+  "ply": "online_map.ply",
+  "views": 114,
+  "valid": 18233598,
+  "front": 262942,
+  "behind": 664043,
+  "front_edge": 46815,
+  "front_hole": 48749,
+  "front_share": 0.014420741315016378,
+  "behind_share": 0.036418648694569226,
+  "front_at_edge": 0.17804306653178267,
+  "front_near_hole": 0.18539830076594838,
+  "within_10pct": 0.8724607726900637,
+  "ratio_quantiles": {
+    "0.01": 0.7113445997238159,
+    "0.05": 0.9133601188659668,
+    "0.25": 0.9834466576576233,
+    "0.5": 1.006787657737732,
+    "0.75": 1.0350041389465332,
+    "0.95": 1.1747485399246216,
+    "0.99": 1.7002930641174316
+  }
+}
