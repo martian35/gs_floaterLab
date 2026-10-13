@@ -44,3 +44,11 @@ recipe D 실행기로 base를 옮기려면 `run_arm_worker.py`의 실행기 모�
 - **해석 정정 3건** (hub·gt_label_audit·ours_decomposition·knowledge에 반영): ① 양방향 10% 일치율은 모든 arm이 base ±0.3 %p 안이거나 아래(GOF +0.26 %p가 최대) — "어떤 방법도 넘지 못했다"는 틀림. ② sensor λ3의 GT floater는 "지도를 유지한 arm 중" 최저(KL w.1·SplatAD w1은 더 낮으나 지도 붕괴). ③ sensor carve 비교는 기준 깊이·KF-only·gate 유무가 함께 다름 → gate 대조 arm `cc_nogate` 추가(3090 stage 12, 결과는 ours_decomposition §4).
 - **통합 시 겹치는 파일:** lab `context/STATUS.md`, `context/experiments/INDEX.md`, `context/experiments/README.md`, `campaigns/README.md`, `paper/experiments/P04_carve_incremental/result.md`; VIGS `CUSTOM_README.md`. 내용 단위로 merge한다.
 - GEO arm 실행기는 recipe **C** 기반이다. 최신 D·replay storage 위에서의 geometry ablation으로 해석하지 않는다.
+
+## 2026-10-13 — 최신 baseline(D) 위에서 돌리기
+
+- VIGS 브랜치 7c17993b: `launch.py --recipe-base D --arm <arm.json>`. 팀 D addon(`mapper_recipe_d/vendor/d_recipe_shim.py`, scale cap .5 + 덮인 출생 .02)을
+  run_d.py와 같은 순서로 우리 worker에 씌운다. arm JSON은 그대로: `base.json` = D − SEW3 − FM, `cc.json` = D. `make_jobs.py --recipe-base D`.
+- 5090 순서: ① `launch.py --recipe D`(release D)와 `--recipe-base D --arm cc.json` 패리티(±.03 dB) ② `base cc carve_only fm_only monogs dngaussian cgslam gsslam_eq9 sparsegs`를 D 위에서 seed 0,1,2.
+- 3090 파일럿(stage 13, aria1253·TUM, release D vs cc/base on D)이 돌고 있다. D의 덮인 출생 .02가 우리가 지우는 신생 floater와 겹치므로 base_D의 floater 수와 우리 효과 폭을 먼저 본다.
+- tiered FIFO replay storage(gs_floaterLab `replay_storage/run_mapper.py`)는 아직 floaterlab에 연결하지 않았다(팀원 검증: 품질 Δ ≤ .016 dB).
