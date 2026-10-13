@@ -41,7 +41,7 @@ Consensus Carving은 지도 자신의 median 기준·앞쪽만·opacity만·지�
 | 지도 관리 | MonoGS prune, 3DGS opacity reset, opacity 임계 .3/.5 | opacity가 낮은가 | 주기 삭제 / reset 후 재학습 | **opacity로는 floater와 표면이 구분되지 않는다.** 끝까지 남는 floater의 opacity(.15–.36)가 표면 분포 안에 있다. 임계 t에서 지워지는 비율(floater/표면): .2 → .32/.16, .3 → .70/.24, .5 → 1.0/.37, .7 → 1.0/.48. MonoGS floater 0/0/1이지만 지도 −67/−79/−81%, −1.22/−.69/−.39 dB. reset은 floater도 표면처럼 다시 자라게 해 학습 지도 floater 619 → 1,466. |
 | frontend depth 정규화 | DNGaussian(공식), depth L1 ×4, DNG식 soft(opacity만)/hard(위치만) | 렌더 깊이 vs frontend 깊이 | depth loss gradient (opacity+위치) | **깊이 오차 크기만 줄일 뿐 앞쪽 floater와 뒤쪽 표면을 구분하지 않는다.** floater의 depth gradient가 6배 커도 opacity 방향은 중립(.54). hard는 위치 gradient의 72%가 뒤쪽이지만 실제 이동 3 cm(표면까지 12 cm 이상); soft는 표면 opacity를 키운다(.466). floater 43/32/11 (base 44/6/16). |
 | 종료 분포 / ray 통계 | CG-SLAM(공식 rasterizer), GOF distortion(공식 rasterizer), DS-NeRF KL(식) | ray 위 질량의 퍼짐 | 분포 모양을 바꾸는 양방향 loss | **"분포가 좁고 일관되게"만 요구해 우회로가 생긴다.** CG-SLAM은 floater를 뒤로 옮기고(88%) 표면 opacity를 키워(.74 → .89) 지도 +9/+8/+13%; GOF는 위치 89–99% 뒤쪽이나 opacity 중립(.50), 이동 4.8 cm; KL은 floater/표면 힘 비율 1.2–7.3이라 지우는 세기면 지도가 무너진다(가중치 100배 낮춰도 table −8.7 dB). |
-| 센서 free-space | GS-SLAM Eq.9(식), SplatAD(공식 커널), sensor carve(우리 gradient, 기준만 frontend 깊이) | 센서/frontend 깊이보다 앞 = 빈 공간 | 앞쪽 opacity 감쇠 | **외부 깊이가 맞다고 가정해 그 오차만큼 표면을 지운다.** frontend 깊이는 Kinect와 10% 이내 일치 81.5%(지도 자신 90.6%보다 낮음). 같은 세기(λ3)의 sensor carve는 표면 주입이 우리의 ~1,000배 → −1.63/−1.73/−.41 dB, 지도 −19/−29/−13%. Eq.9 지도 −39/−39/−46%. SplatAD는 "효과 없음"(w .01: 49/11/14) 아니면 "붕괴"(w 1: −4.85 dB). 센서가 정확한 TUM에서만 외부 기준 이득. |
+| 센서 free-space | GS-SLAM Eq.9(식), SplatAD(공식 커널), sensor carve(우리 carve gradient를 frontend 깊이 기준으로; KF view만, persistence gate 없음) | 센서/frontend 깊이보다 앞 = 빈 공간 | 앞쪽 opacity 감쇠 | **외부 깊이가 맞다고 가정해 그 오차만큼 표면을 지운다.** frontend 깊이는 Kinect와 10% 이내 일치 81.5%(지도 자신 90.6%보다 낮음). 같은 세기(λ3)의 sensor carve는 표면 주입이 우리의 ~1,000배 → −1.63/−1.73/−.41 dB, 지도 −19/−29/−13%. Eq.9 지도 −39/−39/−46%. SplatAD는 "효과 없음"(w .01: 49/11/14) 아니면 "붕괴"(w 1: −4.85 dB). 센서가 정확한 TUM에서만 외부 기준 이득. |
 | 판정 후 삭제 | SparseGS(공식 판정), Sheng 2026(식) | 깊이 봉우리 둘인 픽셀 / Gaussian 중심의 다중 view 투표 | 한 번에 삭제 또는 opacity ×.01 | **판정 단위가 거칠고 되돌릴 수 없다.** SparseGS는 픽셀 앞쪽 전부(첫 기여자~최빈 깊이)를 지워 삭제의 95%가 표면, 화면 기여 24–33% 손실, −2.8 dB; 앞 오차를 뒤 오차로 바꿔 깊이 정확도 90.6 → 87.6%. Sheng은 중심 한 점·평균 깊이·기여 무시 → 지도 −17~−42%, 엄격히(φ.9) 하면 감쇠 4.7배. |
 | **Ours** | Consensus Carving + FM | 지도 자신이 렌더한 median보다 앞 + 여러 view에서 지속 | 앞쪽 질량에만 opacity 내림 gradient(soft) + 끝에 누적 증거로 정리 | 선택성 1.1e4–6.1e6 (sensor λ3 295–557, DNG 15–58, SplatAD 8–55, KL 1.2–7.3). PSNR ±.02, 지도 0%, 깊이 정확도 그대로. **한계:** 지도-센서 불일치는 못 고친다 (TUM GT 385 vs base 384). |
 
@@ -64,7 +64,8 @@ TeX: [`results/campaigns/07_floater_mechanism/tables/TABLE_BASELINE_MAIN.tex`](.
 
 - **라벨 순환성.** floater‰는 학습에 안 쓴 view에서 재지만 판정 규칙이 우리 방법과 같다. 외부 기준(TUM GT-front, Acc)에서 우리는 base와 같다.
   주장은 "깊이 정확도와 화질을 해치지 않고 지도가 스스로와 모순되는 floater를 지운다"로 맞춘다.
-- **GT-front는 한쪽만 센다.** 걸린 것의 86–95%가 지도 기준 표면. 표면을 뒤로 미는 방법이 유리해 보이므로 양방향 지표와 함께 낸다 ([gt_label_audit](gt_label_audit/README.md)).
+- **GT-front는 한쪽만 센다.** 걸린 것의 86–95%가 지도 기준 표면. 표면을 뒤로 미는 방법이 유리해 보이므로 양방향 지표와 함께 낸다 ([gt_label_audit](gt_label_audit/README.md)). 양방향(10% 일치율)에서는 모든 arm이 base ±0.3 %p 안이거나 아래이며(GOF +0.26 %p가 최대), seed 1개라 어느 쪽도 판정하지 않는다.
+- **sensor carve 비교는 단일 요소 비교가 아니다.** 기준 깊이 외에 view 집합(KF만)과 persistence gate 유무가 함께 다르다. 표면 주입 ~1,000배 차이를 기준 깊이만의 효과로 단정하지 않는다(gate 없는 cc 대조 arm `cc_nogate`로 분리 중).
 - seed 1개, 3090. ±.1 dB 이내는 판정하지 않는다. SparseGS는 공식의 삭제 후 10k 회복 학습이 없는 조건. GOF 시간 2.3–3×는 추가 렌더(이식) 비용.
 - 미공개 하이퍼파라미터 추정: GS-SLAM η γ, Sheng φ, SplatAD 가중치, DS-NeRF σ.
 - 부품 비교다(같은 mapper). 시스템 전체 비교가 아니다.

@@ -16,7 +16,7 @@
 - fm_only 수치는 가장 순환적이다(FM은 학습 KF에서, 라벨은 held-out에서 같은 규칙).
 - fm_only 1차 실행은 설정 실수(evidence capture hook 꺼짐 → "FM render buffers were not captured")로 실패해 `FIXED40_SELF=evidence, SELF_GRAD=0`으로 재실행했다. 방법 결과가 아니다.
 
-## 2. 기준 깊이와 세기 (같은 gradient, 기준만 frontend BA 깊이로)
+## 2. 기준 깊이와 세기 (같은 carve gradient를 frontend BA 깊이 기준으로 — 단, KF view만·persistence gate 없음)
 
 | arm | ΔPSNR | Gaussian | export floater | TUM GT (‰) | 표면 주입 크기 / 우리 |
 |---|---|---|---|---|---|
@@ -25,7 +25,8 @@
 | cc | ±.02 | 0% | 3 / 0 / 3 | 385 (4.89) | 1 |
 
 - 예측(TUM GT < 202; aria·table PSNR −.1 초과·지도 −10% 초과) 모두 맞음. frontend 깊이가 틀린 곳(Aria/RPNG)에서 같은 세기로 밀면 실제 표면이 지워진다.
-- 센서가 정확한 TUM에서는 외부 기준 floater가 가장 낮다(대가 −.41 dB). **우리 방법의 한계로 정직하게 쓴다.**
+- 센서가 정확한 TUM에서는 외부 기준 floater가 **지도를 유지한 arm 중** 가장 낮다(1.74‰, −.41 dB). 원시 개수가 더 낮은 KL w.1(40, 1.75‰)·SplatAD w1(62, 1.27‰)은 지도 −77%/−38%, PSNR −6.5/−.8 dB의 붕괴를 동반한다. **우리 방법의 한계로 정직하게 쓴다.**
+- **교란 요인 (2026-10-13 5090 검토):** sensor arm은 우리와 기준 깊이만 다른 것이 아니다. BA 깊이가 KF에만 있어 KF view에서만 작동하고(우리는 모든 training render), persistence gate가 없다(BA 기준 경로에 gate 구현이 없음). 따라서 표면 주입 ~1,000배와 PSNR 손실을 기준 깊이만의 효과로 단정할 수 없다. 분리용 대조: `arms/cc_nogate.json`(cc에서 gate만 끔) — 결과는 §4에 추가한다.
 
 ## 3. 조합 (cc + sensor carve λ .2; 느린 evidence 경로라 대조군 cc_slow 동반)
 

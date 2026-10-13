@@ -34,3 +34,13 @@
 팀원의 View Pool / Initialization / frame selection(ATTR campaign, recipe D)은 **base의 일부**다. floaterlab은 그 위에 geometry만 바꾸므로
 recipe D 실행기로 base를 옮기려면 `run_arm_worker.py`의 실행기 모체(지금은 `run_custom_c_large_pool_6n.py`)를 D 실행기로 바꾸고
 `floaterlab_runtime.install/finish`를 같은 지점에 끼우면 된다. arm JSON과 methods는 그대로 쓸 수 있다.
+
+## 2026-10-13 — 5090 검토(읽기 전용 확인) 반영
+
+- **실행 장애:** VIGS main d3b57506의 `reproduction/release_manifest.json`이 `scripts/selected_mapping/test_floater_export.py`(d66d8a3c에서 변경)와 불일치해 `verify_source()`가 실패한다.
+  VIGS 브랜치 `handoff/floaterlab-baselines-20261013`에서 해당 해시를 갱신했다. **main에도 같은 한 줄 수정이 필요하다.**
+- **새 worktree runtime:** `.reproduction/runtime.json`은 worktree마다 있다. 재사용(`VIGS_REPRO_STATE=<publish 디렉터리>/.reproduction`) 또는 재빌드(`install_cuda.sh` + `configure.py`). VIGS `docs/FLOATERLAB_BASELINES.md` §설치.
+- **추가 패키지:** 두 env(vigs-slam-5090, vigs-mapper-5090) 모두 diptest·gof_rasterization·cgslam_rasterization 없음, lpips 있음, nvcc 12.8 = torch cu128.
+- **해석 정정 3건** (hub·gt_label_audit·ours_decomposition·knowledge에 반영): ① 양방향 10% 일치율은 모든 arm이 base ±0.3 %p 안이거나 아래(GOF +0.26 %p가 최대) — "어떤 방법도 넘지 못했다"는 틀림. ② sensor λ3의 GT floater는 "지도를 유지한 arm 중" 최저(KL w.1·SplatAD w1은 더 낮으나 지도 붕괴). ③ sensor carve 비교는 기준 깊이·KF-only·gate 유무가 함께 다름 → gate 대조 arm `cc_nogate` 추가(3090 stage 12, 결과는 ours_decomposition §4).
+- **통합 시 겹치는 파일:** lab `context/STATUS.md`, `context/experiments/INDEX.md`, `context/experiments/README.md`, `campaigns/README.md`, `paper/experiments/P04_carve_incremental/result.md`; VIGS `CUSTOM_README.md`. 내용 단위로 merge한다.
+- GEO arm 실행기는 recipe **C** 기반이다. 최신 D·replay storage 위에서의 geometry ablation으로 해석하지 않는다.

@@ -36,6 +36,6 @@ GT 라벨은 대부분 **지도 표면이 Kinect보다 25% 넘게 앞에 놓인 
 
 ## 결론
 
-- GT floater 수(한쪽 지표)만 보고하면 표면을 뒤로 밀거나 벗겨내는 방법이 이긴다. **양방향 지표(10% 일치율, AbsRel 등)를 같이 낸다.** 양방향에서는 어떤 방법도 base를 넘지 못했다.
+- GT floater 수(한쪽 지표)만 보고하면 표면을 뒤로 밀거나 벗겨내는 방법이 이긴다. **양방향 지표(10% 일치율, AbsRel 등)를 같이 낸다.** 양방향 지표(10% 일치율)는 base 90.59%를 기준으로 MonoGS −0.35, sensor λ3 −1.60, SparseGS −2.99 %p이고 나머지 arm은 ±0.3 %p 안이다 (cc +0.02, CG-SLAM +0.03, cc+sensor +0.10, GOF +0.26). base보다 수치상 높은 arm(GOF, cc+sensor)은 있으나 seed 1개라 우위로 판정하지 않는다. [2026-10-13 5090 검토 반영: 이전 문장 "어떤 방법도 base를 넘지 못했다"는 수치상 틀려 정정]
 - 우리 방법은 깊이 정확도를 해치지 않으면서 지도가 스스로와 모순되는 floater를 지운다. 지도-센서 불일치는 고치지 않는다.
 - 도구: VIGS `scripts/floaterlab/analysis/surface_vs_gt.py`(held-out 렌더, GPU), `frontend_vs_gt.py`(CPU, `kf_depth.npz` 필요), `methods/depth_dump.py`(학습 불변 기록 plugin; base와 PSNR 19.901 vs 19.900).
