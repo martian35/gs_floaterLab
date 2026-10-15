@@ -44,6 +44,8 @@ exp72가 자기 실패 원인을 **"기존 minimum-count maturity gate를 유지
 
 ## 최근 흐름 (최신순)
 
+- **2026-10-15 — §3.3 Consensus Carving 작성 브리프 작성 (5090 인계).** 기전 캠페인(GEO, 3090) 결과로 구조를 다시 짰다: 선택성의 주 부품은 persistence gate(gate OFF −2.2/−2.4/−.9 dB), 자기 median 기준은 부(3~7배). 잘 쓴 논문 4편(2DGS·GOF·Mip-Splatting·MonoGS)의 regularizer 소절 구조대로 "동기→정의→수식→선택의 근거→총 목적함수"로 세우고, 대안 대비는 P4 한 문단 + 세 절로 제한. 서론 69·83행 "keyframe depth estimates" 문구가 sensor 기준 방식이라 수정 필요. → [`notes/method/consensus_carving/2026-10-15_sec3_3_writing_brief.md`](notes/method/consensus_carving/2026-10-15_sec3_3_writing_brief.md)
+
 - **2026-09-11 — C2 binary ablation 정정: UTMM bundle-tuned ERCB 평균 소폭 우세.**
   새 benchmark 중 UTMM을 validation bundle로 고정하고 tracking gate를 통과한 6 scene에서
   seed0 tuning 후 `K=8,rho=.75,gamma=log1.5`를 고정해 seed1/2를 검증했다.
